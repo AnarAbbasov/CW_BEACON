@@ -1,16 +1,5 @@
 
-# 1 "pwm_main.c"
-
-
-# 7
-#pragma config FOSC = HS
-#pragma config WDTE = OFF
-#pragma config PWRTE = OFF
-#pragma config MCLRE = ON
-#pragma config BOREN = ON
-#pragma config LVP = ON
-#pragma config CPD = OFF
-#pragma config CP = OFF
+# 1 "functions.c"
 
 # 26 "C:\Program Files (x86)\Microchip\xc8\v1.44\include\htc.h"
 extern const char __xc8_OPTIM_SPEED;
@@ -846,34 +835,62 @@ extern __bank0 unsigned char __resetbits;
 extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
 
-# 79 "anar_functions.h"
-void SetPWMDutyCycle(unsigned int DutyCycle);
-void InitPWM(void);
-void generateTone(void);
-void stopTone(void);
-void dot();
-void dash();
-
-# 19 "pwm_main.c"
-void main(void) {
-
-InitPWM();
-
-int pwmcyc=0;
-
-TRISB0=0;
-generateTone();
-while(1)
+# 11 "functions.c"
+void InitPWM(void)
 {
-SetPWMDutyCycle(pwmcyc);
 
-_delay((unsigned long)((1500)*(4000000/4000.0)));
-if (pwmcyc>=0x041A){
-pwmcyc=0;}
+TRISB3=0;
+CCP1CON=0x0C;
+PR2=0x5E;
+T2CONbits.T2CKPS0=1;
+T2CONbits.T2CKPS1=0;
 
-pwmcyc=pwmcyc+50;
-
-# 42
 }
-return;
+
+
+
+void generateTone(void)
+{
+
+T2CONbits.TMR2ON=1;
+}
+void stopTone(void)
+{
+T2CONbits.TMR2ON=0;
+}
+void SetPWMDutyCycle(unsigned int DutyCycle)
+{
+
+CCPR1L=DutyCycle>>2;
+CCP1CON&=0xCF;
+CCP1CON|=(0x30&(DutyCycle<<4));
+
+
+}
+
+
+
+void dot()
+{
+
+generateTone();
+PORTBbits.RB0=1;
+_delay((unsigned long)((50)*(4000000/4000.0)));
+PORTBbits.RB0=0;
+stopTone();
+
+return ;
+}
+
+
+
+void dash()
+{
+
+generateTone();
+PORTBbits.RB0=1;
+_delay((unsigned long)((150)*(4000000/4000.0)));
+PORTBbits.RB0=0;
+stopTone();
+return ;
 }

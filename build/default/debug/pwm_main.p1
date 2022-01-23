@@ -630,12 +630,12 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;pwm_main.c: 29: SetPWMDutyCycle(pwmcyc);
 "29
 [e ( _SetPWMDutyCycle (1 -> _pwmcyc `ui ]
-[; ;pwm_main.c: 31: _delay((unsigned long)((1500)*(4000000/4000.0)));
+[; ;pwm_main.c: 31: _delay((unsigned long)((150)*(4000000/4000.0)));
 "31
-[e ( __delay (1 -> * -> -> 1500 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
-[; ;pwm_main.c: 32: if (pwmcyc>=0x041A){
+[e ( __delay (1 -> * -> -> 150 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+[; ;pwm_main.c: 32: if (pwmcyc>0x041A){
 "32
-[e $ ! >= _pwmcyc -> 1050 `i 55  ]
+[e $ ! > _pwmcyc -> 1050 `i 55  ]
 {
 [; ;pwm_main.c: 33: pwmcyc=0;}
 "33
@@ -645,17 +645,20 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;pwm_main.c: 35: pwmcyc=pwmcyc+50;
 "35
 [e = _pwmcyc + _pwmcyc -> 50 `i ]
-"42
+[; ;pwm_main.c: 36: _delay((unsigned long)((150)*(4000000/4000.0)));
+"36
+[e ( __delay (1 -> * -> -> 150 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+"38
 }
 [e :U 52 ]
 "27
 [e $U 53  ]
 [e :U 54 ]
-[; ;pwm_main.c: 42: }
-[; ;pwm_main.c: 43: return;
-"43
+[; ;pwm_main.c: 38: }
+[; ;pwm_main.c: 39: return;
+"39
 [e $UE 51  ]
-[; ;pwm_main.c: 44: }
-"44
+[; ;pwm_main.c: 40: }
+"40
 [e :UE 51 ]
 }
