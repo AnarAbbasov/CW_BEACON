@@ -178,7 +178,7 @@ void main(void) {
         dash();                
           
          PORTBbits.RB0=0;
-        __delay_ms(10000)      ;
+        __delay_ms(5000)      ;
      }
     return;
 }
