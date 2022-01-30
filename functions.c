@@ -55,6 +55,18 @@ return ;
 }
 
 
+void dot_tone()
+{
+ 
+  generateTone(); 
+
+__delay_ms(50);
+
+  stopTone();
+
+return ;
+}
+
 
 void dash()
 {
@@ -63,6 +75,17 @@ void dash()
 PORTBbits.RB0=1;
 __delay_ms(150);
  PORTBbits.RB0=0;
+    stopTone();
+return ;
+}
+
+void dash_tone()
+{
+
+     generateTone();
+
+__delay_ms(150);
+ 
     stopTone();
 return ;
 }

@@ -82,3 +82,5 @@ void generateTone(void);
 void stopTone(void);
 void dot();
 void dash();
+void dash_tone();
+void dot_tone();

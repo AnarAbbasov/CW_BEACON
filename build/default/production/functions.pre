@@ -883,6 +883,18 @@ return ;
 }
 
 
+void dot_tone()
+{
+
+generateTone();
+
+_delay((unsigned long)((50)*(4000000/4000.0)));
+
+stopTone();
+
+return ;
+}
+
 
 void dash()
 {
@@ -891,6 +903,17 @@ generateTone();
 PORTBbits.RB0=1;
 _delay((unsigned long)((150)*(4000000/4000.0)));
 PORTBbits.RB0=0;
+stopTone();
+return ;
+}
+
+void dash_tone()
+{
+
+generateTone();
+
+_delay((unsigned long)((150)*(4000000/4000.0)));
+
 stopTone();
 return ;
 }

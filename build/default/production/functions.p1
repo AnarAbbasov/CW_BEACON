@@ -708,28 +708,22 @@ Version 3.2 HI-TECH Software Intermediate Code
 "55
 [e :UE 55 ]
 }
+"58
+[v _dot_tone `(v ~T0 @X0 1 ef ]
 "59
-[v _dash `(v ~T0 @X0 1 ef ]
-"60
 {
-[; ;functions.c: 59: void dash()
-[; ;functions.c: 60: {
-[e :U _dash ]
+[; ;functions.c: 58: void dot_tone()
+[; ;functions.c: 59: {
+[e :U _dot_tone ]
 [f ]
-[; ;functions.c: 62: generateTone();
-"62
+[; ;functions.c: 61: generateTone();
+"61
 [e ( _generateTone ..  ]
-[; ;functions.c: 63: PORTBbits.RB0=1;
+[; ;functions.c: 63: _delay((unsigned long)((50)*(4000000/4000.0)));
 "63
-[e = . . _PORTBbits 0 0 -> -> 1 `i `uc ]
-[; ;functions.c: 64: _delay((unsigned long)((150)*(4000000/4000.0)));
-"64
-[e ( __delay (1 -> * -> -> 150 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
-[; ;functions.c: 65: PORTBbits.RB0=0;
+[e ( __delay (1 -> * -> -> 50 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+[; ;functions.c: 65: stopTone();
 "65
-[e = . . _PORTBbits 0 0 -> -> 0 `i `uc ]
-[; ;functions.c: 66: stopTone();
-"66
 [e ( _stopTone ..  ]
 [; ;functions.c: 67: return ;
 "67
@@ -737,4 +731,58 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;functions.c: 68: }
 "68
 [e :UE 56 ]
+}
+"71
+[v _dash `(v ~T0 @X0 1 ef ]
+"72
+{
+[; ;functions.c: 71: void dash()
+[; ;functions.c: 72: {
+[e :U _dash ]
+[f ]
+[; ;functions.c: 74: generateTone();
+"74
+[e ( _generateTone ..  ]
+[; ;functions.c: 75: PORTBbits.RB0=1;
+"75
+[e = . . _PORTBbits 0 0 -> -> 1 `i `uc ]
+[; ;functions.c: 76: _delay((unsigned long)((150)*(4000000/4000.0)));
+"76
+[e ( __delay (1 -> * -> -> 150 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+[; ;functions.c: 77: PORTBbits.RB0=0;
+"77
+[e = . . _PORTBbits 0 0 -> -> 0 `i `uc ]
+[; ;functions.c: 78: stopTone();
+"78
+[e ( _stopTone ..  ]
+[; ;functions.c: 79: return ;
+"79
+[e $UE 57  ]
+[; ;functions.c: 80: }
+"80
+[e :UE 57 ]
+}
+"82
+[v _dash_tone `(v ~T0 @X0 1 ef ]
+"83
+{
+[; ;functions.c: 82: void dash_tone()
+[; ;functions.c: 83: {
+[e :U _dash_tone ]
+[f ]
+[; ;functions.c: 85: generateTone();
+"85
+[e ( _generateTone ..  ]
+[; ;functions.c: 87: _delay((unsigned long)((150)*(4000000/4000.0)));
+"87
+[e ( __delay (1 -> * -> -> 150 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+[; ;functions.c: 89: stopTone();
+"89
+[e ( _stopTone ..  ]
+[; ;functions.c: 90: return ;
+"90
+[e $UE 58  ]
+[; ;functions.c: 91: }
+"91
+[e :UE 58 ]
 }

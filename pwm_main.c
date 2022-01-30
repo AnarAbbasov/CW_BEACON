@@ -19,24 +19,162 @@
 void main(void) {
     
     InitPWM();
+    SetPWMDutyCycle(10);
+    TRISB0=0;
     
-    int pwmcyc=0;
-    
-      TRISB0=0;
-     generateTone(); 
      while(1)
      {
-        SetPWMDutyCycle(pwmcyc);
-         
-        __delay_ms(1500);
-        if (pwmcyc>=0x041A){
-            pwmcyc=0;
+     PORTBbits.RB0=0;
+    dash_tone();
+        __delay_ms(150);
+        dot_tone();
+        __delay_ms(150);    //C
+        dash_tone();
+        __delay_ms(150);
+        dot_tone();
         
-        }
         
-        pwmcyc=pwmcyc+50;
         
-    
+        __delay_ms(300);
+        
+        
+        
+        dash_tone(); 
+        __delay_ms(150);
+        dash_tone(); 
+        __delay_ms(150);  //Q
+        dot_tone();  
+        __delay_ms(150);
+        dash_tone();
+        
+        
+        __delay_ms(300);
+        
+        
+       
+        
+                 
+        dash_tone();
+        __delay_ms(150);
+        dot_tone();
+        __delay_ms(150);    //C
+        dash_tone();
+        __delay_ms(150);
+        dot_tone();
+        
+        
+        
+        __delay_ms(300);
+        
+        
+        
+        dash_tone(); 
+        __delay_ms(150);
+        dash_tone(); 
+        __delay_ms(150);  //Q
+        dot_tone();  
+        __delay_ms(150);
+        dash_tone();
+        
+        
+        __delay_ms(300);
+        
+        
+        
+        
+               
+        
+                 
+        dash_tone();
+        __delay_ms(150);
+        dot_tone();
+        __delay_ms(150);    //C
+        dash_tone();
+        __delay_ms(150);
+        dot_tone();
+        
+        
+        
+        __delay_ms(300);
+        
+        
+        
+        dash_tone(); 
+        __delay_ms(150);
+        dash_tone(); 
+        __delay_ms(150);  //Q
+        dot_tone();  
+        __delay_ms(150);
+        dash_tone();
+        
+        
+        __delay_ms(300);
+        
+        
+        
+        
+        dash_tone();               
+        __delay_ms(150)      ;
+        dot_tone();                /*K*/
+        __delay_ms(150)      ;
+        dash_tone();    
+        
+        
+        __delay_ms(300)      ;
+        
+        
+        
+        dash_tone();                 
+        __delay_ms(150)      ;
+        dash_tone();                 /*G*/
+        __delay_ms(150)      ;
+        dot_tone();  
+        
+        
+        
+      __delay_ms(300)      ;
+        
+      
+      
+          dash_tone();               
+        __delay_ms(150)      ;
+        dash_tone();               
+       __delay_ms(150)      ;
+        dot_tone();                
+       __delay_ms(150)      ;/*7*/
+        dot_tone();                
+      __delay_ms(150)      ;
+        dot_tone();                  
+        
+        
+        
+        __delay_ms(300)      ;
+        
+        
+        
+        dot_tone();                
+       __delay_ms(150)      ;
+        dash_tone();               
+        __delay_ms(150)      ;/*R*/
+        dot_tone();           
+        
+        
+        __delay_ms(300)      ;
+        
+        
+        dash_tone();               
+        __delay_ms(150)      ;
+        dot_tone();              /* N*/
+        
+        __delay_ms(300)      ;
+        
+        
+        dash_tone();               
+        __delay_ms(150)      ;/*M*/
+        dash_tone();                
+          
+         PORTBbits.RB0=0;
+        __delay_ms(15000)      ;
          
   
         

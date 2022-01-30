@@ -1,7 +1,7 @@
 
 
 Microchip Technology PIC LITE Macro Assembler V1.44 build -154322312 
-                                                                                               Sun Jan 23 14:15:24 2022
+                                                                                               Sun Jan 30 11:23:35 2022
 
 Microchip Technology Omniscient Code Generator v1.44 (Free mode) build 201709140600
      1                           	processor	16F628A
@@ -13,492 +13,1277 @@ Microchip Technology Omniscient Code Generator v1.44 (Free mode) build 201709140
      7                           	psect	text1,local,class=CODE,merge=1,delta=2
      8                           	psect	text2,local,class=CODE,merge=1,delta=2
      9                           	psect	text3,local,class=CODE,merge=1,delta=2
-    10                           	dabs	1,0x7E,2
-    11  0000                     
-    12                           ; Version 1.44
-    13                           ; Generated 14/09/2017 GMT
-    14                           ; 
-    15                           ; Copyright © 2017, Microchip Technology Inc. and its subsidiaries ("Microchip")
-    16                           ; All rights reserved.
+    10                           	psect	text4,local,class=CODE,merge=1,delta=2
+    11                           	psect	text5,local,class=CODE,merge=1,delta=2
+    12                           	psect	text6,local,class=CODE,merge=1,delta=2
+    13                           	dabs	1,0x7E,2
+    14  0000                     
+    15                           ; Version 1.44
+    16                           ; Generated 14/09/2017 GMT
     17                           ; 
-    18                           ; This software is developed by Microchip Technology Inc. and its subsidiaries ("Microch
+    18                           ; Copyright © 2017, Microchip Technology Inc. and its subsidiaries ("Microchip")
+    19                           ; All rights reserved.
+    20                           ; 
+    21                           ; This software is developed by Microchip Technology Inc. and its subsidiaries ("Microch
       +                          ip").
-    19                           ; 
-    20                           ; Redistribution and use in source and binary forms, with or without modification, are
-    21                           ; permitted provided that the following conditions are met:
     22                           ; 
-    23                           ;     1. Redistributions of source code must retain the above copyright notice, this lis
-      +                          t of
-    24                           ;        conditions and the following disclaimer.
+    23                           ; Redistribution and use in source and binary forms, with or without modification, are
+    24                           ; permitted provided that the following conditions are met:
     25                           ; 
-    26                           ;     2. Redistributions in binary form must reproduce the above copyright notice, this 
+    26                           ;     1. Redistributions of source code must retain the above copyright notice, this lis
+      +                          t of
+    27                           ;        conditions and the following disclaimer.
+    28                           ; 
+    29                           ;     2. Redistributions in binary form must reproduce the above copyright notice, this 
       +                          list
-    27                           ;        of conditions and the following disclaimer in the documentation and/or other
-    28                           ;        materials provided with the distribution.
-    29                           ; 
-    30                           ;     3. Microchip's name may not be used to endorse or promote products derived from th
-      +                          is
-    31                           ;        software without specific prior written permission.
+    30                           ;        of conditions and the following disclaimer in the documentation and/or other
+    31                           ;        materials provided with the distribution.
     32                           ; 
-    33                           ; THIS SOFTWARE IS PROVIDED BY MICROCHIP "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES,
-    34                           ; INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS F
+    33                           ;     3. Microchip's name may not be used to endorse or promote products derived from th
+      +                          is
+    34                           ;        software without specific prior written permission.
+    35                           ; 
+    36                           ; THIS SOFTWARE IS PROVIDED BY MICROCHIP "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES,
+    37                           ; INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS F
       +                          OR
-    35                           ; PURPOSE ARE DISCLAIMED.  IN NO EVENT SHALL MICROCHIP BE LIABLE FOR ANY DIRECT, INDIREC
+    38                           ; PURPOSE ARE DISCLAIMED.  IN NO EVENT SHALL MICROCHIP BE LIABLE FOR ANY DIRECT, INDIREC
       +                          T,
-    36                           ; INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING BUT NOT LIMITED TO
-    37                           ; PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA OR PROFITS; OR BUSINESS
-    38                           ; INTERRUPTION) HOWSOEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, ST
+    39                           ; INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING BUT NOT LIMITED TO
+    40                           ; PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA OR PROFITS; OR BUSINESS
+    41                           ; INTERRUPTION) HOWSOEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, ST
       +                          RICT
-    39                           ; LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE U
+    42                           ; LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE U
       +                          SE OF
-    40                           ; THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-    41                           ; 
-    42                           ; 
-    43                           ; Code-generator required, PIC16F628A Definitions
+    43                           ; THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
     44                           ; 
-    45                           ; SFR Addresses
-    46  0000                     	;# 
-    47  0001                     	;# 
-    48  0002                     	;# 
-    49  0003                     	;# 
-    50  0004                     	;# 
-    51  0005                     	;# 
-    52  0006                     	;# 
-    53  000A                     	;# 
-    54  000B                     	;# 
-    55  000C                     	;# 
-    56  000E                     	;# 
-    57  000E                     	;# 
-    58  000F                     	;# 
-    59  0010                     	;# 
-    60  0011                     	;# 
-    61  0012                     	;# 
-    62  0015                     	;# 
-    63  0015                     	;# 
-    64  0016                     	;# 
-    65  0017                     	;# 
-    66  0018                     	;# 
-    67  0019                     	;# 
-    68  001A                     	;# 
-    69  001F                     	;# 
-    70  0081                     	;# 
-    71  0085                     	;# 
-    72  0086                     	;# 
-    73  008C                     	;# 
-    74  008E                     	;# 
-    75  0092                     	;# 
-    76  0098                     	;# 
-    77  0099                     	;# 
-    78  009A                     	;# 
-    79  009B                     	;# 
-    80  009C                     	;# 
-    81  009D                     	;# 
-    82  009F                     	;# 
-    83  0000                     	;# 
-    84  0001                     	;# 
-    85  0002                     	;# 
-    86  0003                     	;# 
-    87  0004                     	;# 
-    88  0005                     	;# 
-    89  0006                     	;# 
-    90  000A                     	;# 
-    91  000B                     	;# 
-    92  000C                     	;# 
-    93  000E                     	;# 
-    94  000E                     	;# 
-    95  000F                     	;# 
-    96  0010                     	;# 
-    97  0011                     	;# 
-    98  0012                     	;# 
-    99  0015                     	;# 
-   100  0015                     	;# 
-   101  0016                     	;# 
-   102  0017                     	;# 
-   103  0018                     	;# 
-   104  0019                     	;# 
-   105  001A                     	;# 
-   106  001F                     	;# 
-   107  0081                     	;# 
-   108  0085                     	;# 
-   109  0086                     	;# 
-   110  008C                     	;# 
-   111  008E                     	;# 
-   112  0092                     	;# 
-   113  0098                     	;# 
-   114  0099                     	;# 
-   115  009A                     	;# 
-   116  009B                     	;# 
-   117  009C                     	;# 
-   118  009D                     	;# 
-   119  009F                     	;# 
-   120  0006                     _PORTBbits	set	6
-   121  0015                     _CCPR1L	set	21
-   122  0012                     _T2CONbits	set	18
-   123  0017                     _CCP1CON	set	23
-   124  0092                     _PR2	set	146
-   125  0433                     _TRISB3	set	1075
-   126  0430                     _TRISB0	set	1072
-   127                           
-   128                           ; #config settings
-   129  0000                     
-   130                           	psect	cinit
-   131  07FE                     start_initialization:	
-   132  07FE                     __initialization:	
-   133  07FE                     end_of_initialization:	
-   134                           ;End of C runtime variable initialization code
-   135                           
-   136  07FE                     __end_of__initialization:	
-   137  07FE  0183               	clrf	3
-   138  07FF  2FCF               	ljmp	_main	;jump to C main() function
-   139                           
-   140                           	psect	cstackCOMMON
-   141  0070                     __pcstackCOMMON:	
-   142  0070                     ?_InitPWM:	
-   143  0070                     ??_InitPWM:	
-   144                           ; 1 bytes @ 0x0
-   145                           
-   146  0070                     ?_generateTone:	
+    45                           ; 
+    46                           ; Code-generator required, PIC16F628A Definitions
+    47                           ; 
+    48                           ; SFR Addresses
+    49  0000                     	;# 
+    50  0001                     	;# 
+    51  0002                     	;# 
+    52  0003                     	;# 
+    53  0004                     	;# 
+    54  0005                     	;# 
+    55  0006                     	;# 
+    56  000A                     	;# 
+    57  000B                     	;# 
+    58  000C                     	;# 
+    59  000E                     	;# 
+    60  000E                     	;# 
+    61  000F                     	;# 
+    62  0010                     	;# 
+    63  0011                     	;# 
+    64  0012                     	;# 
+    65  0015                     	;# 
+    66  0015                     	;# 
+    67  0016                     	;# 
+    68  0017                     	;# 
+    69  0018                     	;# 
+    70  0019                     	;# 
+    71  001A                     	;# 
+    72  001F                     	;# 
+    73  0081                     	;# 
+    74  0085                     	;# 
+    75  0086                     	;# 
+    76  008C                     	;# 
+    77  008E                     	;# 
+    78  0092                     	;# 
+    79  0098                     	;# 
+    80  0099                     	;# 
+    81  009A                     	;# 
+    82  009B                     	;# 
+    83  009C                     	;# 
+    84  009D                     	;# 
+    85  009F                     	;# 
+    86  0000                     	;# 
+    87  0001                     	;# 
+    88  0002                     	;# 
+    89  0003                     	;# 
+    90  0004                     	;# 
+    91  0005                     	;# 
+    92  0006                     	;# 
+    93  000A                     	;# 
+    94  000B                     	;# 
+    95  000C                     	;# 
+    96  000E                     	;# 
+    97  000E                     	;# 
+    98  000F                     	;# 
+    99  0010                     	;# 
+   100  0011                     	;# 
+   101  0012                     	;# 
+   102  0015                     	;# 
+   103  0015                     	;# 
+   104  0016                     	;# 
+   105  0017                     	;# 
+   106  0018                     	;# 
+   107  0019                     	;# 
+   108  001A                     	;# 
+   109  001F                     	;# 
+   110  0081                     	;# 
+   111  0085                     	;# 
+   112  0086                     	;# 
+   113  008C                     	;# 
+   114  008E                     	;# 
+   115  0092                     	;# 
+   116  0098                     	;# 
+   117  0099                     	;# 
+   118  009A                     	;# 
+   119  009B                     	;# 
+   120  009C                     	;# 
+   121  009D                     	;# 
+   122  009F                     	;# 
+   123  0015                     _CCPR1L	set	21
+   124  0012                     _T2CONbits	set	18
+   125  0017                     _CCP1CON	set	23
+   126  0006                     _PORTBbits	set	6
+   127  0092                     _PR2	set	146
+   128  0433                     _TRISB3	set	1075
+   129  0430                     _TRISB0	set	1072
+   130                           
+   131                           ; #config settings
+   132  0000                     
+   133                           	psect	cinit
+   134  07FE                     start_initialization:	
+   135  07FE                     __initialization:	
+   136  07FE                     end_of_initialization:	
+   137                           ;End of C runtime variable initialization code
+   138                           
+   139  07FE                     __end_of__initialization:	
+   140  07FE  0183               	clrf	3
+   141  07FF  2E43               	ljmp	_main	;jump to C main() function
+   142                           
+   143                           	psect	cstackCOMMON
+   144  0070                     __pcstackCOMMON:	
+   145  0070                     ?_InitPWM:	
+   146  0070                     ??_InitPWM:	
    147                           ; 1 bytes @ 0x0
    148                           
-   149  0070                     ??_generateTone:	
+   149  0070                     ?_SetPWMDutyCycle:	
    150                           ; 1 bytes @ 0x0
    151                           
-   152  0070                     ?_SetPWMDutyCycle:	
+   152  0070                     ?_dash_tone:	
    153                           ; 1 bytes @ 0x0
    154                           
-   155  0070                     ?_main:	
+   155  0070                     ??_dash_tone:	
    156                           ; 1 bytes @ 0x0
    157                           
-   158  0070                     SetPWMDutyCycle@DutyCycle:	
+   158  0070                     ?_dot_tone:	
    159                           ; 1 bytes @ 0x0
    160                           
-   161                           
-   162                           ; 2 bytes @ 0x0
-   163  0070                     	ds	2
-   164  0072                     ??_SetPWMDutyCycle:	
-   165                           
-   166                           ; 1 bytes @ 0x2
-   167  0072                     	ds	2
-   168  0074                     ??_main:	
+   161  0070                     ??_dot_tone:	
+   162                           ; 1 bytes @ 0x0
+   163                           
+   164  0070                     ?_main:	
+   165                           ; 1 bytes @ 0x0
+   166                           
+   167  0070                     ?_generateTone:	
+   168                           ; 1 bytes @ 0x0
    169                           
-   170                           ; 1 bytes @ 0x4
-   171  0074                     	ds	3
-   172  0077                     main@pwmcyc:	
-   173                           
-   174                           ; 2 bytes @ 0x7
-   175  0077                     	ds	2
-   176                           
-   177                           	psect	maintext
-   178  07CF                     __pmaintext:	
-   179 ;;
-   180 ;;Main: autosize = 0, tempsize = 3, incstack = 0, save=0
-   181 ;;
-   182 ;; *************** function _main *****************
-   183 ;; Defined at:
-   184 ;;		line 19 in file "pwm_main.c"
-   185 ;; Parameters:    Size  Location     Type
-   186 ;;		None
-   187 ;; Auto vars:     Size  Location     Type
-   188 ;;  pwmcyc          2    7[COMMON] int 
-   189 ;; Return value:  Size  Location     Type
-   190 ;;                  1    wreg      void 
-   191 ;; Registers used:
-   192 ;;		wreg, status,2, status,0, btemp+1, pclath, cstack
-   193 ;; Tracked objects:
-   194 ;;		On entry : B00/0
-   195 ;;		On exit  : 0/0
-   196 ;;		Unchanged: 0/0
-   197 ;; Data sizes:     COMMON   BANK0   BANK1   BANK2
-   198 ;;      Params:         0       0       0       0
-   199 ;;      Locals:         2       0       0       0
-   200 ;;      Temps:          3       0       0       0
-   201 ;;      Totals:         5       0       0       0
-   202 ;;Total ram usage:        5 bytes
-   203 ;; Hardware stack levels required when called:    1
-   204 ;; This function calls:
-   205 ;;		_InitPWM
-   206 ;;		_SetPWMDutyCycle
-   207 ;;		_generateTone
-   208 ;; This function is called by:
-   209 ;;		Startup code after reset
-   210 ;; This function uses a non-reentrant model
-   211 ;;
-   212                           
-   213                           
-   214                           ;psect for function _main
-   215  07CF                     _main:	
-   216                           
-   217                           ;pwm_main.c: 21: InitPWM();
-   218                           
-   219                           ;incstack = 0
-   220                           ; Regs used in _main: [wreg+status,2+status,0+btemp+1+pclath+cstack]
-   221  07CF  279E               	fcall	_InitPWM
-   222                           
-   223                           ;pwm_main.c: 23: int pwmcyc=0;
-   224  07D0  01F7               	clrf	main@pwmcyc
-   225  07D1  01F8               	clrf	main@pwmcyc+1
-   226                           
-   227                           ;pwm_main.c: 25: TRISB0=0;
-   228  07D2  1683               	bsf	3,5	;RP0=1, select bank1
-   229  07D3  1303               	bcf	3,6	;RP1=0, select bank1
-   230  07D4  1006               	bcf	6,0	;volatile
+   170  0070                     ??_generateTone:	
+   171                           ; 1 bytes @ 0x0
+   172                           
+   173  0070                     ?_stopTone:	
+   174                           ; 1 bytes @ 0x0
+   175                           
+   176  0070                     ??_stopTone:	
+   177                           ; 1 bytes @ 0x0
+   178                           
+   179  0070                     SetPWMDutyCycle@DutyCycle:	
+   180                           ; 1 bytes @ 0x0
+   181                           
+   182                           
+   183                           ; 2 bytes @ 0x0
+   184  0070                     	ds	2
+   185  0072                     ??_SetPWMDutyCycle:	
+   186                           
+   187                           ; 1 bytes @ 0x2
+   188  0072                     	ds	2
+   189  0074                     ??_main:	
+   190                           
+   191                           ; 1 bytes @ 0x4
+   192  0074                     	ds	3
+   193                           
+   194                           	psect	maintext
+   195  0643                     __pmaintext:	
+   196 ;;
+   197 ;;Main: autosize = 0, tempsize = 3, incstack = 0, save=0
+   198 ;;
+   199 ;; *************** function _main *****************
+   200 ;; Defined at:
+   201 ;;		line 19 in file "pwm_main.c"
+   202 ;; Parameters:    Size  Location     Type
+   203 ;;		None
+   204 ;; Auto vars:     Size  Location     Type
+   205 ;;		None
+   206 ;; Return value:  Size  Location     Type
+   207 ;;                  1    wreg      void 
+   208 ;; Registers used:
+   209 ;;		wreg, status,2, status,0, pclath, cstack
+   210 ;; Tracked objects:
+   211 ;;		On entry : B00/0
+   212 ;;		On exit  : 0/0
+   213 ;;		Unchanged: 0/0
+   214 ;; Data sizes:     COMMON   BANK0   BANK1   BANK2
+   215 ;;      Params:         0       0       0       0
+   216 ;;      Locals:         0       0       0       0
+   217 ;;      Temps:          3       0       0       0
+   218 ;;      Totals:         3       0       0       0
+   219 ;;Total ram usage:        3 bytes
+   220 ;; Hardware stack levels required when called:    2
+   221 ;; This function calls:
+   222 ;;		_InitPWM
+   223 ;;		_SetPWMDutyCycle
+   224 ;;		_dash_tone
+   225 ;;		_dot_tone
+   226 ;; This function is called by:
+   227 ;;		Startup code after reset
+   228 ;; This function uses a non-reentrant model
+   229 ;;
+   230                           
    231                           
-   232                           ;pwm_main.c: 26: generateTone();
-   233  07D5  279A               	fcall	_generateTone
-   234  07D6                     l577:	
-   235                           ;pwm_main.c: 27: while(1)
+   232                           ;psect for function _main
+   233  0643                     _main:	
+   234                           
+   235                           ;pwm_main.c: 21: InitPWM();
    236                           
-   237                           
-   238                           ;pwm_main.c: 28: {
-   239                           ;pwm_main.c: 29: SetPWMDutyCycle(pwmcyc);
-   240  07D6  0878               	movf	main@pwmcyc+1,w
-   241  07D7  00F1               	movwf	SetPWMDutyCycle@DutyCycle+1
-   242  07D8  0877               	movf	main@pwmcyc,w
-   243  07D9  00F0               	movwf	SetPWMDutyCycle@DutyCycle
-   244  07DA  27AE               	fcall	_SetPWMDutyCycle
-   245                           
-   246                           ;pwm_main.c: 31: _delay((unsigned long)((1500)*(4000000/4000.0)));
-   247  07DB  3008               	movlw	8
-   248  07DC  00F6               	movwf	??_main+2
-   249  07DD  309D               	movlw	157
-   250  07DE  00F5               	movwf	??_main+1
-   251  07DF  3005               	movlw	5
-   252  07E0  00F4               	movwf	??_main
-   253  07E1                     u57:	
-   254  07E1  0BF4               	decfsz	??_main,f
-   255  07E2  2FE1               	goto	u57
-   256  07E3  0BF5               	decfsz	??_main+1,f
-   257  07E4  2FE1               	goto	u57
-   258  07E5  0BF6               	decfsz	??_main+2,f
-   259  07E6  2FE1               	goto	u57
-   260  07E7  2FE8               	nop2
+   237                           ;incstack = 0
+   238                           ; Regs used in _main: [wreg+status,2+status,0+pclath+cstack]
+   239  0643  2612               	fcall	_InitPWM
+   240                           
+   241                           ;pwm_main.c: 22: SetPWMDutyCycle(10);
+   242  0644  300A               	movlw	10
+   243  0645  00F0               	movwf	SetPWMDutyCycle@DutyCycle
+   244  0646  3000               	movlw	0
+   245  0647  00F1               	movwf	SetPWMDutyCycle@DutyCycle+1
+   246  0648  2622               	fcall	_SetPWMDutyCycle
+   247                           
+   248                           ;pwm_main.c: 23: TRISB0=0;
+   249  0649  1683               	bsf	3,5	;RP0=1, select bank1
+   250  064A  1303               	bcf	3,6	;RP1=0, select bank1
+   251  064B  1006               	bcf	6,0	;volatile
+   252  064C                     l700:	
+   253                           ;pwm_main.c: 25: while(1)
+   254                           
+   255                           
+   256                           ;pwm_main.c: 26: {
+   257                           ;pwm_main.c: 27: PORTBbits.RB0=0;
+   258  064C  1283               	bcf	3,5	;RP0=0, select bank0
+   259  064D  1303               	bcf	3,6	;RP1=0, select bank0
+   260  064E  1006               	bcf	6,0	;volatile
    261                           
-   262                           ;pwm_main.c: 32: if (pwmcyc>=0x041A){
-   263  07E8  0878               	movf	main@pwmcyc+1,w
-   264  07E9  3A80               	xorlw	128
-   265  07EA  00FF               	movwf	127
-   266  07EB  3084               	movlw	132
-   267  07EC  027F               	subwf	127,w
-   268  07ED  1D03               	skipz
-   269  07EE  2FF1               	goto	u45
-   270  07EF  301A               	movlw	26
-   271  07F0  0277               	subwf	main@pwmcyc,w
-   272  07F1                     u45:	
-   273  07F1  1C03               	skipc
-   274  07F2  2FF5               	goto	l585
+   262                           ;pwm_main.c: 28: dash_tone();
+   263  064F  25FB               	fcall	_dash_tone
+   264                           
+   265                           ;pwm_main.c: 29: _delay((unsigned long)((150)*(4000000/4000.0)));
+   266  0650  30C3               	movlw	195
+   267  0651  00F5               	movwf	??_main+1
+   268  0652  30CD               	movlw	205
+   269  0653  00F4               	movwf	??_main
+   270  0654                     u37:	
+   271  0654  0BF4               	decfsz	??_main,f
+   272  0655  2E54               	goto	u37
+   273  0656  0BF5               	decfsz	??_main+1,f
+   274  0657  2E54               	goto	u37
    275                           
-   276                           ;pwm_main.c: 33: pwmcyc=0;}
-   277  07F3  01F7               	clrf	main@pwmcyc
-   278  07F4  01F8               	clrf	main@pwmcyc+1
-   279  07F5                     l585:	
-   280                           
-   281                           ;pwm_main.c: 35: pwmcyc=pwmcyc+50;
-   282  07F5  0877               	movf	main@pwmcyc,w
-   283  07F6  3E32               	addlw	50
-   284  07F7  00F7               	movwf	main@pwmcyc
-   285  07F8  0878               	movf	main@pwmcyc+1,w
-   286  07F9  1803               	skipnc
-   287  07FA  3E01               	addlw	1
-   288  07FB  3E00               	addlw	0
-   289  07FC  00F8               	movwf	main@pwmcyc+1
-   290  07FD  2FD6               	goto	l577
-   291  07FE                     __end_of_main:	
-   292                           ;pwm_main.c: 42: }
-   293                           ;pwm_main.c: 43: return;
-   294                           
-   295                           
-   296                           	psect	text1
-   297  079A                     __ptext1:	
-   298 ;; *************** function _generateTone *****************
-   299 ;; Defined at:
-   300 ;;		line 24 in file "functions.c"
-   301 ;; Parameters:    Size  Location     Type
-   302 ;;		None
-   303 ;; Auto vars:     Size  Location     Type
-   304 ;;		None
-   305 ;; Return value:  Size  Location     Type
-   306 ;;                  1    wreg      void 
-   307 ;; Registers used:
-   308 ;;		None
-   309 ;; Tracked objects:
-   310 ;;		On entry : 0/0
-   311 ;;		On exit  : 0/0
-   312 ;;		Unchanged: 0/0
-   313 ;; Data sizes:     COMMON   BANK0   BANK1   BANK2
-   314 ;;      Params:         0       0       0       0
-   315 ;;      Locals:         0       0       0       0
-   316 ;;      Temps:          0       0       0       0
-   317 ;;      Totals:         0       0       0       0
-   318 ;;Total ram usage:        0 bytes
-   319 ;; Hardware stack levels used:    1
-   320 ;; This function calls:
-   321 ;;		Nothing
-   322 ;; This function is called by:
-   323 ;;		_main
-   324 ;;		_dot
-   325 ;;		_dash
-   326 ;; This function uses a non-reentrant model
-   327 ;;
-   328                           
-   329                           
-   330                           ;psect for function _generateTone
-   331  079A                     _generateTone:	
-   332                           
-   333                           ;functions.c: 27: T2CONbits.TMR2ON=1;
-   334                           
-   335                           ;incstack = 0
-   336                           ; Regs used in _generateTone: []
-   337  079A  1283               	bcf	3,5	;RP0=0, select bank0
-   338  079B  1303               	bcf	3,6	;RP1=0, select bank0
-   339  079C  1512               	bsf	18,2	;volatile
-   340  079D  0008               	return
-   341  079E                     __end_of_generateTone:	
-   342                           
-   343                           	psect	text2
-   344  07AE                     __ptext2:	
-   345 ;; *************** function _SetPWMDutyCycle *****************
-   346 ;; Defined at:
-   347 ;;		line 33 in file "functions.c"
-   348 ;; Parameters:    Size  Location     Type
-   349 ;;  DutyCycle       2    0[COMMON] unsigned int 
-   350 ;; Auto vars:     Size  Location     Type
-   351 ;;		None
-   352 ;; Return value:  Size  Location     Type
-   353 ;;                  1    wreg      void 
-   354 ;; Registers used:
-   355 ;;		wreg, status,2, status,0
-   356 ;; Tracked objects:
-   357 ;;		On entry : 0/0
-   358 ;;		On exit  : 0/0
-   359 ;;		Unchanged: 0/0
-   360 ;; Data sizes:     COMMON   BANK0   BANK1   BANK2
-   361 ;;      Params:         2       0       0       0
-   362 ;;      Locals:         0       0       0       0
-   363 ;;      Temps:          2       0       0       0
-   364 ;;      Totals:         4       0       0       0
-   365 ;;Total ram usage:        4 bytes
-   366 ;; Hardware stack levels used:    1
-   367 ;; This function calls:
-   368 ;;		Nothing
-   369 ;; This function is called by:
-   370 ;;		_main
-   371 ;; This function uses a non-reentrant model
-   372 ;;
-   373                           
-   374                           
-   375                           ;psect for function _SetPWMDutyCycle
-   376  07AE                     _SetPWMDutyCycle:	
-   377                           
-   378                           ;functions.c: 36: CCPR1L=DutyCycle>>2;
-   379                           
-   380                           ;incstack = 0
-   381                           ; Regs used in _SetPWMDutyCycle: [wreg+status,2+status,0]
-   382  07AE  0871               	movf	SetPWMDutyCycle@DutyCycle+1,w
-   383  07AF  00F3               	movwf	??_SetPWMDutyCycle+1
-   384  07B0  0870               	movf	SetPWMDutyCycle@DutyCycle,w
-   385  07B1  00F2               	movwf	??_SetPWMDutyCycle
-   386  07B2  1003               	clrc
-   387  07B3  0CF3               	rrf	??_SetPWMDutyCycle+1,f
-   388  07B4  0CF2               	rrf	??_SetPWMDutyCycle,f
-   389  07B5  1003               	clrc
-   390  07B6  0CF3               	rrf	??_SetPWMDutyCycle+1,f
-   391  07B7  0CF2               	rrf	??_SetPWMDutyCycle,f
-   392  07B8  0872               	movf	??_SetPWMDutyCycle,w
-   393  07B9  1283               	bcf	3,5	;RP0=0, select bank0
-   394  07BA  1303               	bcf	3,6	;RP1=0, select bank0
-   395  07BB  0095               	movwf	21	;volatile
-   396                           
-   397                           ;functions.c: 37: CCP1CON&=0xCF;
-   398  07BC  30CF               	movlw	207
-   399  07BD  00F2               	movwf	??_SetPWMDutyCycle
-   400  07BE  0872               	movf	??_SetPWMDutyCycle,w
-   401  07BF  0597               	andwf	23,f	;volatile
-   402                           
-   403                           ;functions.c: 38: CCP1CON|=(0x30&(DutyCycle<<4));
-   404  07C0  0870               	movf	SetPWMDutyCycle@DutyCycle,w
-   405  07C1  00F2               	movwf	??_SetPWMDutyCycle
-   406  07C2  3003               	movlw	3
-   407  07C3                     u35:	
-   408  07C3  1003               	clrc
-   409  07C4  0DF2               	rlf	??_SetPWMDutyCycle,f
-   410  07C5  3EFF               	addlw	-1
-   411  07C6  1D03               	skipz
-   412  07C7  2FC3               	goto	u35
-   413  07C8  1003               	clrc
-   414  07C9  0D72               	rlf	??_SetPWMDutyCycle,w
-   415  07CA  3930               	andlw	48
-   416  07CB  00F3               	movwf	??_SetPWMDutyCycle+1
-   417  07CC  0873               	movf	??_SetPWMDutyCycle+1,w
-   418  07CD  0497               	iorwf	23,f	;volatile
-   419  07CE  0008               	return
-   420  07CF                     __end_of_SetPWMDutyCycle:	
-   421                           
-   422                           	psect	text3
-   423  079E                     __ptext3:	
-   424 ;; *************** function _InitPWM *****************
-   425 ;; Defined at:
-   426 ;;		line 11 in file "functions.c"
-   427 ;; Parameters:    Size  Location     Type
-   428 ;;		None
-   429 ;; Auto vars:     Size  Location     Type
-   430 ;;		None
-   431 ;; Return value:  Size  Location     Type
-   432 ;;                  1    wreg      void 
-   433 ;; Registers used:
-   434 ;;		wreg
-   435 ;; Tracked objects:
-   436 ;;		On entry : 0/0
-   437 ;;		On exit  : 0/0
-   438 ;;		Unchanged: 0/0
-   439 ;; Data sizes:     COMMON   BANK0   BANK1   BANK2
-   440 ;;      Params:         0       0       0       0
-   441 ;;      Locals:         0       0       0       0
-   442 ;;      Temps:          0       0       0       0
-   443 ;;      Totals:         0       0       0       0
-   444 ;;Total ram usage:        0 bytes
-   445 ;; Hardware stack levels used:    1
-   446 ;; This function calls:
-   447 ;;		Nothing
-   448 ;; This function is called by:
-   449 ;;		_main
-   450 ;; This function uses a non-reentrant model
-   451 ;;
-   452                           
-   453                           
-   454                           ;psect for function _InitPWM
-   455  079E                     _InitPWM:	
-   456                           
-   457                           ;functions.c: 14: TRISB3=0;
+   276                           ;pwm_main.c: 30: dot_tone();
+   277  0658  2606               	fcall	_dot_tone
+   278                           
+   279                           ;pwm_main.c: 31: _delay((unsigned long)((150)*(4000000/4000.0)));
+   280  0659  30C3               	movlw	195
+   281  065A  00F5               	movwf	??_main+1
+   282  065B  30CD               	movlw	205
+   283  065C  00F4               	movwf	??_main
+   284  065D                     u47:	
+   285  065D  0BF4               	decfsz	??_main,f
+   286  065E  2E5D               	goto	u47
+   287  065F  0BF5               	decfsz	??_main+1,f
+   288  0660  2E5D               	goto	u47
+   289                           
+   290                           ;pwm_main.c: 32: dash_tone();
+   291  0661  25FB               	fcall	_dash_tone
+   292                           
+   293                           ;pwm_main.c: 33: _delay((unsigned long)((150)*(4000000/4000.0)));
+   294  0662  30C3               	movlw	195
+   295  0663  00F5               	movwf	??_main+1
+   296  0664  30CD               	movlw	205
+   297  0665  00F4               	movwf	??_main
+   298  0666                     u57:	
+   299  0666  0BF4               	decfsz	??_main,f
+   300  0667  2E66               	goto	u57
+   301  0668  0BF5               	decfsz	??_main+1,f
+   302  0669  2E66               	goto	u57
+   303                           
+   304                           ;pwm_main.c: 34: dot_tone();
+   305  066A  2606               	fcall	_dot_tone
+   306                           
+   307                           ;pwm_main.c: 38: _delay((unsigned long)((300)*(4000000/4000.0)));
+   308  066B  3002               	movlw	2
+   309  066C  00F6               	movwf	??_main+2
+   310  066D  3086               	movlw	134
+   311  066E  00F5               	movwf	??_main+1
+   312  066F  3099               	movlw	153
+   313  0670  00F4               	movwf	??_main
+   314  0671                     u67:	
+   315  0671  0BF4               	decfsz	??_main,f
+   316  0672  2E71               	goto	u67
+   317  0673  0BF5               	decfsz	??_main+1,f
+   318  0674  2E71               	goto	u67
+   319  0675  0BF6               	decfsz	??_main+2,f
+   320  0676  2E71               	goto	u67
+   321                           
+   322                           ;pwm_main.c: 42: dash_tone();
+   323  0677  25FB               	fcall	_dash_tone
+   324                           
+   325                           ;pwm_main.c: 43: _delay((unsigned long)((150)*(4000000/4000.0)));
+   326  0678  30C3               	movlw	195
+   327  0679  00F5               	movwf	??_main+1
+   328  067A  30CD               	movlw	205
+   329  067B  00F4               	movwf	??_main
+   330  067C                     u77:	
+   331  067C  0BF4               	decfsz	??_main,f
+   332  067D  2E7C               	goto	u77
+   333  067E  0BF5               	decfsz	??_main+1,f
+   334  067F  2E7C               	goto	u77
+   335                           
+   336                           ;pwm_main.c: 44: dash_tone();
+   337  0680  25FB               	fcall	_dash_tone
+   338                           
+   339                           ;pwm_main.c: 45: _delay((unsigned long)((150)*(4000000/4000.0)));
+   340  0681  30C3               	movlw	195
+   341  0682  00F5               	movwf	??_main+1
+   342  0683  30CD               	movlw	205
+   343  0684  00F4               	movwf	??_main
+   344  0685                     u87:	
+   345  0685  0BF4               	decfsz	??_main,f
+   346  0686  2E85               	goto	u87
+   347  0687  0BF5               	decfsz	??_main+1,f
+   348  0688  2E85               	goto	u87
+   349                           
+   350                           ;pwm_main.c: 46: dot_tone();
+   351  0689  2606               	fcall	_dot_tone
+   352                           
+   353                           ;pwm_main.c: 47: _delay((unsigned long)((150)*(4000000/4000.0)));
+   354  068A  30C3               	movlw	195
+   355  068B  00F5               	movwf	??_main+1
+   356  068C  30CD               	movlw	205
+   357  068D  00F4               	movwf	??_main
+   358  068E                     u97:	
+   359  068E  0BF4               	decfsz	??_main,f
+   360  068F  2E8E               	goto	u97
+   361  0690  0BF5               	decfsz	??_main+1,f
+   362  0691  2E8E               	goto	u97
+   363                           
+   364                           ;pwm_main.c: 48: dash_tone();
+   365  0692  25FB               	fcall	_dash_tone
+   366                           
+   367                           ;pwm_main.c: 51: _delay((unsigned long)((300)*(4000000/4000.0)));
+   368  0693  3002               	movlw	2
+   369  0694  00F6               	movwf	??_main+2
+   370  0695  3086               	movlw	134
+   371  0696  00F5               	movwf	??_main+1
+   372  0697  3099               	movlw	153
+   373  0698  00F4               	movwf	??_main
+   374  0699                     u107:	
+   375  0699  0BF4               	decfsz	??_main,f
+   376  069A  2E99               	goto	u107
+   377  069B  0BF5               	decfsz	??_main+1,f
+   378  069C  2E99               	goto	u107
+   379  069D  0BF6               	decfsz	??_main+2,f
+   380  069E  2E99               	goto	u107
+   381                           
+   382                           ;pwm_main.c: 57: dash_tone();
+   383  069F  25FB               	fcall	_dash_tone
+   384                           
+   385                           ;pwm_main.c: 58: _delay((unsigned long)((150)*(4000000/4000.0)));
+   386  06A0  30C3               	movlw	195
+   387  06A1  00F5               	movwf	??_main+1
+   388  06A2  30CD               	movlw	205
+   389  06A3  00F4               	movwf	??_main
+   390  06A4                     u117:	
+   391  06A4  0BF4               	decfsz	??_main,f
+   392  06A5  2EA4               	goto	u117
+   393  06A6  0BF5               	decfsz	??_main+1,f
+   394  06A7  2EA4               	goto	u117
+   395                           
+   396                           ;pwm_main.c: 59: dot_tone();
+   397  06A8  2606               	fcall	_dot_tone
+   398                           
+   399                           ;pwm_main.c: 60: _delay((unsigned long)((150)*(4000000/4000.0)));
+   400  06A9  30C3               	movlw	195
+   401  06AA  00F5               	movwf	??_main+1
+   402  06AB  30CD               	movlw	205
+   403  06AC  00F4               	movwf	??_main
+   404  06AD                     u127:	
+   405  06AD  0BF4               	decfsz	??_main,f
+   406  06AE  2EAD               	goto	u127
+   407  06AF  0BF5               	decfsz	??_main+1,f
+   408  06B0  2EAD               	goto	u127
+   409                           
+   410                           ;pwm_main.c: 61: dash_tone();
+   411  06B1  25FB               	fcall	_dash_tone
+   412                           
+   413                           ;pwm_main.c: 62: _delay((unsigned long)((150)*(4000000/4000.0)));
+   414  06B2  30C3               	movlw	195
+   415  06B3  00F5               	movwf	??_main+1
+   416  06B4  30CD               	movlw	205
+   417  06B5  00F4               	movwf	??_main
+   418  06B6                     u137:	
+   419  06B6  0BF4               	decfsz	??_main,f
+   420  06B7  2EB6               	goto	u137
+   421  06B8  0BF5               	decfsz	??_main+1,f
+   422  06B9  2EB6               	goto	u137
+   423                           
+   424                           ;pwm_main.c: 63: dot_tone();
+   425  06BA  2606               	fcall	_dot_tone
+   426                           
+   427                           ;pwm_main.c: 67: _delay((unsigned long)((300)*(4000000/4000.0)));
+   428  06BB  3002               	movlw	2
+   429  06BC  00F6               	movwf	??_main+2
+   430  06BD  3086               	movlw	134
+   431  06BE  00F5               	movwf	??_main+1
+   432  06BF  3099               	movlw	153
+   433  06C0  00F4               	movwf	??_main
+   434  06C1                     u147:	
+   435  06C1  0BF4               	decfsz	??_main,f
+   436  06C2  2EC1               	goto	u147
+   437  06C3  0BF5               	decfsz	??_main+1,f
+   438  06C4  2EC1               	goto	u147
+   439  06C5  0BF6               	decfsz	??_main+2,f
+   440  06C6  2EC1               	goto	u147
+   441                           
+   442                           ;pwm_main.c: 71: dash_tone();
+   443  06C7  25FB               	fcall	_dash_tone
+   444                           
+   445                           ;pwm_main.c: 72: _delay((unsigned long)((150)*(4000000/4000.0)));
+   446  06C8  30C3               	movlw	195
+   447  06C9  00F5               	movwf	??_main+1
+   448  06CA  30CD               	movlw	205
+   449  06CB  00F4               	movwf	??_main
+   450  06CC                     u157:	
+   451  06CC  0BF4               	decfsz	??_main,f
+   452  06CD  2ECC               	goto	u157
+   453  06CE  0BF5               	decfsz	??_main+1,f
+   454  06CF  2ECC               	goto	u157
+   455                           
+   456                           ;pwm_main.c: 73: dash_tone();
+   457  06D0  25FB               	fcall	_dash_tone
    458                           
-   459                           ;incstack = 0
-   460                           ; Regs used in _InitPWM: [wreg]
-   461  079E  1683               	bsf	3,5	;RP0=1, select bank1
-   462  079F  1303               	bcf	3,6	;RP1=0, select bank1
-   463  07A0  1186               	bcf	6,3	;volatile
-   464                           
-   465                           ;functions.c: 15: CCP1CON=0x0C;
-   466  07A1  300C               	movlw	12
-   467  07A2  1283               	bcf	3,5	;RP0=0, select bank0
-   468  07A3  1303               	bcf	3,6	;RP1=0, select bank0
-   469  07A4  0097               	movwf	23	;volatile
-   470                           
-   471                           ;functions.c: 16: PR2=0x5E;
-   472  07A5  305E               	movlw	94
-   473  07A6  1683               	bsf	3,5	;RP0=1, select bank1
-   474  07A7  1303               	bcf	3,6	;RP1=0, select bank1
-   475  07A8  0092               	movwf	18	;volatile
-   476                           
-   477                           ;functions.c: 17: T2CONbits.T2CKPS0=1;
-   478  07A9  1283               	bcf	3,5	;RP0=0, select bank0
-   479  07AA  1303               	bcf	3,6	;RP1=0, select bank0
-   480  07AB  1412               	bsf	18,0	;volatile
-   481                           
-   482                           ;functions.c: 18: T2CONbits.T2CKPS1=0;
-   483  07AC  1092               	bcf	18,1	;volatile
-   484  07AD  0008               	return
-   485  07AE                     __end_of_InitPWM:	
-   486  007E                     btemp	set	126	;btemp
-   487  007E                     wtemp0	set	126
+   459                           ;pwm_main.c: 74: _delay((unsigned long)((150)*(4000000/4000.0)));
+   460  06D1  30C3               	movlw	195
+   461  06D2  00F5               	movwf	??_main+1
+   462  06D3  30CD               	movlw	205
+   463  06D4  00F4               	movwf	??_main
+   464  06D5                     u167:	
+   465  06D5  0BF4               	decfsz	??_main,f
+   466  06D6  2ED5               	goto	u167
+   467  06D7  0BF5               	decfsz	??_main+1,f
+   468  06D8  2ED5               	goto	u167
+   469                           
+   470                           ;pwm_main.c: 75: dot_tone();
+   471  06D9  2606               	fcall	_dot_tone
+   472                           
+   473                           ;pwm_main.c: 76: _delay((unsigned long)((150)*(4000000/4000.0)));
+   474  06DA  30C3               	movlw	195
+   475  06DB  00F5               	movwf	??_main+1
+   476  06DC  30CD               	movlw	205
+   477  06DD  00F4               	movwf	??_main
+   478  06DE                     u177:	
+   479  06DE  0BF4               	decfsz	??_main,f
+   480  06DF  2EDE               	goto	u177
+   481  06E0  0BF5               	decfsz	??_main+1,f
+   482  06E1  2EDE               	goto	u177
+   483                           
+   484                           ;pwm_main.c: 77: dash_tone();
+   485  06E2  25FB               	fcall	_dash_tone
+   486                           
+   487                           ;pwm_main.c: 80: _delay((unsigned long)((300)*(4000000/4000.0)));
+   488  06E3  3002               	movlw	2
+   489  06E4  00F6               	movwf	??_main+2
+   490  06E5  3086               	movlw	134
+   491  06E6  00F5               	movwf	??_main+1
+   492  06E7  3099               	movlw	153
+   493  06E8  00F4               	movwf	??_main
+   494  06E9                     u187:	
+   495  06E9  0BF4               	decfsz	??_main,f
+   496  06EA  2EE9               	goto	u187
+   497  06EB  0BF5               	decfsz	??_main+1,f
+   498  06EC  2EE9               	goto	u187
+   499  06ED  0BF6               	decfsz	??_main+2,f
+   500  06EE  2EE9               	goto	u187
+   501                           
+   502                           ;pwm_main.c: 88: dash_tone();
+   503  06EF  25FB               	fcall	_dash_tone
+   504                           
+   505                           ;pwm_main.c: 89: _delay((unsigned long)((150)*(4000000/4000.0)));
+   506  06F0  30C3               	movlw	195
+   507  06F1  00F5               	movwf	??_main+1
+   508  06F2  30CD               	movlw	205
+   509  06F3  00F4               	movwf	??_main
+   510  06F4                     u197:	
+   511  06F4  0BF4               	decfsz	??_main,f
+   512  06F5  2EF4               	goto	u197
+   513  06F6  0BF5               	decfsz	??_main+1,f
+   514  06F7  2EF4               	goto	u197
+   515                           
+   516                           ;pwm_main.c: 90: dot_tone();
+   517  06F8  2606               	fcall	_dot_tone
+   518                           
+   519                           ;pwm_main.c: 91: _delay((unsigned long)((150)*(4000000/4000.0)));
+   520  06F9  30C3               	movlw	195
+   521  06FA  00F5               	movwf	??_main+1
+   522  06FB  30CD               	movlw	205
+   523  06FC  00F4               	movwf	??_main
+   524  06FD                     u207:	
+   525  06FD  0BF4               	decfsz	??_main,f
+   526  06FE  2EFD               	goto	u207
+   527  06FF  0BF5               	decfsz	??_main+1,f
+   528  0700  2EFD               	goto	u207
+   529                           
+   530                           ;pwm_main.c: 92: dash_tone();
+   531  0701  25FB               	fcall	_dash_tone
+   532                           
+   533                           ;pwm_main.c: 93: _delay((unsigned long)((150)*(4000000/4000.0)));
+   534  0702  30C3               	movlw	195
+   535  0703  00F5               	movwf	??_main+1
+   536  0704  30CD               	movlw	205
+   537  0705  00F4               	movwf	??_main
+   538  0706                     u217:	
+   539  0706  0BF4               	decfsz	??_main,f
+   540  0707  2F06               	goto	u217
+   541  0708  0BF5               	decfsz	??_main+1,f
+   542  0709  2F06               	goto	u217
+   543                           
+   544                           ;pwm_main.c: 94: dot_tone();
+   545  070A  2606               	fcall	_dot_tone
+   546                           
+   547                           ;pwm_main.c: 98: _delay((unsigned long)((300)*(4000000/4000.0)));
+   548  070B  3002               	movlw	2
+   549  070C  00F6               	movwf	??_main+2
+   550  070D  3086               	movlw	134
+   551  070E  00F5               	movwf	??_main+1
+   552  070F  3099               	movlw	153
+   553  0710  00F4               	movwf	??_main
+   554  0711                     u227:	
+   555  0711  0BF4               	decfsz	??_main,f
+   556  0712  2F11               	goto	u227
+   557  0713  0BF5               	decfsz	??_main+1,f
+   558  0714  2F11               	goto	u227
+   559  0715  0BF6               	decfsz	??_main+2,f
+   560  0716  2F11               	goto	u227
+   561                           
+   562                           ;pwm_main.c: 102: dash_tone();
+   563  0717  25FB               	fcall	_dash_tone
+   564                           
+   565                           ;pwm_main.c: 103: _delay((unsigned long)((150)*(4000000/4000.0)));
+   566  0718  30C3               	movlw	195
+   567  0719  00F5               	movwf	??_main+1
+   568  071A  30CD               	movlw	205
+   569  071B  00F4               	movwf	??_main
+   570  071C                     u237:	
+   571  071C  0BF4               	decfsz	??_main,f
+   572  071D  2F1C               	goto	u237
+   573  071E  0BF5               	decfsz	??_main+1,f
+   574  071F  2F1C               	goto	u237
+   575                           
+   576                           ;pwm_main.c: 104: dash_tone();
+   577  0720  25FB               	fcall	_dash_tone
+   578                           
+   579                           ;pwm_main.c: 105: _delay((unsigned long)((150)*(4000000/4000.0)));
+   580  0721  30C3               	movlw	195
+   581  0722  00F5               	movwf	??_main+1
+   582  0723  30CD               	movlw	205
+   583  0724  00F4               	movwf	??_main
+   584  0725                     u247:	
+   585  0725  0BF4               	decfsz	??_main,f
+   586  0726  2F25               	goto	u247
+   587  0727  0BF5               	decfsz	??_main+1,f
+   588  0728  2F25               	goto	u247
+   589                           
+   590                           ;pwm_main.c: 106: dot_tone();
+   591  0729  2606               	fcall	_dot_tone
+   592                           
+   593                           ;pwm_main.c: 107: _delay((unsigned long)((150)*(4000000/4000.0)));
+   594  072A  30C3               	movlw	195
+   595  072B  00F5               	movwf	??_main+1
+   596  072C  30CD               	movlw	205
+   597  072D  00F4               	movwf	??_main
+   598  072E                     u257:	
+   599  072E  0BF4               	decfsz	??_main,f
+   600  072F  2F2E               	goto	u257
+   601  0730  0BF5               	decfsz	??_main+1,f
+   602  0731  2F2E               	goto	u257
+   603                           
+   604                           ;pwm_main.c: 108: dash_tone();
+   605  0732  25FB               	fcall	_dash_tone
+   606                           
+   607                           ;pwm_main.c: 111: _delay((unsigned long)((300)*(4000000/4000.0)));
+   608  0733  3002               	movlw	2
+   609  0734  00F6               	movwf	??_main+2
+   610  0735  3086               	movlw	134
+   611  0736  00F5               	movwf	??_main+1
+   612  0737  3099               	movlw	153
+   613  0738  00F4               	movwf	??_main
+   614  0739                     u267:	
+   615  0739  0BF4               	decfsz	??_main,f
+   616  073A  2F39               	goto	u267
+   617  073B  0BF5               	decfsz	??_main+1,f
+   618  073C  2F39               	goto	u267
+   619  073D  0BF6               	decfsz	??_main+2,f
+   620  073E  2F39               	goto	u267
+   621                           
+   622                           ;pwm_main.c: 116: dash_tone();
+   623  073F  25FB               	fcall	_dash_tone
+   624                           
+   625                           ;pwm_main.c: 117: _delay((unsigned long)((150)*(4000000/4000.0))) ;
+   626  0740  30C3               	movlw	195
+   627  0741  00F5               	movwf	??_main+1
+   628  0742  30CD               	movlw	205
+   629  0743  00F4               	movwf	??_main
+   630  0744                     u277:	
+   631  0744  0BF4               	decfsz	??_main,f
+   632  0745  2F44               	goto	u277
+   633  0746  0BF5               	decfsz	??_main+1,f
+   634  0747  2F44               	goto	u277
+   635                           
+   636                           ;pwm_main.c: 118: dot_tone();
+   637  0748  2606               	fcall	_dot_tone
+   638                           
+   639                           ;pwm_main.c: 119: _delay((unsigned long)((150)*(4000000/4000.0))) ;
+   640  0749  30C3               	movlw	195
+   641  074A  00F5               	movwf	??_main+1
+   642  074B  30CD               	movlw	205
+   643  074C  00F4               	movwf	??_main
+   644  074D                     u287:	
+   645  074D  0BF4               	decfsz	??_main,f
+   646  074E  2F4D               	goto	u287
+   647  074F  0BF5               	decfsz	??_main+1,f
+   648  0750  2F4D               	goto	u287
+   649                           
+   650                           ;pwm_main.c: 120: dash_tone();
+   651  0751  25FB               	fcall	_dash_tone
+   652                           
+   653                           ;pwm_main.c: 123: _delay((unsigned long)((300)*(4000000/4000.0))) ;
+   654  0752  3002               	movlw	2
+   655  0753  00F6               	movwf	??_main+2
+   656  0754  3086               	movlw	134
+   657  0755  00F5               	movwf	??_main+1
+   658  0756  3099               	movlw	153
+   659  0757  00F4               	movwf	??_main
+   660  0758                     u297:	
+   661  0758  0BF4               	decfsz	??_main,f
+   662  0759  2F58               	goto	u297
+   663  075A  0BF5               	decfsz	??_main+1,f
+   664  075B  2F58               	goto	u297
+   665  075C  0BF6               	decfsz	??_main+2,f
+   666  075D  2F58               	goto	u297
+   667                           
+   668                           ;pwm_main.c: 127: dash_tone();
+   669  075E  25FB               	fcall	_dash_tone
+   670                           
+   671                           ;pwm_main.c: 128: _delay((unsigned long)((150)*(4000000/4000.0))) ;
+   672  075F  30C3               	movlw	195
+   673  0760  00F5               	movwf	??_main+1
+   674  0761  30CD               	movlw	205
+   675  0762  00F4               	movwf	??_main
+   676  0763                     u307:	
+   677  0763  0BF4               	decfsz	??_main,f
+   678  0764  2F63               	goto	u307
+   679  0765  0BF5               	decfsz	??_main+1,f
+   680  0766  2F63               	goto	u307
+   681                           
+   682                           ;pwm_main.c: 129: dash_tone();
+   683  0767  25FB               	fcall	_dash_tone
+   684                           
+   685                           ;pwm_main.c: 130: _delay((unsigned long)((150)*(4000000/4000.0))) ;
+   686  0768  30C3               	movlw	195
+   687  0769  00F5               	movwf	??_main+1
+   688  076A  30CD               	movlw	205
+   689  076B  00F4               	movwf	??_main
+   690  076C                     u317:	
+   691  076C  0BF4               	decfsz	??_main,f
+   692  076D  2F6C               	goto	u317
+   693  076E  0BF5               	decfsz	??_main+1,f
+   694  076F  2F6C               	goto	u317
+   695                           
+   696                           ;pwm_main.c: 131: dot_tone();
+   697  0770  2606               	fcall	_dot_tone
+   698                           
+   699                           ;pwm_main.c: 135: _delay((unsigned long)((300)*(4000000/4000.0))) ;
+   700  0771  3002               	movlw	2
+   701  0772  00F6               	movwf	??_main+2
+   702  0773  3086               	movlw	134
+   703  0774  00F5               	movwf	??_main+1
+   704  0775  3099               	movlw	153
+   705  0776  00F4               	movwf	??_main
+   706  0777                     u327:	
+   707  0777  0BF4               	decfsz	??_main,f
+   708  0778  2F77               	goto	u327
+   709  0779  0BF5               	decfsz	??_main+1,f
+   710  077A  2F77               	goto	u327
+   711  077B  0BF6               	decfsz	??_main+2,f
+   712  077C  2F77               	goto	u327
+   713                           
+   714                           ;pwm_main.c: 139: dash_tone();
+   715  077D  25FB               	fcall	_dash_tone
+   716                           
+   717                           ;pwm_main.c: 140: _delay((unsigned long)((150)*(4000000/4000.0))) ;
+   718  077E  30C3               	movlw	195
+   719  077F  00F5               	movwf	??_main+1
+   720  0780  30CD               	movlw	205
+   721  0781  00F4               	movwf	??_main
+   722  0782                     u337:	
+   723  0782  0BF4               	decfsz	??_main,f
+   724  0783  2F82               	goto	u337
+   725  0784  0BF5               	decfsz	??_main+1,f
+   726  0785  2F82               	goto	u337
+   727                           
+   728                           ;pwm_main.c: 141: dash_tone();
+   729  0786  25FB               	fcall	_dash_tone
+   730                           
+   731                           ;pwm_main.c: 142: _delay((unsigned long)((150)*(4000000/4000.0))) ;
+   732  0787  30C3               	movlw	195
+   733  0788  00F5               	movwf	??_main+1
+   734  0789  30CD               	movlw	205
+   735  078A  00F4               	movwf	??_main
+   736  078B                     u347:	
+   737  078B  0BF4               	decfsz	??_main,f
+   738  078C  2F8B               	goto	u347
+   739  078D  0BF5               	decfsz	??_main+1,f
+   740  078E  2F8B               	goto	u347
+   741                           
+   742                           ;pwm_main.c: 143: dot_tone();
+   743  078F  2606               	fcall	_dot_tone
+   744                           
+   745                           ;pwm_main.c: 144: _delay((unsigned long)((150)*(4000000/4000.0))) ;
+   746  0790  30C3               	movlw	195
+   747  0791  00F5               	movwf	??_main+1
+   748  0792  30CD               	movlw	205
+   749  0793  00F4               	movwf	??_main
+   750  0794                     u357:	
+   751  0794  0BF4               	decfsz	??_main,f
+   752  0795  2F94               	goto	u357
+   753  0796  0BF5               	decfsz	??_main+1,f
+   754  0797  2F94               	goto	u357
+   755                           
+   756                           ;pwm_main.c: 145: dot_tone();
+   757  0798  2606               	fcall	_dot_tone
+   758                           
+   759                           ;pwm_main.c: 146: _delay((unsigned long)((150)*(4000000/4000.0))) ;
+   760  0799  30C3               	movlw	195
+   761  079A  00F5               	movwf	??_main+1
+   762  079B  30CD               	movlw	205
+   763  079C  00F4               	movwf	??_main
+   764  079D                     u367:	
+   765  079D  0BF4               	decfsz	??_main,f
+   766  079E  2F9D               	goto	u367
+   767  079F  0BF5               	decfsz	??_main+1,f
+   768  07A0  2F9D               	goto	u367
+   769                           
+   770                           ;pwm_main.c: 147: dot_tone();
+   771  07A1  2606               	fcall	_dot_tone
+   772                           
+   773                           ;pwm_main.c: 151: _delay((unsigned long)((300)*(4000000/4000.0))) ;
+   774  07A2  3002               	movlw	2
+   775  07A3  00F6               	movwf	??_main+2
+   776  07A4  3086               	movlw	134
+   777  07A5  00F5               	movwf	??_main+1
+   778  07A6  3099               	movlw	153
+   779  07A7  00F4               	movwf	??_main
+   780  07A8                     u377:	
+   781  07A8  0BF4               	decfsz	??_main,f
+   782  07A9  2FA8               	goto	u377
+   783  07AA  0BF5               	decfsz	??_main+1,f
+   784  07AB  2FA8               	goto	u377
+   785  07AC  0BF6               	decfsz	??_main+2,f
+   786  07AD  2FA8               	goto	u377
+   787                           
+   788                           ;pwm_main.c: 155: dot_tone();
+   789  07AE  2606               	fcall	_dot_tone
+   790                           
+   791                           ;pwm_main.c: 156: _delay((unsigned long)((150)*(4000000/4000.0))) ;
+   792  07AF  30C3               	movlw	195
+   793  07B0  00F5               	movwf	??_main+1
+   794  07B1  30CD               	movlw	205
+   795  07B2  00F4               	movwf	??_main
+   796  07B3                     u387:	
+   797  07B3  0BF4               	decfsz	??_main,f
+   798  07B4  2FB3               	goto	u387
+   799  07B5  0BF5               	decfsz	??_main+1,f
+   800  07B6  2FB3               	goto	u387
+   801                           
+   802                           ;pwm_main.c: 157: dash_tone();
+   803  07B7  25FB               	fcall	_dash_tone
+   804                           
+   805                           ;pwm_main.c: 158: _delay((unsigned long)((150)*(4000000/4000.0))) ;
+   806  07B8  30C3               	movlw	195
+   807  07B9  00F5               	movwf	??_main+1
+   808  07BA  30CD               	movlw	205
+   809  07BB  00F4               	movwf	??_main
+   810  07BC                     u397:	
+   811  07BC  0BF4               	decfsz	??_main,f
+   812  07BD  2FBC               	goto	u397
+   813  07BE  0BF5               	decfsz	??_main+1,f
+   814  07BF  2FBC               	goto	u397
+   815                           
+   816                           ;pwm_main.c: 159: dot_tone();
+   817  07C0  2606               	fcall	_dot_tone
+   818                           
+   819                           ;pwm_main.c: 162: _delay((unsigned long)((300)*(4000000/4000.0))) ;
+   820  07C1  3002               	movlw	2
+   821  07C2  00F6               	movwf	??_main+2
+   822  07C3  3086               	movlw	134
+   823  07C4  00F5               	movwf	??_main+1
+   824  07C5  3099               	movlw	153
+   825  07C6  00F4               	movwf	??_main
+   826  07C7                     u407:	
+   827  07C7  0BF4               	decfsz	??_main,f
+   828  07C8  2FC7               	goto	u407
+   829  07C9  0BF5               	decfsz	??_main+1,f
+   830  07CA  2FC7               	goto	u407
+   831  07CB  0BF6               	decfsz	??_main+2,f
+   832  07CC  2FC7               	goto	u407
+   833                           
+   834                           ;pwm_main.c: 165: dash_tone();
+   835  07CD  25FB               	fcall	_dash_tone
+   836                           
+   837                           ;pwm_main.c: 166: _delay((unsigned long)((150)*(4000000/4000.0))) ;
+   838  07CE  30C3               	movlw	195
+   839  07CF  00F5               	movwf	??_main+1
+   840  07D0  30CD               	movlw	205
+   841  07D1  00F4               	movwf	??_main
+   842  07D2                     u417:	
+   843  07D2  0BF4               	decfsz	??_main,f
+   844  07D3  2FD2               	goto	u417
+   845  07D4  0BF5               	decfsz	??_main+1,f
+   846  07D5  2FD2               	goto	u417
+   847                           
+   848                           ;pwm_main.c: 167: dot_tone();
+   849  07D6  2606               	fcall	_dot_tone
+   850                           
+   851                           ;pwm_main.c: 169: _delay((unsigned long)((300)*(4000000/4000.0))) ;
+   852  07D7  3002               	movlw	2
+   853  07D8  00F6               	movwf	??_main+2
+   854  07D9  3086               	movlw	134
+   855  07DA  00F5               	movwf	??_main+1
+   856  07DB  3099               	movlw	153
+   857  07DC  00F4               	movwf	??_main
+   858  07DD                     u427:	
+   859  07DD  0BF4               	decfsz	??_main,f
+   860  07DE  2FDD               	goto	u427
+   861  07DF  0BF5               	decfsz	??_main+1,f
+   862  07E0  2FDD               	goto	u427
+   863  07E1  0BF6               	decfsz	??_main+2,f
+   864  07E2  2FDD               	goto	u427
+   865                           
+   866                           ;pwm_main.c: 172: dash_tone();
+   867  07E3  25FB               	fcall	_dash_tone
+   868                           
+   869                           ;pwm_main.c: 173: _delay((unsigned long)((150)*(4000000/4000.0))) ;
+   870  07E4  30C3               	movlw	195
+   871  07E5  00F5               	movwf	??_main+1
+   872  07E6  30CD               	movlw	205
+   873  07E7  00F4               	movwf	??_main
+   874  07E8                     u437:	
+   875  07E8  0BF4               	decfsz	??_main,f
+   876  07E9  2FE8               	goto	u437
+   877  07EA  0BF5               	decfsz	??_main+1,f
+   878  07EB  2FE8               	goto	u437
+   879                           
+   880                           ;pwm_main.c: 174: dash_tone();
+   881  07EC  25FB               	fcall	_dash_tone
+   882                           
+   883                           ;pwm_main.c: 176: PORTBbits.RB0=0;
+   884  07ED  1283               	bcf	3,5	;RP0=0, select bank0
+   885  07EE  1303               	bcf	3,6	;RP1=0, select bank0
+   886  07EF  1006               	bcf	6,0	;volatile
+   887                           
+   888                           ;pwm_main.c: 177: _delay((unsigned long)((15000)*(4000000/4000.0))) ;
+   889  07F0  304D               	movlw	77
+   890  07F1  00F6               	movwf	??_main+2
+   891  07F2  3019               	movlw	25
+   892  07F3  00F5               	movwf	??_main+1
+   893  07F4  304F               	movlw	79
+   894  07F5  00F4               	movwf	??_main
+   895  07F6                     u447:	
+   896  07F6  0BF4               	decfsz	??_main,f
+   897  07F7  2FF6               	goto	u447
+   898  07F8  0BF5               	decfsz	??_main+1,f
+   899  07F9  2FF6               	goto	u447
+   900  07FA  0BF6               	decfsz	??_main+2,f
+   901  07FB  2FF6               	goto	u447
+   902  07FC  2FFD               	nop2
+   903  07FD  2E4C               	goto	l700
+   904  07FE                     __end_of_main:	
+   905                           ;pwm_main.c: 182: }
+   906                           ;pwm_main.c: 183: return;
+   907                           
+   908                           
+   909                           	psect	text1
+   910  0606                     __ptext1:	
+   911 ;; *************** function _dot_tone *****************
+   912 ;; Defined at:
+   913 ;;		line 58 in file "functions.c"
+   914 ;; Parameters:    Size  Location     Type
+   915 ;;		None
+   916 ;; Auto vars:     Size  Location     Type
+   917 ;;		None
+   918 ;; Return value:  Size  Location     Type
+   919 ;;                  1    wreg      void 
+   920 ;; Registers used:
+   921 ;;		wreg, status,2, status,0, pclath, cstack
+   922 ;; Tracked objects:
+   923 ;;		On entry : 0/0
+   924 ;;		On exit  : 0/0
+   925 ;;		Unchanged: 0/0
+   926 ;; Data sizes:     COMMON   BANK0   BANK1   BANK2
+   927 ;;      Params:         0       0       0       0
+   928 ;;      Locals:         0       0       0       0
+   929 ;;      Temps:          2       0       0       0
+   930 ;;      Totals:         2       0       0       0
+   931 ;;Total ram usage:        2 bytes
+   932 ;; Hardware stack levels used:    1
+   933 ;; Hardware stack levels required when called:    1
+   934 ;; This function calls:
+   935 ;;		_generateTone
+   936 ;;		_stopTone
+   937 ;; This function is called by:
+   938 ;;		_main
+   939 ;; This function uses a non-reentrant model
+   940 ;;
+   941                           
+   942                           
+   943                           ;psect for function _dot_tone
+   944  0606                     _dot_tone:	
+   945                           
+   946                           ;functions.c: 61: generateTone();
+   947                           
+   948                           ;incstack = 0
+   949                           ; Regs used in _dot_tone: [wreg+status,2+status,0+pclath+cstack]
+   950  0606  25F3               	fcall	_generateTone
+   951                           
+   952                           ;functions.c: 63: _delay((unsigned long)((50)*(4000000/4000.0)));
+   953  0607  3041               	movlw	65
+   954  0608  00F1               	movwf	??_dot_tone+1
+   955  0609  30EE               	movlw	238
+   956  060A  00F0               	movwf	??_dot_tone
+   957  060B                     u457:	
+   958  060B  0BF0               	decfsz	??_dot_tone,f
+   959  060C  2E0B               	goto	u457
+   960  060D  0BF1               	decfsz	??_dot_tone+1,f
+   961  060E  2E0B               	goto	u457
+   962  060F  0000               	nop
+   963                           
+   964                           ;functions.c: 65: stopTone();
+   965  0610  25F7               	fcall	_stopTone
+   966  0611  0008               	return
+   967  0612                     __end_of_dot_tone:	
+   968                           ;functions.c: 67: return ;
+   969                           
+   970                           
+   971                           	psect	text2
+   972  05FB                     __ptext2:	
+   973 ;; *************** function _dash_tone *****************
+   974 ;; Defined at:
+   975 ;;		line 82 in file "functions.c"
+   976 ;; Parameters:    Size  Location     Type
+   977 ;;		None
+   978 ;; Auto vars:     Size  Location     Type
+   979 ;;		None
+   980 ;; Return value:  Size  Location     Type
+   981 ;;                  1    wreg      void 
+   982 ;; Registers used:
+   983 ;;		wreg, status,2, status,0, pclath, cstack
+   984 ;; Tracked objects:
+   985 ;;		On entry : 0/0
+   986 ;;		On exit  : 0/0
+   987 ;;		Unchanged: 0/0
+   988 ;; Data sizes:     COMMON   BANK0   BANK1   BANK2
+   989 ;;      Params:         0       0       0       0
+   990 ;;      Locals:         0       0       0       0
+   991 ;;      Temps:          2       0       0       0
+   992 ;;      Totals:         2       0       0       0
+   993 ;;Total ram usage:        2 bytes
+   994 ;; Hardware stack levels used:    1
+   995 ;; Hardware stack levels required when called:    1
+   996 ;; This function calls:
+   997 ;;		_generateTone
+   998 ;;		_stopTone
+   999 ;; This function is called by:
+  1000 ;;		_main
+  1001 ;; This function uses a non-reentrant model
+  1002 ;;
+  1003                           
+  1004                           
+  1005                           ;psect for function _dash_tone
+  1006  05FB                     _dash_tone:	
+  1007                           
+  1008                           ;functions.c: 85: generateTone();
+  1009                           
+  1010                           ;incstack = 0
+  1011                           ; Regs used in _dash_tone: [wreg+status,2+status,0+pclath+cstack]
+  1012  05FB  25F3               	fcall	_generateTone
+  1013                           
+  1014                           ;functions.c: 87: _delay((unsigned long)((150)*(4000000/4000.0)));
+  1015  05FC  30C3               	movlw	195
+  1016  05FD  00F1               	movwf	??_dash_tone+1
+  1017  05FE  30CD               	movlw	205
+  1018  05FF  00F0               	movwf	??_dash_tone
+  1019  0600                     u467:	
+  1020  0600  0BF0               	decfsz	??_dash_tone,f
+  1021  0601  2E00               	goto	u467
+  1022  0602  0BF1               	decfsz	??_dash_tone+1,f
+  1023  0603  2E00               	goto	u467
+  1024                           
+  1025                           ;functions.c: 89: stopTone();
+  1026  0604  25F7               	fcall	_stopTone
+  1027  0605  0008               	return
+  1028  0606                     __end_of_dash_tone:	
+  1029                           ;functions.c: 90: return ;
+  1030                           
+  1031                           
+  1032                           	psect	text3
+  1033  05F7                     __ptext3:	
+  1034 ;; *************** function _stopTone *****************
+  1035 ;; Defined at:
+  1036 ;;		line 29 in file "functions.c"
+  1037 ;; Parameters:    Size  Location     Type
+  1038 ;;		None
+  1039 ;; Auto vars:     Size  Location     Type
+  1040 ;;		None
+  1041 ;; Return value:  Size  Location     Type
+  1042 ;;                  1    wreg      void 
+  1043 ;; Registers used:
+  1044 ;;		None
+  1045 ;; Tracked objects:
+  1046 ;;		On entry : 0/0
+  1047 ;;		On exit  : 0/0
+  1048 ;;		Unchanged: 0/0
+  1049 ;; Data sizes:     COMMON   BANK0   BANK1   BANK2
+  1050 ;;      Params:         0       0       0       0
+  1051 ;;      Locals:         0       0       0       0
+  1052 ;;      Temps:          0       0       0       0
+  1053 ;;      Totals:         0       0       0       0
+  1054 ;;Total ram usage:        0 bytes
+  1055 ;; Hardware stack levels used:    1
+  1056 ;; This function calls:
+  1057 ;;		Nothing
+  1058 ;; This function is called by:
+  1059 ;;		_dot_tone
+  1060 ;;		_dash_tone
+  1061 ;;		_dot
+  1062 ;;		_dash
+  1063 ;; This function uses a non-reentrant model
+  1064 ;;
+  1065                           
+  1066                           
+  1067                           ;psect for function _stopTone
+  1068  05F7                     _stopTone:	
+  1069                           
+  1070                           ;functions.c: 31: T2CONbits.TMR2ON=0;
+  1071                           
+  1072                           ;incstack = 0
+  1073                           ; Regs used in _stopTone: []
+  1074  05F7  1283               	bcf	3,5	;RP0=0, select bank0
+  1075  05F8  1303               	bcf	3,6	;RP1=0, select bank0
+  1076  05F9  1112               	bcf	18,2	;volatile
+  1077  05FA  0008               	return
+  1078  05FB                     __end_of_stopTone:	
+  1079                           
+  1080                           	psect	text4
+  1081  05F3                     __ptext4:	
+  1082 ;; *************** function _generateTone *****************
+  1083 ;; Defined at:
+  1084 ;;		line 24 in file "functions.c"
+  1085 ;; Parameters:    Size  Location     Type
+  1086 ;;		None
+  1087 ;; Auto vars:     Size  Location     Type
+  1088 ;;		None
+  1089 ;; Return value:  Size  Location     Type
+  1090 ;;                  1    wreg      void 
+  1091 ;; Registers used:
+  1092 ;;		None
+  1093 ;; Tracked objects:
+  1094 ;;		On entry : 0/0
+  1095 ;;		On exit  : 0/0
+  1096 ;;		Unchanged: 0/0
+  1097 ;; Data sizes:     COMMON   BANK0   BANK1   BANK2
+  1098 ;;      Params:         0       0       0       0
+  1099 ;;      Locals:         0       0       0       0
+  1100 ;;      Temps:          0       0       0       0
+  1101 ;;      Totals:         0       0       0       0
+  1102 ;;Total ram usage:        0 bytes
+  1103 ;; Hardware stack levels used:    1
+  1104 ;; This function calls:
+  1105 ;;		Nothing
+  1106 ;; This function is called by:
+  1107 ;;		_dot_tone
+  1108 ;;		_dash_tone
+  1109 ;;		_dot
+  1110 ;;		_dash
+  1111 ;; This function uses a non-reentrant model
+  1112 ;;
+  1113                           
+  1114                           
+  1115                           ;psect for function _generateTone
+  1116  05F3                     _generateTone:	
+  1117                           
+  1118                           ;functions.c: 27: T2CONbits.TMR2ON=1;
+  1119                           
+  1120                           ;incstack = 0
+  1121                           ; Regs used in _generateTone: []
+  1122  05F3  1283               	bcf	3,5	;RP0=0, select bank0
+  1123  05F4  1303               	bcf	3,6	;RP1=0, select bank0
+  1124  05F5  1512               	bsf	18,2	;volatile
+  1125  05F6  0008               	return
+  1126  05F7                     __end_of_generateTone:	
+  1127                           
+  1128                           	psect	text5
+  1129  0622                     __ptext5:	
+  1130 ;; *************** function _SetPWMDutyCycle *****************
+  1131 ;; Defined at:
+  1132 ;;		line 33 in file "functions.c"
+  1133 ;; Parameters:    Size  Location     Type
+  1134 ;;  DutyCycle       2    0[COMMON] unsigned int 
+  1135 ;; Auto vars:     Size  Location     Type
+  1136 ;;		None
+  1137 ;; Return value:  Size  Location     Type
+  1138 ;;                  1    wreg      void 
+  1139 ;; Registers used:
+  1140 ;;		wreg, status,2, status,0
+  1141 ;; Tracked objects:
+  1142 ;;		On entry : 0/0
+  1143 ;;		On exit  : 0/0
+  1144 ;;		Unchanged: 0/0
+  1145 ;; Data sizes:     COMMON   BANK0   BANK1   BANK2
+  1146 ;;      Params:         2       0       0       0
+  1147 ;;      Locals:         0       0       0       0
+  1148 ;;      Temps:          2       0       0       0
+  1149 ;;      Totals:         4       0       0       0
+  1150 ;;Total ram usage:        4 bytes
+  1151 ;; Hardware stack levels used:    1
+  1152 ;; This function calls:
+  1153 ;;		Nothing
+  1154 ;; This function is called by:
+  1155 ;;		_main
+  1156 ;; This function uses a non-reentrant model
+  1157 ;;
+  1158                           
+  1159                           
+  1160                           ;psect for function _SetPWMDutyCycle
+  1161  0622                     _SetPWMDutyCycle:	
+  1162                           
+  1163                           ;functions.c: 36: CCPR1L=DutyCycle>>2;
+  1164                           
+  1165                           ;incstack = 0
+  1166                           ; Regs used in _SetPWMDutyCycle: [wreg+status,2+status,0]
+  1167  0622  0871               	movf	SetPWMDutyCycle@DutyCycle+1,w
+  1168  0623  00F3               	movwf	??_SetPWMDutyCycle+1
+  1169  0624  0870               	movf	SetPWMDutyCycle@DutyCycle,w
+  1170  0625  00F2               	movwf	??_SetPWMDutyCycle
+  1171  0626  1003               	clrc
+  1172  0627  0CF3               	rrf	??_SetPWMDutyCycle+1,f
+  1173  0628  0CF2               	rrf	??_SetPWMDutyCycle,f
+  1174  0629  1003               	clrc
+  1175  062A  0CF3               	rrf	??_SetPWMDutyCycle+1,f
+  1176  062B  0CF2               	rrf	??_SetPWMDutyCycle,f
+  1177  062C  0872               	movf	??_SetPWMDutyCycle,w
+  1178  062D  1283               	bcf	3,5	;RP0=0, select bank0
+  1179  062E  1303               	bcf	3,6	;RP1=0, select bank0
+  1180  062F  0095               	movwf	21	;volatile
+  1181                           
+  1182                           ;functions.c: 37: CCP1CON&=0xCF;
+  1183  0630  30CF               	movlw	207
+  1184  0631  00F2               	movwf	??_SetPWMDutyCycle
+  1185  0632  0872               	movf	??_SetPWMDutyCycle,w
+  1186  0633  0597               	andwf	23,f	;volatile
+  1187                           
+  1188                           ;functions.c: 38: CCP1CON|=(0x30&(DutyCycle<<4));
+  1189  0634  0870               	movf	SetPWMDutyCycle@DutyCycle,w
+  1190  0635  00F2               	movwf	??_SetPWMDutyCycle
+  1191  0636  3003               	movlw	3
+  1192  0637                     u25:	
+  1193  0637  1003               	clrc
+  1194  0638  0DF2               	rlf	??_SetPWMDutyCycle,f
+  1195  0639  3EFF               	addlw	-1
+  1196  063A  1D03               	skipz
+  1197  063B  2E37               	goto	u25
+  1198  063C  1003               	clrc
+  1199  063D  0D72               	rlf	??_SetPWMDutyCycle,w
+  1200  063E  3930               	andlw	48
+  1201  063F  00F3               	movwf	??_SetPWMDutyCycle+1
+  1202  0640  0873               	movf	??_SetPWMDutyCycle+1,w
+  1203  0641  0497               	iorwf	23,f	;volatile
+  1204  0642  0008               	return
+  1205  0643                     __end_of_SetPWMDutyCycle:	
+  1206                           
+  1207                           	psect	text6
+  1208  0612                     __ptext6:	
+  1209 ;; *************** function _InitPWM *****************
+  1210 ;; Defined at:
+  1211 ;;		line 11 in file "functions.c"
+  1212 ;; Parameters:    Size  Location     Type
+  1213 ;;		None
+  1214 ;; Auto vars:     Size  Location     Type
+  1215 ;;		None
+  1216 ;; Return value:  Size  Location     Type
+  1217 ;;                  1    wreg      void 
+  1218 ;; Registers used:
+  1219 ;;		wreg
+  1220 ;; Tracked objects:
+  1221 ;;		On entry : 0/0
+  1222 ;;		On exit  : 0/0
+  1223 ;;		Unchanged: 0/0
+  1224 ;; Data sizes:     COMMON   BANK0   BANK1   BANK2
+  1225 ;;      Params:         0       0       0       0
+  1226 ;;      Locals:         0       0       0       0
+  1227 ;;      Temps:          0       0       0       0
+  1228 ;;      Totals:         0       0       0       0
+  1229 ;;Total ram usage:        0 bytes
+  1230 ;; Hardware stack levels used:    1
+  1231 ;; This function calls:
+  1232 ;;		Nothing
+  1233 ;; This function is called by:
+  1234 ;;		_main
+  1235 ;; This function uses a non-reentrant model
+  1236 ;;
+  1237                           
+  1238                           
+  1239                           ;psect for function _InitPWM
+  1240  0612                     _InitPWM:	
+  1241                           
+  1242                           ;functions.c: 14: TRISB3=0;
+  1243                           
+  1244                           ;incstack = 0
+  1245                           ; Regs used in _InitPWM: [wreg]
+  1246  0612  1683               	bsf	3,5	;RP0=1, select bank1
+  1247  0613  1303               	bcf	3,6	;RP1=0, select bank1
+  1248  0614  1186               	bcf	6,3	;volatile
+  1249                           
+  1250                           ;functions.c: 15: CCP1CON=0x0C;
+  1251  0615  300C               	movlw	12
+  1252  0616  1283               	bcf	3,5	;RP0=0, select bank0
+  1253  0617  1303               	bcf	3,6	;RP1=0, select bank0
+  1254  0618  0097               	movwf	23	;volatile
+  1255                           
+  1256                           ;functions.c: 16: PR2=0x5E;
+  1257  0619  305E               	movlw	94
+  1258  061A  1683               	bsf	3,5	;RP0=1, select bank1
+  1259  061B  1303               	bcf	3,6	;RP1=0, select bank1
+  1260  061C  0092               	movwf	18	;volatile
+  1261                           
+  1262                           ;functions.c: 17: T2CONbits.T2CKPS0=1;
+  1263  061D  1283               	bcf	3,5	;RP0=0, select bank0
+  1264  061E  1303               	bcf	3,6	;RP1=0, select bank0
+  1265  061F  1412               	bsf	18,0	;volatile
+  1266                           
+  1267                           ;functions.c: 18: T2CONbits.T2CKPS1=0;
+  1268  0620  1092               	bcf	18,1	;volatile
+  1269  0621  0008               	return
+  1270  0622                     __end_of_InitPWM:	
+  1271  007E                     btemp	set	126	;btemp
+  1272  007E                     wtemp0	set	126
 
 
 Data Sizes:
@@ -511,7 +1296,7 @@ Data Sizes:
 
 Auto Spaces:
     Space          Size  Autos    Used
-    COMMON           14      9       9
+    COMMON           14      7       7
     BANK0            80      0       0
     BANK1            80      0       0
     BANK2            48      0       0
@@ -541,20 +1326,33 @@ Call Graph Tables:
  ---------------------------------------------------------------------------------
  (Depth) Function   	        Calls       Base Space   Used Autos Params    Refs
  ---------------------------------------------------------------------------------
- (0) _main                                                 5     5      0     166
-                                              4 COMMON     5     5      0
+ (0) _main                                                 3     3      0      97
+                                              4 COMMON     3     3      0
                             _InitPWM
                     _SetPWMDutyCycle
-                       _generateTone
+                          _dash_tone
+                           _dot_tone
  ---------------------------------------------------------------------------------
- (1) _generateTone                                         0     0      0       0
+ (1) _dot_tone                                             2     2      0       0
+                                              0 COMMON     2     2      0
+                       _generateTone
+                           _stopTone
+ ---------------------------------------------------------------------------------
+ (1) _dash_tone                                            2     2      0       0
+                                              0 COMMON     2     2      0
+                       _generateTone
+                           _stopTone
+ ---------------------------------------------------------------------------------
+ (2) _stopTone                                             0     0      0       0
+ ---------------------------------------------------------------------------------
+ (2) _generateTone                                         0     0      0       0
  ---------------------------------------------------------------------------------
  (1) _SetPWMDutyCycle                                      4     2      2      97
                                               0 COMMON     4     2      2
  ---------------------------------------------------------------------------------
  (1) _InitPWM                                              0     0      0       0
  ---------------------------------------------------------------------------------
- Estimated maximum stack depth 1
+ Estimated maximum stack depth 2
  ---------------------------------------------------------------------------------
 
  Call Graph Graphs:
@@ -562,7 +1360,12 @@ Call Graph Tables:
  _main (ROOT)
    _InitPWM
    _SetPWMDutyCycle
-   _generateTone
+   _dash_tone
+     _generateTone
+     _stopTone
+   _dot_tone
+     _generateTone
+     _stopTone
 
  Address spaces:
 Name               Size   Autos  Total    Cost      Usage
@@ -570,7 +1373,7 @@ BITCOMMON            E      0       0       0        0.0%
 EEDATA              80      0       0       0        0.0%
 NULL                 0      0       0       0        0.0%
 CODE                 0      0       0       0        0.0%
-COMMON               E      9       9       1       64.3%
+COMMON               E      7       7       1       50.0%
 BITSFR0              0      0       0       1        0.0%
 SFR0                 0      0       0       1        0.0%
 BITSFR1              0      0       0       2        0.0%
@@ -591,24 +1394,43 @@ DATA                 0      0       0      10        0.0%
 
 
 Microchip Technology PIC Macro Assembler V1.44 build -154322312 
-Symbol Table                                                                                   Sun Jan 23 14:15:24 2022
+Symbol Table                                                                                   Sun Jan 30 11:23:35 2022
 
-             __CFG_CP$OFF 0000                        u35 07C3                        u45 07F1  
-                      u57 07E1               __CFG_LVP$ON 0000                       l585 07F5  
-                     l577 07D6                       _PR2 0092              __CFG_CPD$OFF 0000  
-            __CFG_FOSC$HS 0000            ??_generateTone 0070                      _main 07CF  
-                    btemp 007E             __CFG_BOREN$ON 0000                      start 0000  
-           __CFG_MCLRE$ON 0000           __end_of_InitPWM 07AE           _SetPWMDutyCycle 07AE  
-                   ?_main 0070             __CFG_WDTE$OFF 0000  SetPWMDutyCycle@DutyCycle 0070  
-                   status 0003                     wtemp0 007E           __initialization 07FE  
-            __end_of_main 07FE                    ??_main 0074                    _CCPR1L 0015  
-                  _TRISB0 0430                    _TRISB3 0433                 ??_InitPWM 0070  
- __end_of_SetPWMDutyCycle 07CF            __CFG_PWRTE$OFF 0000      __end_of_generateTone 079E  
- __end_of__initialization 07FE            __pcstackCOMMON 0070          ?_SetPWMDutyCycle 0070  
-              __pmaintext 07CF                   _CCP1CON 0017                   _InitPWM 079E  
-   __size_of_generateTone 0004                   __ptext1 079A                   __ptext2 07AE  
-                 __ptext3 079E                 _T2CONbits 0012      end_of_initialization 07FE  
-            _generateTone 079A                 _PORTBbits 0006                main@pwmcyc 0077  
-     start_initialization 07FE                 ___latbits 0000                  ?_InitPWM 0070  
-__size_of_SetPWMDutyCycle 0021          __size_of_InitPWM 0010         ??_SetPWMDutyCycle 0072  
-           __size_of_main 002F             ?_generateTone 0070  
+             __CFG_CP$OFF 0000                        u25 0637                        u37 0654  
+                      u47 065D                        u57 0666                        u67 0671  
+                      u77 067C                        u87 0685                        u97 068E  
+             __CFG_LVP$ON 0000                       l700 064C                       u107 0699  
+                     u117 06A4                       u207 06FD                       u127 06AD  
+                     u217 0706                       u137 06B6                       u307 0763  
+                     u227 0711                       u147 06C1                       u317 076C  
+                     u237 071C                       u157 06CC                       _PR2 0092  
+                     u407 07C7                       u327 0777                       u247 0725  
+                     u167 06D5                       u417 07D2                       u337 0782  
+                     u257 072E                       u177 06DE              __CFG_CPD$OFF 0000  
+                     u427 07DD                       u347 078B                       u267 0739  
+                     u187 06E9                       u437 07E8                       u357 0794  
+                     u277 0744                       u197 06F4                       u447 07F6  
+                     u367 079D                       u287 074D                       u457 060B  
+                     u377 07A8                       u297 0758                       u467 0600  
+                     u387 07B3                       u397 07BC              __CFG_FOSC$HS 0000  
+          ??_generateTone 0070                      _main 0643                      btemp 007E  
+           __CFG_BOREN$ON 0000                      start 0000             __CFG_MCLRE$ON 0000  
+         __end_of_InitPWM 0622           _SetPWMDutyCycle 0622                     ?_main 0070  
+           __CFG_WDTE$OFF 0000  SetPWMDutyCycle@DutyCycle 0070                     status 0003  
+                   wtemp0 007E           __initialization 07FE              __end_of_main 07FE  
+                  ??_main 0074                    _CCPR1L 0015                    _TRISB0 0430  
+                  _TRISB3 0433                 ??_InitPWM 0070   __end_of_SetPWMDutyCycle 0643  
+          __CFG_PWRTE$OFF 0000          __end_of_dot_tone 0612      __end_of_generateTone 05F7  
+        __end_of_stopTone 05FB   __end_of__initialization 07FE            __pcstackCOMMON 0070  
+      __size_of_dash_tone 000B          ?_SetPWMDutyCycle 0070                __pmaintext 0643  
+                 _CCP1CON 0017                 ?_dot_tone 0070         __end_of_dash_tone 0606  
+                 _InitPWM 0612     __size_of_generateTone 0004                 ?_stopTone 0070  
+                 __ptext1 0606                   __ptext2 05FB                   __ptext3 05F7  
+                 __ptext4 05F3                   __ptext5 0622                   __ptext6 0612  
+               _T2CONbits 0012      end_of_initialization 07FE              _generateTone 05F3  
+              ??_dot_tone 0070                ??_stopTone 0070                 _PORTBbits 0006  
+     start_initialization 07FE                 ___latbits 0000         __size_of_dot_tone 000C  
+                ?_InitPWM 0070                 _dash_tone 05FB  __size_of_SetPWMDutyCycle 0021  
+       __size_of_stopTone 0004                ?_dash_tone 0070          __size_of_InitPWM 0010  
+       ??_SetPWMDutyCycle 0072                  _dot_tone 0606             __size_of_main 01BB  
+             ??_dash_tone 0070                  _stopTone 05F7             ?_generateTone 0070  
