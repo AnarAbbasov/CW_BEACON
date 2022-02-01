@@ -882,23 +882,89 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;pwm_main.c: 178: dash();
 "178
 [e ( _dash ..  ]
-[; ;pwm_main.c: 180: PORTBbits.RB0=0;
-"180
-[e = . . _PORTBbits 0 0 -> -> 0 `i `uc ]
-[; ;pwm_main.c: 181: _delay((unsigned long)((10000)*(4000000/4000.0))) ;
-"181
-[e ( __delay (1 -> * -> -> 10000 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+[; ;pwm_main.c: 182: _delay((unsigned long)((300)*(4000000/4000.0))) ;
 "182
+[e ( __delay (1 -> * -> -> 300 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+[; ;pwm_main.c: 184: dot();
+"184
+[e ( _dot ..  ]
+[; ;pwm_main.c: 185: _delay((unsigned long)((150)*(4000000/4000.0)));
+"185
+[e ( __delay (1 -> * -> -> 150 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+[; ;pwm_main.c: 186: dash();
+"186
+[e ( _dash ..  ]
+[; ;pwm_main.c: 187: _delay((unsigned long)((150)*(4000000/4000.0)));
+"187
+[e ( __delay (1 -> * -> -> 150 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+[; ;pwm_main.c: 188: dash();
+"188
+[e ( _dash ..  ]
+[; ;pwm_main.c: 189: _delay((unsigned long)((150)*(4000000/4000.0)));
+"189
+[e ( __delay (1 -> * -> -> 150 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+[; ;pwm_main.c: 190: dot();
+"190
+[e ( _dot ..  ]
+[; ;pwm_main.c: 197: _delay((unsigned long)((300)*(4000000/4000.0))) ;
+"197
+[e ( __delay (1 -> * -> -> 300 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+[; ;pwm_main.c: 199: dot();
+"199
+[e ( _dot ..  ]
+[; ;pwm_main.c: 200: _delay((unsigned long)((150)*(4000000/4000.0))) ;
+"200
+[e ( __delay (1 -> * -> -> 150 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+[; ;pwm_main.c: 201: dot();
+"201
+[e ( _dot ..  ]
+[; ;pwm_main.c: 202: _delay((unsigned long)((150)*(4000000/4000.0)));
+"202
+[e ( __delay (1 -> * -> -> 150 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+[; ;pwm_main.c: 203: dot();
+"203
+[e ( _dot ..  ]
+[; ;pwm_main.c: 205: _delay((unsigned long)((300)*(4000000/4000.0))) ;
+"205
+[e ( __delay (1 -> * -> -> 300 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+[; ;pwm_main.c: 207: dot();
+"207
+[e ( _dot ..  ]
+[; ;pwm_main.c: 209: _delay((unsigned long)((300)*(4000000/4000.0))) ;
+"209
+[e ( __delay (1 -> * -> -> 300 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+[; ;pwm_main.c: 211: dash();
+"211
+[e ( _dash ..  ]
+[; ;pwm_main.c: 212: _delay((unsigned long)((150)*(4000000/4000.0))) ;
+"212
+[e ( __delay (1 -> * -> -> 150 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+[; ;pwm_main.c: 213: dot();
+"213
+[e ( _dot ..  ]
+[; ;pwm_main.c: 214: _delay((unsigned long)((150)*(4000000/4000.0))) ;
+"214
+[e ( __delay (1 -> * -> -> 150 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+[; ;pwm_main.c: 215: dash();
+"215
+[e ( _dash ..  ]
+[; ;pwm_main.c: 218: PORTBbits.RB0=0;
+"218
+[e = . . _PORTBbits 0 0 -> -> 0 `i `uc ]
+[; ;pwm_main.c: 219: _delay((unsigned long)((15000)*(4000000/4000.0))) ;
+"219
+[e ( __delay (1 -> * -> -> 15000 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+"220
 }
 [e :U 52 ]
 "27
 [e $U 53  ]
 [e :U 54 ]
-[; ;pwm_main.c: 182: }
-[; ;pwm_main.c: 183: return;
-"183
+[; ;pwm_main.c: 220: }
+[; ;pwm_main.c: 221: return;
+"221
 [e $UE 51  ]
-[; ;pwm_main.c: 184: }
-"184
+[; ;pwm_main.c: 222: }
+"222
 [e :UE 51 ]
 }

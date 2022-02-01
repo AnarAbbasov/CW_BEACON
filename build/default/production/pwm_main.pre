@@ -1008,8 +1008,42 @@ dash();
 _delay((unsigned long)((150)*(4000000/4000.0))) ;
 dash();
 
+
+
+_delay((unsigned long)((300)*(4000000/4000.0))) ;
+
+dot();
+_delay((unsigned long)((150)*(4000000/4000.0)));
+dash();
+_delay((unsigned long)((150)*(4000000/4000.0)));
+dash();
+_delay((unsigned long)((150)*(4000000/4000.0)));
+dot();
+
+# 197
+_delay((unsigned long)((300)*(4000000/4000.0))) ;
+
+dot();
+_delay((unsigned long)((150)*(4000000/4000.0))) ;
+dot();
+_delay((unsigned long)((150)*(4000000/4000.0)));
+dot();
+
+_delay((unsigned long)((300)*(4000000/4000.0))) ;
+
+dot();
+
+_delay((unsigned long)((300)*(4000000/4000.0))) ;
+
+dash();
+_delay((unsigned long)((150)*(4000000/4000.0))) ;
+dot();
+_delay((unsigned long)((150)*(4000000/4000.0))) ;
+dash();
+
+
 PORTBbits.RB0=0;
-_delay((unsigned long)((10000)*(4000000/4000.0))) ;
+_delay((unsigned long)((15000)*(4000000/4000.0))) ;
 }
 return;
 }

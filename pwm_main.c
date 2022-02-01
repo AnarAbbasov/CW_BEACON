@@ -177,8 +177,46 @@ void main(void) {
         __delay_ms(150)      ;/*M*/
         dash();                
           
+        
+        
+        __delay_ms(300) ;
+                
+             dot();
+        __delay_ms(150);
+             dash();     /* P*/
+        __delay_ms(150);
+             dash();   
+        __delay_ms(150);
+             dot();
+        
+           
+        
+        
+        
+        
+        __delay_ms(300) ; 
+        
+         dot();
+        __delay_ms(150)  ; /* S*/
+         dot();
+        __delay_ms(150);
+          dot();
+        
+        __delay_ms(300) ;
+        
+         dot();                 /* E*/
+        
+        __delay_ms(300) ;
+        
+         dash();               
+        __delay_ms(150)      ;
+        dot();                /*K*/
+        __delay_ms(150)      ;
+        dash();    
+                
+        
          PORTBbits.RB0=0;
-        __delay_ms(5000)      ;
+        __delay_ms(15000)      ;
      }
     return;
 }
