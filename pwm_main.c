@@ -24,7 +24,7 @@ void main(void) {
     
      while(1)
      {
-            PORTBbits.RB0=0;
+            PORTBbits.RB0=1;
             dash_tone();
             __delay_ms(150);
             dot_tone();

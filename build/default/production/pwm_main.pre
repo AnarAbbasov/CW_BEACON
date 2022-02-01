@@ -865,7 +865,7 @@ TRISB0=0;
 
 while(1)
 {
-PORTBbits.RB0=0;
+PORTBbits.RB0=1;
 dash_tone();
 _delay((unsigned long)((150)*(4000000/4000.0)));
 dot_tone();
@@ -873,13 +873,7 @@ _delay((unsigned long)((150)*(4000000/4000.0)));
 dash_tone();
 _delay((unsigned long)((150)*(4000000/4000.0)));
 dot_tone();
-
-
-
 _delay((unsigned long)((300)*(4000000/4000.0)));
-
-
-
 dash_tone();
 _delay((unsigned long)((150)*(4000000/4000.0)));
 dash_tone();
@@ -887,11 +881,7 @@ _delay((unsigned long)((150)*(4000000/4000.0)));
 dot_tone();
 _delay((unsigned long)((150)*(4000000/4000.0)));
 dash_tone();
-
-
 _delay((unsigned long)((300)*(4000000/4000.0)));
-
-# 57
 dash_tone();
 _delay((unsigned long)((150)*(4000000/4000.0)));
 dot_tone();
@@ -899,13 +889,7 @@ _delay((unsigned long)((150)*(4000000/4000.0)));
 dash_tone();
 _delay((unsigned long)((150)*(4000000/4000.0)));
 dot_tone();
-
-
-
 _delay((unsigned long)((300)*(4000000/4000.0)));
-
-
-
 dash_tone();
 _delay((unsigned long)((150)*(4000000/4000.0)));
 dash_tone();
@@ -913,11 +897,7 @@ _delay((unsigned long)((150)*(4000000/4000.0)));
 dot_tone();
 _delay((unsigned long)((150)*(4000000/4000.0)));
 dash_tone();
-
-
 _delay((unsigned long)((300)*(4000000/4000.0)));
-
-# 88
 dash_tone();
 _delay((unsigned long)((150)*(4000000/4000.0)));
 dot_tone();
@@ -925,13 +905,7 @@ _delay((unsigned long)((150)*(4000000/4000.0)));
 dash_tone();
 _delay((unsigned long)((150)*(4000000/4000.0)));
 dot_tone();
-
-
-
 _delay((unsigned long)((300)*(4000000/4000.0)));
-
-
-
 dash_tone();
 _delay((unsigned long)((150)*(4000000/4000.0)));
 dash_tone();
@@ -939,36 +913,19 @@ _delay((unsigned long)((150)*(4000000/4000.0)));
 dot_tone();
 _delay((unsigned long)((150)*(4000000/4000.0)));
 dash_tone();
-
-
 _delay((unsigned long)((300)*(4000000/4000.0)));
-
-
-
-
 dash_tone();
 _delay((unsigned long)((150)*(4000000/4000.0))) ;
 dot_tone();
 _delay((unsigned long)((150)*(4000000/4000.0))) ;
 dash_tone();
-
-
 _delay((unsigned long)((300)*(4000000/4000.0))) ;
-
-
-
 dash_tone();
 _delay((unsigned long)((150)*(4000000/4000.0))) ;
 dash_tone();
 _delay((unsigned long)((150)*(4000000/4000.0))) ;
 dot_tone();
-
-
-
 _delay((unsigned long)((300)*(4000000/4000.0))) ;
-
-
-
 dash_tone();
 _delay((unsigned long)((150)*(4000000/4000.0))) ;
 dash_tone();
@@ -978,39 +935,22 @@ _delay((unsigned long)((150)*(4000000/4000.0))) ;
 dot_tone();
 _delay((unsigned long)((150)*(4000000/4000.0))) ;
 dot_tone();
-
-
-
 _delay((unsigned long)((300)*(4000000/4000.0))) ;
-
-
-
 dot_tone();
 _delay((unsigned long)((150)*(4000000/4000.0))) ;
 dash_tone();
 _delay((unsigned long)((150)*(4000000/4000.0))) ;
 dot_tone();
-
-
 _delay((unsigned long)((300)*(4000000/4000.0))) ;
-
-
 dash_tone();
 _delay((unsigned long)((150)*(4000000/4000.0))) ;
 dot_tone();
-
 _delay((unsigned long)((300)*(4000000/4000.0))) ;
-
-
 dash_tone();
 _delay((unsigned long)((150)*(4000000/4000.0))) ;
 dash_tone();
-
 PORTBbits.RB0=0;
 _delay((unsigned long)((15000)*(4000000/4000.0))) ;
-
-
-
 
 }
 return;
