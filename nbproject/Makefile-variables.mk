@@ -6,5 +6,5 @@
 CND_BASEDIR=`pwd`
 # default configuration
 CND_ARTIFACT_DIR_default=dist/default/production
-CND_ARTIFACT_NAME_default=PWM_dimmer.X.production.hex
-CND_ARTIFACT_PATH_default=dist/default/production/PWM_dimmer.X.production.hex
+CND_ARTIFACT_NAME_default=CW_BEACON.production.hex
+CND_ARTIFACT_PATH_default=dist/default/production/CW_BEACON.production.hex

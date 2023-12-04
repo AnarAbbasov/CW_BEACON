@@ -177,13 +177,17 @@ void main(void) {
         __delay_ms(150)      ;/*M*/
         dash();                
           
-        
-        
         __delay_ms(300) ;
+        
+        FSLASH
+        __delay_ms(300) ;
+        SEND_B
+        
+        /*__delay_ms(300) ;
                 
              dot();
         __delay_ms(150);
-             dash();     /* P*/
+             dash();     // P
         __delay_ms(150);
              dash();   
         __delay_ms(150);
@@ -197,24 +201,24 @@ void main(void) {
         __delay_ms(300) ; 
         
          dot();
-        __delay_ms(150)  ; /* S*/
+        __delay_ms(150)  ;  S
          dot();
         __delay_ms(150);
           dot();
         
         __delay_ms(300) ;
         
-         dot();                 /* E*/
+         dot();                 E
         
         __delay_ms(300) ;
         
          dash();               
         __delay_ms(150)      ;
-        dot();                /*K*/
+        dot();                K
         __delay_ms(150)      ;
         dash();    
                 
-        
+        */
          PORTBbits.RB0=0;
         __delay_ms(15000)      ;
      }

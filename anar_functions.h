@@ -82,3 +82,17 @@ void generateTone(void);
 void stopTone(void);
 void dot();
 void dash();
+
+#define FSLASH  \
+     dash();\
+     __delay_ms(150); \
+     dot();\
+     __delay_ms(150);\
+     dot();   \
+     __delay_ms(150);\
+     dash();\
+     __delay_ms(150);\
+    dot();
+    
+#define SEND_B   dash(); __delay_ms(150);  dot();\
+      __delay_ms(150);dot(); __delay_ms(150);dot();
