@@ -1,35 +1,40 @@
 Version 3.2 HI-TECH Software Intermediate Code
-"1537 C:\Program Files (x86)\Microchip\xc8\v1.44\include\pic16f628a.h
-[v _TRISB3 `Vb ~T0 @X0 0 e@1075 ]
-"622
-[v _CCP1CON `Vuc ~T0 @X0 0 e@23 ]
-"1135
-[v _PR2 `Vuc ~T0 @X0 0 e@146 ]
-"536
-[s S20 :2 `uc 1 :1 `uc 1 :4 `uc 1 ]
-[n S20 . T2CKPS TMR2ON TOUTPS ]
-"541
-[s S21 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S21 . T2CKPS0 T2CKPS1 . TOUTPS0 TOUTPS1 TOUTPS2 TOUTPS3 ]
-"535
-[u S19 `S20 1 `S21 1 ]
-[n S19 . . . ]
-"551
-[v _T2CONbits `VS19 ~T0 @X0 0 e@18 ]
-"608
-[v _CCPR1L `Vuc ~T0 @X0 0 e@21 ]
-"232
-[s S8 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S8 . RB0 RB1 RB2 RB3 RB4 RB5 RB6 RB7 ]
-"231
-[u S7 `S8 1 ]
-[n S7 . . ]
-"243
-[v _PORTBbits `VS7 ~T0 @X0 0 e@6 ]
-[v F599 `(v ~T0 @X0 1 tf1`ul ]
-"153 C:\Program Files (x86)\Microchip\xc8\v1.44\include\pic.h
-[v __delay `JF599 ~T0 @X0 0 e ]
-[p i __delay ]
+"967 C:\Program Files (x86)\Microchip\xc8\v1.44\include\pic16f628a.h
+[v _TRISB `Vuc ~T0 @X0 0 e@134 ]
+"1199
+[v _SPBRG `Vuc ~T0 @X0 0 e@153 ]
+"1339
+[v _BRGH `Vb ~T0 @X0 0 e@1218 ]
+"1469
+[v _SYNC `Vb ~T0 @X0 0 e@1220 ]
+"1465
+[v _SPEN `Vb ~T0 @X0 0 e@199 ]
+"1379
+[v _CREN `Vb ~T0 @X0 0 e@196 ]
+"1467
+[v _SREN `Vb ~T0 @X0 0 e@197 ]
+"1555
+[v _TXIE `Vb ~T0 @X0 0 e@1124 ]
+"1451
+[v _RCIE `Vb ~T0 @X0 0 e@1125 ]
+"1549
+[v _TX9 `Vb ~T0 @X0 0 e@1222 ]
+"1461
+[v _RX9 `Vb ~T0 @X0 0 e@198 ]
+"1553
+[v _TXEN `Vb ~T0 @X0 0 e@1221 ]
+"1557
+[v _TXIF `Vb ~T0 @X0 0 e@100 ]
+"751
+[v _TXREG `Vuc ~T0 @X0 0 e@25 ]
+"1453
+[v _RCIF `Vb ~T0 @X0 0 e@101 ]
+"1401
+[v _OERR `Vb ~T0 @X0 0 e@193 ]
+"31 UARTComm.h
+[v _EnableSend `i ~T0 @X0 0 e ]
+"758 C:\Program Files (x86)\Microchip\xc8\v1.44\include\pic16f628a.h
+[v _RCREG `Vuc ~T0 @X0 0 e@26 ]
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;htc.h: 28: extern double __fpnormalize(double);
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
@@ -597,144 +602,172 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;pic.h: 193: extern __bank0 unsigned char __resetbits;
 [; ;pic.h: 194: extern __bank0 __bit __powerdown;
 [; ;pic.h: 195: extern __bank0 __bit __timeout;
-"22 functions.c
-[v _InitPWM `(v ~T0 @X0 1 ef ]
-"23
+[; ;UARTComm.h: 27: void InitUART(void);
+[; ;UARTComm.h: 28: void SendByteSerially(unsigned char Byte);
+[; ;UARTComm.h: 29: void interrupt ISR(void);
+[; ;UARTComm.h: 30: unsigned char ReceiveByteSerially(void);
+[; ;UARTComm.h: 31: extern int EnableSend;
+"8 UARTComm.c
+[v _InitUART `(v ~T0 @X0 1 ef ]
+"9
 {
-[; ;functions.c: 22: void InitPWM(void)
-[; ;functions.c: 23: {
-[e :U _InitPWM ]
+[; ;UARTComm.c: 8: void InitUART(void)
+[; ;UARTComm.c: 9: {
+[e :U _InitUART ]
 [f ]
-[; ;functions.c: 25: TRISB3=0;
-"25
-[e = _TRISB3 -> -> 0 `i `b ]
-[; ;functions.c: 26: CCP1CON=0x0C;
-"26
-[e = _CCP1CON -> -> 12 `i `uc ]
-[; ;functions.c: 27: PR2=0x5E;
-"27
-[e = _PR2 -> -> 94 `i `uc ]
-[; ;functions.c: 28: T2CONbits.T2CKPS0=1;
-"28
-[e = . . _T2CONbits 1 0 -> -> 1 `i `uc ]
-[; ;functions.c: 29: T2CONbits.T2CKPS1=0;
-"29
-[e = . . _T2CONbits 1 1 -> -> 0 `i `uc ]
-[; ;functions.c: 31: }
-"31
+[; ;UARTComm.c: 10: TRISB=0;
+"10
+[e = _TRISB -> -> 0 `i `uc ]
+[; ;UARTComm.c: 11: TRISB=1;
+"11
+[e = _TRISB -> -> 1 `i `uc ]
+[; ;UARTComm.c: 12: SPBRG=((4000000/16)/9600)-1;
+"12
+[e = _SPBRG -> - / / -> 4000000 `l -> -> 16 `i `l -> -> 9600 `i `l -> -> 1 `i `l `uc ]
+[; ;UARTComm.c: 13: BRGH=1;
+"13
+[e = _BRGH -> -> 1 `i `b ]
+[; ;UARTComm.c: 14: SYNC=0;
+"14
+[e = _SYNC -> -> 0 `i `b ]
+[; ;UARTComm.c: 15: SPEN=1;
+"15
+[e = _SPEN -> -> 1 `i `b ]
+[; ;UARTComm.c: 16: CREN=1;
+"16
+[e = _CREN -> -> 1 `i `b ]
+[; ;UARTComm.c: 17: SREN=0;
+"17
+[e = _SREN -> -> 0 `i `b ]
+[; ;UARTComm.c: 18: TXIE=0;
+"18
+[e = _TXIE -> -> 0 `i `b ]
+[; ;UARTComm.c: 19: RCIE=1;
+"19
+[e = _RCIE -> -> 1 `i `b ]
+[; ;UARTComm.c: 20: TX9=0;
+"20
+[e = _TX9 -> -> 0 `i `b ]
+[; ;UARTComm.c: 21: RX9=0;
+"21
+[e = _RX9 -> -> 0 `i `b ]
+[; ;UARTComm.c: 22: TXEN=0;
+"22
+[e = _TXEN -> -> 0 `i `b ]
+[; ;UARTComm.c: 23: TXEN=1;
+"23
+[e = _TXEN -> -> 1 `i `b ]
+[; ;UARTComm.c: 24: }
+"24
 [e :UE 51 ]
 }
-"35
-[v _generateTone `(v ~T0 @X0 1 ef ]
-"36
+"27
+[v _SendByteSerially `(v ~T0 @X0 1 ef1`uc ]
+"28
 {
-[; ;functions.c: 35: void generateTone(void)
-[; ;functions.c: 36: {
-[e :U _generateTone ]
+[; ;UARTComm.c: 27: void SendByteSerially(unsigned char Byte)
+[; ;UARTComm.c: 28: {
+[e :U _SendByteSerially ]
+"27
+[v _Byte `uc ~T0 @X0 1 r1 ]
+"28
 [f ]
-[; ;functions.c: 38: T2CONbits.TMR2ON=1;
-"38
-[e = . . _T2CONbits 0 1 -> -> 1 `i `uc ]
-[; ;functions.c: 39: }
-"39
+[; ;UARTComm.c: 29: while(!TXIF);
+"29
+[e $U 53  ]
+[e :U 54 ]
+[e :U 53 ]
+[e $ ! _TXIF 54  ]
+[e :U 55 ]
+[; ;UARTComm.c: 30: TXREG=Byte;
+"30
+[e = _TXREG _Byte ]
+[; ;UARTComm.c: 31: }
+"31
 [e :UE 52 ]
 }
+[v $root$_ISR `(v ~T0 @X0 0 e ]
+[v F612 `(v ~T0 @X0 1 tf ]
+"34
+[v _ISR `IF612 ~T0 @X0 1 e ]
+"35
+{
+[; ;UARTComm.c: 34: void interrupt ISR(void)
+[; ;UARTComm.c: 35: {
+[e :U _ISR ]
+[f ]
+[; ;UARTComm.c: 36: if(RCIF)
+"36
+[e $ ! _RCIF 57  ]
+[; ;UARTComm.c: 37: {
+"37
+{
+[; ;UARTComm.c: 38: if(OERR)
+"38
+[e $ ! _OERR 58  ]
+[; ;UARTComm.c: 39: {
+"39
+{
+[; ;UARTComm.c: 40: CREN=0;
 "40
-[v _stopTone `(v ~T0 @X0 1 ef ]
+[e = _CREN -> -> 0 `i `b ]
+[; ;UARTComm.c: 41: CREN=1;
 "41
-{
-[; ;functions.c: 40: void stopTone(void)
-[; ;functions.c: 41: {
-[e :U _stopTone ]
-[f ]
-[; ;functions.c: 42: T2CONbits.TMR2ON=0;
+[e = _CREN -> -> 1 `i `b ]
 "42
-[e = . . _T2CONbits 0 1 -> -> 0 `i `uc ]
-[; ;functions.c: 43: }
+}
+[e :U 58 ]
 "43
-[e :UE 53 ]
 }
+[e :U 57 ]
+[; ;UARTComm.c: 42: }
+[; ;UARTComm.c: 43: }
+[; ;UARTComm.c: 44: EnableSend=0;
 "44
-[v _SetPWMDutyCycle `(v ~T0 @X0 1 ef1`ui ]
+[e = _EnableSend -> 0 `i ]
+[; ;UARTComm.c: 45: SendByteSerially( 'K');
 "45
-{
-[; ;functions.c: 44: void SetPWMDutyCycle(unsigned int DutyCycle)
-[; ;functions.c: 45: {
-[e :U _SetPWMDutyCycle ]
-"44
-[v _DutyCycle `ui ~T0 @X0 1 r1 ]
-"45
-[f ]
-[; ;functions.c: 47: CCPR1L=DutyCycle>>2;
-"47
-[e = _CCPR1L -> >> _DutyCycle -> 2 `i `uc ]
-[; ;functions.c: 48: CCP1CON&=0xCF;
-"48
-[e =& _CCP1CON -> -> 207 `i `uc ]
-[; ;functions.c: 49: CCP1CON|=(0x30&(DutyCycle<<4));
-"49
-[e =| _CCP1CON -> & -> -> 48 `i `ui << _DutyCycle -> 4 `i `uc ]
-[; ;functions.c: 52: }
-"52
-[e :UE 54 ]
-}
-"56
-[v _dot `(v ~T0 @X0 1 ef ]
-"57
-{
-[; ;functions.c: 56: void dot()
-[; ;functions.c: 57: {
-[e :U _dot ]
-[f ]
-[; ;functions.c: 59: generateTone();
-"59
-[e ( _generateTone ..  ]
-[; ;functions.c: 60: PORTBbits.RB0=1;
-"60
-[e = . . _PORTBbits 0 0 -> -> 1 `i `uc ]
-[; ;functions.c: 61: _delay((unsigned long)((50)*(4000000/4000.0)));
-"61
-[e ( __delay (1 -> * -> -> 50 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
-[; ;functions.c: 62: PORTBbits.RB0=0;
-"62
-[e = . . _PORTBbits 0 0 -> -> 0 `i `uc ]
-[; ;functions.c: 63: stopTone();
-"63
-[e ( _stopTone ..  ]
-[; ;functions.c: 65: return ;
-"65
-[e $UE 55  ]
-[; ;functions.c: 66: }
-"66
-[e :UE 55 ]
-}
-"70
-[v _dash `(v ~T0 @X0 1 ef ]
-"71
-{
-[; ;functions.c: 70: void dash()
-[; ;functions.c: 71: {
-[e :U _dash ]
-[f ]
-[; ;functions.c: 73: generateTone();
-"73
-[e ( _generateTone ..  ]
-[; ;functions.c: 74: PORTBbits.RB0=1;
-"74
-[e = . . _PORTBbits 0 0 -> -> 1 `i `uc ]
-[; ;functions.c: 75: _delay((unsigned long)((150)*(4000000/4000.0)));
-"75
-[e ( __delay (1 -> * -> -> 150 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
-[; ;functions.c: 76: PORTBbits.RB0=0;
-"76
-[e = . . _PORTBbits 0 0 -> -> 0 `i `uc ]
-[; ;functions.c: 77: stopTone();
-"77
-[e ( _stopTone ..  ]
-[; ;functions.c: 78: return ;
-"78
-[e $UE 56  ]
-[; ;functions.c: 79: }
-"79
+[e ( _SendByteSerially (1 -> -> 75 `ui `uc ]
+[; ;UARTComm.c: 46: }
+"46
 [e :UE 56 ]
+}
+"52
+[v _ReceiveByteSerially `(uc ~T0 @X0 1 ef ]
+"53
+{
+[; ;UARTComm.c: 52: unsigned char ReceiveByteSerially(void)
+[; ;UARTComm.c: 53: {
+[e :U _ReceiveByteSerially ]
+[f ]
+[; ;UARTComm.c: 54: if(OERR)
+"54
+[e $ ! _OERR 60  ]
+[; ;UARTComm.c: 55: {
+"55
+{
+[; ;UARTComm.c: 56: CREN=0;
+"56
+[e = _CREN -> -> 0 `i `b ]
+[; ;UARTComm.c: 57: CREN=1;
+"57
+[e = _CREN -> -> 1 `i `b ]
+"58
+}
+[e :U 60 ]
+[; ;UARTComm.c: 58: }
+[; ;UARTComm.c: 59: while(!RCIF);
+"59
+[e $U 61  ]
+[e :U 62 ]
+[e :U 61 ]
+[e $ ! _RCIF 62  ]
+[e :U 63 ]
+[; ;UARTComm.c: 60: return RCREG;
+"60
+[e ) _RCREG ]
+[e $UE 59  ]
+[; ;UARTComm.c: 61: }
+"61
+[e :UE 59 ]
 }

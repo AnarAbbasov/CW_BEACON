@@ -14,21 +14,18 @@
 #pragma config CP = OFF         // Flash Program Memory Code Protection bit (Code protection off)
 
 #include "anar_functions.h"
+#include "UARTComm.h"
 #include <xc.h>
 #define _XTAL_FREQ 4000000
-void main(void) {
-    
-    InitPWM();
-    SetPWMDutyCycle(10);
-    
-    
-      TRISB0=0;
-     
-     while(1)
-     {
-     
-        
-         
+
+int EnableSend;
+void main(void)
+{
+InitPWM();
+SetPWMDutyCycle(10);
+TRISB0=0;
+while(EnableSend==1)
+{
         dash();
         __delay_ms(150);
         dot();
@@ -36,12 +33,8 @@ void main(void) {
         dash();
         __delay_ms(150);
         dot();
-        
-        
-        
+
         __delay_ms(300);
-        
-        
         
         dash(); 
         __delay_ms(150);

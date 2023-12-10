@@ -1,2 +1,3 @@
-build/default/production/functions.p1:  \
-functions.c 
+ build/default/production/functions.d  \
+ build/default/production/functions.p1:  \
+ functions.c 
