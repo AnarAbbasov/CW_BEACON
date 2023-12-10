@@ -841,6 +841,7 @@ void SendByteSerially(unsigned char Byte);
 void interrupt ISR(void);
 unsigned char ReceiveByteSerially(void);
 extern int EnableSend;
+void sendStringSerially(const unsigned char* st);
 
 # 8 "UARTComm.c"
 void InitUART(void)
@@ -879,11 +880,19 @@ CREN=0;
 CREN=1;
 }
 }
+if(RCREG=='F'){
 EnableSend=0;
 SendByteSerially( 'K');
 }
 
-# 52
+if(RCREG=='S')
+{
+EnableSend=1;
+SendByteSerially( 'K');
+}
+}
+
+# 60
 unsigned char ReceiveByteSerially(void)
 {
 if(OERR)
@@ -895,3 +904,16 @@ while(!RCIF);
 return RCREG;
 }
 
+
+
+void sendStringSerially(const unsigned char* st)
+{
+
+for (unsigned int i=0;i<sizeof(st);i++)
+{
+
+sendByteSerially(st[i]);
+
+
+}
+}

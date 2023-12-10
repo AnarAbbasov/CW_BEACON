@@ -597,144 +597,144 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;pic.h: 193: extern __bank0 unsigned char __resetbits;
 [; ;pic.h: 194: extern __bank0 __bit __powerdown;
 [; ;pic.h: 195: extern __bank0 __bit __timeout;
-"22 functions.c
+"14 functions.c
 [v _InitPWM `(v ~T0 @X0 1 ef ]
-"23
+"15
 {
-[; ;functions.c: 22: void InitPWM(void)
-[; ;functions.c: 23: {
+[; ;functions.c: 14: void InitPWM(void)
+[; ;functions.c: 15: {
 [e :U _InitPWM ]
 [f ]
-[; ;functions.c: 25: TRISB3=0;
-"25
+[; ;functions.c: 17: TRISB3=0;
+"17
 [e = _TRISB3 -> -> 0 `i `b ]
-[; ;functions.c: 26: CCP1CON=0x0C;
-"26
+[; ;functions.c: 18: CCP1CON=0x0C;
+"18
 [e = _CCP1CON -> -> 12 `i `uc ]
-[; ;functions.c: 27: PR2=0x5E;
-"27
+[; ;functions.c: 19: PR2=0x5E;
+"19
 [e = _PR2 -> -> 94 `i `uc ]
-[; ;functions.c: 28: T2CONbits.T2CKPS0=1;
-"28
+[; ;functions.c: 20: T2CONbits.T2CKPS0=1;
+"20
 [e = . . _T2CONbits 1 0 -> -> 1 `i `uc ]
-[; ;functions.c: 29: T2CONbits.T2CKPS1=0;
-"29
+[; ;functions.c: 21: T2CONbits.T2CKPS1=0;
+"21
 [e = . . _T2CONbits 1 1 -> -> 0 `i `uc ]
-[; ;functions.c: 31: }
-"31
+[; ;functions.c: 23: }
+"23
 [e :UE 51 ]
 }
-"35
+"27
 [v _generateTone `(v ~T0 @X0 1 ef ]
-"36
+"28
 {
-[; ;functions.c: 35: void generateTone(void)
-[; ;functions.c: 36: {
+[; ;functions.c: 27: void generateTone(void)
+[; ;functions.c: 28: {
 [e :U _generateTone ]
 [f ]
-[; ;functions.c: 38: T2CONbits.TMR2ON=1;
-"38
+[; ;functions.c: 30: T2CONbits.TMR2ON=1;
+"30
 [e = . . _T2CONbits 0 1 -> -> 1 `i `uc ]
-[; ;functions.c: 39: }
-"39
+[; ;functions.c: 31: }
+"31
 [e :UE 52 ]
 }
-"40
+"34
 [v _stopTone `(v ~T0 @X0 1 ef ]
-"41
+"35
 {
-[; ;functions.c: 40: void stopTone(void)
-[; ;functions.c: 41: {
+[; ;functions.c: 34: void stopTone(void)
+[; ;functions.c: 35: {
 [e :U _stopTone ]
 [f ]
-[; ;functions.c: 42: T2CONbits.TMR2ON=0;
-"42
+[; ;functions.c: 36: T2CONbits.TMR2ON=0;
+"36
 [e = . . _T2CONbits 0 1 -> -> 0 `i `uc ]
-[; ;functions.c: 43: }
-"43
+[; ;functions.c: 37: }
+"37
 [e :UE 53 ]
 }
-"44
+"40
 [v _SetPWMDutyCycle `(v ~T0 @X0 1 ef1`ui ]
-"45
+"41
 {
-[; ;functions.c: 44: void SetPWMDutyCycle(unsigned int DutyCycle)
-[; ;functions.c: 45: {
+[; ;functions.c: 40: void SetPWMDutyCycle(unsigned int DutyCycle)
+[; ;functions.c: 41: {
 [e :U _SetPWMDutyCycle ]
-"44
+"40
 [v _DutyCycle `ui ~T0 @X0 1 r1 ]
-"45
+"41
 [f ]
-[; ;functions.c: 47: CCPR1L=DutyCycle>>2;
-"47
+[; ;functions.c: 43: CCPR1L=DutyCycle>>2;
+"43
 [e = _CCPR1L -> >> _DutyCycle -> 2 `i `uc ]
-[; ;functions.c: 48: CCP1CON&=0xCF;
-"48
+[; ;functions.c: 44: CCP1CON&=0xCF;
+"44
 [e =& _CCP1CON -> -> 207 `i `uc ]
-[; ;functions.c: 49: CCP1CON|=(0x30&(DutyCycle<<4));
-"49
+[; ;functions.c: 45: CCP1CON|=(0x30&(DutyCycle<<4));
+"45
 [e =| _CCP1CON -> & -> -> 48 `i `ui << _DutyCycle -> 4 `i `uc ]
-[; ;functions.c: 52: }
-"52
+[; ;functions.c: 48: }
+"48
 [e :UE 54 ]
 }
-"56
+"52
 [v _dot `(v ~T0 @X0 1 ef ]
-"57
+"53
 {
-[; ;functions.c: 56: void dot()
-[; ;functions.c: 57: {
+[; ;functions.c: 52: void dot()
+[; ;functions.c: 53: {
 [e :U _dot ]
 [f ]
-[; ;functions.c: 59: generateTone();
-"59
+[; ;functions.c: 55: generateTone();
+"55
 [e ( _generateTone ..  ]
-[; ;functions.c: 60: PORTBbits.RB0=1;
-"60
+[; ;functions.c: 56: PORTBbits.RB0=1;
+"56
 [e = . . _PORTBbits 0 0 -> -> 1 `i `uc ]
-[; ;functions.c: 61: _delay((unsigned long)((50)*(4000000/4000.0)));
-"61
+[; ;functions.c: 57: _delay((unsigned long)((50)*(4000000/4000.0)));
+"57
 [e ( __delay (1 -> * -> -> 50 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
-[; ;functions.c: 62: PORTBbits.RB0=0;
-"62
+[; ;functions.c: 58: PORTBbits.RB0=0;
+"58
 [e = . . _PORTBbits 0 0 -> -> 0 `i `uc ]
-[; ;functions.c: 63: stopTone();
-"63
+[; ;functions.c: 59: stopTone();
+"59
 [e ( _stopTone ..  ]
-[; ;functions.c: 65: return ;
-"65
+[; ;functions.c: 61: return ;
+"61
 [e $UE 55  ]
-[; ;functions.c: 66: }
-"66
+[; ;functions.c: 62: }
+"62
 [e :UE 55 ]
 }
-"70
+"66
 [v _dash `(v ~T0 @X0 1 ef ]
-"71
+"67
 {
-[; ;functions.c: 70: void dash()
-[; ;functions.c: 71: {
+[; ;functions.c: 66: void dash()
+[; ;functions.c: 67: {
 [e :U _dash ]
 [f ]
-[; ;functions.c: 73: generateTone();
-"73
+[; ;functions.c: 69: generateTone();
+"69
 [e ( _generateTone ..  ]
-[; ;functions.c: 74: PORTBbits.RB0=1;
-"74
+[; ;functions.c: 70: PORTBbits.RB0=1;
+"70
 [e = . . _PORTBbits 0 0 -> -> 1 `i `uc ]
-[; ;functions.c: 75: _delay((unsigned long)((150)*(4000000/4000.0)));
-"75
+[; ;functions.c: 71: _delay((unsigned long)((150)*(4000000/4000.0)));
+"71
 [e ( __delay (1 -> * -> -> 150 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
-[; ;functions.c: 76: PORTBbits.RB0=0;
-"76
+[; ;functions.c: 72: PORTBbits.RB0=0;
+"72
 [e = . . _PORTBbits 0 0 -> -> 0 `i `uc ]
-[; ;functions.c: 77: stopTone();
-"77
+[; ;functions.c: 73: stopTone();
+"73
 [e ( _stopTone ..  ]
-[; ;functions.c: 78: return ;
-"78
+[; ;functions.c: 74: return ;
+"74
 [e $UE 56  ]
-[; ;functions.c: 79: }
-"79
+[; ;functions.c: 75: }
+"75
 [e :UE 56 ]
 }

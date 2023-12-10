@@ -1,7 +1,7 @@
 
 
 Microchip Technology PIC LITE Macro Assembler V1.44 build -154322312 
-                                                                                               Sat Dec 09 21:59:16 2023
+                                                                                               Sat Dec 09 22:48:13 2023
 
 Microchip Technology Omniscient Code Generator v1.44 (Free mode) build 201709140600
      1                           	processor	16F628A
@@ -338,1466 +338,1500 @@ Microchip Technology Omniscient Code Generator v1.44 (Free mode) build 201709140
    324                           
    325                           ;incstack = 0
    326                           ; Regs used in _main: [wreg+status,2+status,0+pclath+cstack]
-   327  0015  2318               	fcall	_InitPWM
+   327  0015  232D               	fcall	_InitPWM
    328                           
    329                           ;pwm_main.c: 25: SetPWMDutyCycle(10);
    330  0016  300A               	movlw	10
    331  0017  00F5               	movwf	SetPWMDutyCycle@DutyCycle
    332  0018  3000               	movlw	0
    333  0019  00F6               	movwf	SetPWMDutyCycle@DutyCycle+1
-   334  001A  22BE               	fcall	_SetPWMDutyCycle
+   334  001A  22E9               	fcall	_SetPWMDutyCycle
    335                           
    336                           ;pwm_main.c: 26: TRISB0=0;
    337  001B  1683               	bsf	3,5	;RP0=1, select bank1
    338  001C  1303               	bcf	3,6	;RP1=0, select bank1
    339  001D  1006               	bcf	6,0	;volatile
-   340  001E                     l21:	
-   341                           ;pwm_main.c: 27: while(1)
+   340  001E                     l1132:	
+   341                           ;pwm_main.c: 27: while(EnableSend==1)
    342                           
-   343                           
-   344                           ;pwm_main.c: 28: {
-   345                           ;pwm_main.c: 29: dash();
-   346  001E  2307               	fcall	_dash
+   343  001E  0377               	decf	_EnableSend,w
+   344  001F  0478               	iorwf	_EnableSend+1,w
+   345  0020  1D03               	btfss	3,2
+   346  0021  2AC2               	goto	l24
    347                           
-   348                           ;pwm_main.c: 30: _delay((unsigned long)((150)*(4000000/4000.0)));
-   349  001F  30C3               	movlw	195
-   350  0020  1283               	bcf	3,5	;RP0=0, select bank0
-   351  0021  1303               	bcf	3,6	;RP1=0, select bank0
-   352  0022  00A3               	movwf	??_main+1
-   353  0023  30CC               	movlw	204
-   354  0024  00A2               	movwf	??_main
-   355  0025                     u97:	
-   356  0025  0BA2               	decfsz	??_main,f
-   357  0026  2825               	goto	u97
-   358  0027  0BA3               	decfsz	??_main+1,f
-   359  0028  2825               	goto	u97
-   360  0029  282A               	nop2
-   361                           
-   362                           ;pwm_main.c: 31: dot();
-   363  002A  22F5               	fcall	_dot
-   364                           
-   365                           ;pwm_main.c: 32: _delay((unsigned long)((150)*(4000000/4000.0)));
-   366  002B  30C3               	movlw	195
-   367  002C  1283               	bcf	3,5	;RP0=0, select bank0
-   368  002D  1303               	bcf	3,6	;RP1=0, select bank0
-   369  002E  00A3               	movwf	??_main+1
-   370  002F  30CC               	movlw	204
-   371  0030  00A2               	movwf	??_main
-   372  0031                     u107:	
-   373  0031  0BA2               	decfsz	??_main,f
-   374  0032  2831               	goto	u107
-   375  0033  0BA3               	decfsz	??_main+1,f
-   376  0034  2831               	goto	u107
-   377  0035  2836               	nop2
-   378                           
-   379                           ;pwm_main.c: 33: dash();
-   380  0036  2307               	fcall	_dash
-   381                           
-   382                           ;pwm_main.c: 34: _delay((unsigned long)((150)*(4000000/4000.0)));
-   383  0037  30C3               	movlw	195
-   384  0038  1283               	bcf	3,5	;RP0=0, select bank0
-   385  0039  1303               	bcf	3,6	;RP1=0, select bank0
-   386  003A  00A3               	movwf	??_main+1
-   387  003B  30CC               	movlw	204
-   388  003C  00A2               	movwf	??_main
-   389  003D                     u117:	
-   390  003D  0BA2               	decfsz	??_main,f
-   391  003E  283D               	goto	u117
-   392  003F  0BA3               	decfsz	??_main+1,f
-   393  0040  283D               	goto	u117
-   394  0041  2842               	nop2
-   395                           
-   396                           ;pwm_main.c: 35: dot();
-   397  0042  22F5               	fcall	_dot
-   398                           
-   399                           ;pwm_main.c: 37: _delay((unsigned long)((300)*(4000000/4000.0)));
-   400  0043  3002               	movlw	2
-   401  0044  1283               	bcf	3,5	;RP0=0, select bank0
-   402  0045  1303               	bcf	3,6	;RP1=0, select bank0
-   403  0046  00A4               	movwf	??_main+2
-   404  0047  3086               	movlw	134
-   405  0048  00A3               	movwf	??_main+1
-   406  0049  3098               	movlw	152
-   407  004A  00A2               	movwf	??_main
-   408  004B                     u127:	
-   409  004B  0BA2               	decfsz	??_main,f
-   410  004C  284B               	goto	u127
-   411  004D  0BA3               	decfsz	??_main+1,f
-   412  004E  284B               	goto	u127
-   413  004F  0BA4               	decfsz	??_main+2,f
-   414  0050  284B               	goto	u127
-   415  0051  2852               	nop2
-   416                           
-   417                           ;pwm_main.c: 39: dash();
-   418  0052  2307               	fcall	_dash
-   419                           
-   420                           ;pwm_main.c: 40: _delay((unsigned long)((150)*(4000000/4000.0)));
-   421  0053  30C3               	movlw	195
-   422  0054  1283               	bcf	3,5	;RP0=0, select bank0
-   423  0055  1303               	bcf	3,6	;RP1=0, select bank0
-   424  0056  00A3               	movwf	??_main+1
-   425  0057  30CC               	movlw	204
-   426  0058  00A2               	movwf	??_main
-   427  0059                     u137:	
-   428  0059  0BA2               	decfsz	??_main,f
-   429  005A  2859               	goto	u137
-   430  005B  0BA3               	decfsz	??_main+1,f
-   431  005C  2859               	goto	u137
-   432  005D  285E               	nop2
-   433                           
-   434                           ;pwm_main.c: 41: dash();
-   435  005E  2307               	fcall	_dash
-   436                           
-   437                           ;pwm_main.c: 42: _delay((unsigned long)((150)*(4000000/4000.0)));
-   438  005F  30C3               	movlw	195
-   439  0060  1283               	bcf	3,5	;RP0=0, select bank0
-   440  0061  1303               	bcf	3,6	;RP1=0, select bank0
-   441  0062  00A3               	movwf	??_main+1
-   442  0063  30CC               	movlw	204
-   443  0064  00A2               	movwf	??_main
-   444  0065                     u147:	
-   445  0065  0BA2               	decfsz	??_main,f
-   446  0066  2865               	goto	u147
-   447  0067  0BA3               	decfsz	??_main+1,f
-   448  0068  2865               	goto	u147
-   449  0069  286A               	nop2
-   450                           
-   451                           ;pwm_main.c: 43: dot();
-   452  006A  22F5               	fcall	_dot
-   453                           
-   454                           ;pwm_main.c: 44: _delay((unsigned long)((150)*(4000000/4000.0)));
-   455  006B  30C3               	movlw	195
-   456  006C  1283               	bcf	3,5	;RP0=0, select bank0
-   457  006D  1303               	bcf	3,6	;RP1=0, select bank0
-   458  006E  00A3               	movwf	??_main+1
-   459  006F  30CC               	movlw	204
-   460  0070  00A2               	movwf	??_main
-   461  0071                     u157:	
-   462  0071  0BA2               	decfsz	??_main,f
-   463  0072  2871               	goto	u157
-   464  0073  0BA3               	decfsz	??_main+1,f
-   465  0074  2871               	goto	u157
-   466  0075  2876               	nop2
-   467                           
-   468                           ;pwm_main.c: 45: dash();
-   469  0076  2307               	fcall	_dash
-   470                           
-   471                           ;pwm_main.c: 48: _delay((unsigned long)((300)*(4000000/4000.0)));
-   472  0077  3002               	movlw	2
-   473  0078  1283               	bcf	3,5	;RP0=0, select bank0
-   474  0079  1303               	bcf	3,6	;RP1=0, select bank0
-   475  007A  00A4               	movwf	??_main+2
-   476  007B  3086               	movlw	134
-   477  007C  00A3               	movwf	??_main+1
-   478  007D  3098               	movlw	152
-   479  007E  00A2               	movwf	??_main
-   480  007F                     u167:	
-   481  007F  0BA2               	decfsz	??_main,f
-   482  0080  287F               	goto	u167
-   483  0081  0BA3               	decfsz	??_main+1,f
-   484  0082  287F               	goto	u167
-   485  0083  0BA4               	decfsz	??_main+2,f
-   486  0084  287F               	goto	u167
-   487  0085  2886               	nop2
-   488                           
-   489                           ;pwm_main.c: 54: dash();
-   490  0086  2307               	fcall	_dash
-   491                           
-   492                           ;pwm_main.c: 55: _delay((unsigned long)((150)*(4000000/4000.0)));
-   493  0087  30C3               	movlw	195
-   494  0088  1283               	bcf	3,5	;RP0=0, select bank0
-   495  0089  1303               	bcf	3,6	;RP1=0, select bank0
-   496  008A  00A3               	movwf	??_main+1
-   497  008B  30CC               	movlw	204
-   498  008C  00A2               	movwf	??_main
-   499  008D                     u177:	
-   500  008D  0BA2               	decfsz	??_main,f
-   501  008E  288D               	goto	u177
-   502  008F  0BA3               	decfsz	??_main+1,f
-   503  0090  288D               	goto	u177
-   504  0091  2892               	nop2
-   505                           
-   506                           ;pwm_main.c: 56: dot();
-   507  0092  22F5               	fcall	_dot
-   508                           
-   509                           ;pwm_main.c: 57: _delay((unsigned long)((150)*(4000000/4000.0)));
-   510  0093  30C3               	movlw	195
-   511  0094  1283               	bcf	3,5	;RP0=0, select bank0
-   512  0095  1303               	bcf	3,6	;RP1=0, select bank0
-   513  0096  00A3               	movwf	??_main+1
-   514  0097  30CC               	movlw	204
-   515  0098  00A2               	movwf	??_main
-   516  0099                     u187:	
-   517  0099  0BA2               	decfsz	??_main,f
-   518  009A  2899               	goto	u187
-   519  009B  0BA3               	decfsz	??_main+1,f
-   520  009C  2899               	goto	u187
-   521  009D  289E               	nop2
-   522                           
-   523                           ;pwm_main.c: 58: dash();
-   524  009E  2307               	fcall	_dash
-   525                           
-   526                           ;pwm_main.c: 59: _delay((unsigned long)((150)*(4000000/4000.0)));
-   527  009F  30C3               	movlw	195
-   528  00A0  1283               	bcf	3,5	;RP0=0, select bank0
-   529  00A1  1303               	bcf	3,6	;RP1=0, select bank0
-   530  00A2  00A3               	movwf	??_main+1
-   531  00A3  30CC               	movlw	204
-   532  00A4  00A2               	movwf	??_main
-   533  00A5                     u197:	
-   534  00A5  0BA2               	decfsz	??_main,f
-   535  00A6  28A5               	goto	u197
-   536  00A7  0BA3               	decfsz	??_main+1,f
-   537  00A8  28A5               	goto	u197
-   538  00A9  28AA               	nop2
-   539                           
-   540                           ;pwm_main.c: 60: dot();
-   541  00AA  22F5               	fcall	_dot
-   542                           
-   543                           ;pwm_main.c: 64: _delay((unsigned long)((300)*(4000000/4000.0)));
-   544  00AB  3002               	movlw	2
-   545  00AC  1283               	bcf	3,5	;RP0=0, select bank0
-   546  00AD  1303               	bcf	3,6	;RP1=0, select bank0
-   547  00AE  00A4               	movwf	??_main+2
-   548  00AF  3086               	movlw	134
-   549  00B0  00A3               	movwf	??_main+1
-   550  00B1  3098               	movlw	152
-   551  00B2  00A2               	movwf	??_main
-   552  00B3                     u207:	
-   553  00B3  0BA2               	decfsz	??_main,f
-   554  00B4  28B3               	goto	u207
-   555  00B5  0BA3               	decfsz	??_main+1,f
-   556  00B6  28B3               	goto	u207
-   557  00B7  0BA4               	decfsz	??_main+2,f
-   558  00B8  28B3               	goto	u207
-   559  00B9  28BA               	nop2
-   560                           
-   561                           ;pwm_main.c: 68: dash();
-   562  00BA  2307               	fcall	_dash
-   563                           
-   564                           ;pwm_main.c: 69: _delay((unsigned long)((150)*(4000000/4000.0)));
-   565  00BB  30C3               	movlw	195
-   566  00BC  1283               	bcf	3,5	;RP0=0, select bank0
-   567  00BD  1303               	bcf	3,6	;RP1=0, select bank0
-   568  00BE  00A3               	movwf	??_main+1
-   569  00BF  30CC               	movlw	204
-   570  00C0  00A2               	movwf	??_main
-   571  00C1                     u217:	
-   572  00C1  0BA2               	decfsz	??_main,f
-   573  00C2  28C1               	goto	u217
-   574  00C3  0BA3               	decfsz	??_main+1,f
-   575  00C4  28C1               	goto	u217
-   576  00C5  28C6               	nop2
-   577                           
-   578                           ;pwm_main.c: 70: dash();
-   579  00C6  2307               	fcall	_dash
-   580                           
-   581                           ;pwm_main.c: 71: _delay((unsigned long)((150)*(4000000/4000.0)));
-   582  00C7  30C3               	movlw	195
-   583  00C8  1283               	bcf	3,5	;RP0=0, select bank0
-   584  00C9  1303               	bcf	3,6	;RP1=0, select bank0
-   585  00CA  00A3               	movwf	??_main+1
-   586  00CB  30CC               	movlw	204
-   587  00CC  00A2               	movwf	??_main
-   588  00CD                     u227:	
-   589  00CD  0BA2               	decfsz	??_main,f
-   590  00CE  28CD               	goto	u227
-   591  00CF  0BA3               	decfsz	??_main+1,f
-   592  00D0  28CD               	goto	u227
-   593  00D1  28D2               	nop2
-   594                           
-   595                           ;pwm_main.c: 72: dot();
-   596  00D2  22F5               	fcall	_dot
-   597                           
-   598                           ;pwm_main.c: 73: _delay((unsigned long)((150)*(4000000/4000.0)));
-   599  00D3  30C3               	movlw	195
-   600  00D4  1283               	bcf	3,5	;RP0=0, select bank0
-   601  00D5  1303               	bcf	3,6	;RP1=0, select bank0
-   602  00D6  00A3               	movwf	??_main+1
-   603  00D7  30CC               	movlw	204
-   604  00D8  00A2               	movwf	??_main
-   605  00D9                     u237:	
-   606  00D9  0BA2               	decfsz	??_main,f
-   607  00DA  28D9               	goto	u237
-   608  00DB  0BA3               	decfsz	??_main+1,f
-   609  00DC  28D9               	goto	u237
-   610  00DD  28DE               	nop2
-   611                           
-   612                           ;pwm_main.c: 74: dash();
-   613  00DE  2307               	fcall	_dash
-   614                           
-   615                           ;pwm_main.c: 77: _delay((unsigned long)((300)*(4000000/4000.0)));
-   616  00DF  3002               	movlw	2
-   617  00E0  1283               	bcf	3,5	;RP0=0, select bank0
-   618  00E1  1303               	bcf	3,6	;RP1=0, select bank0
-   619  00E2  00A4               	movwf	??_main+2
-   620  00E3  3086               	movlw	134
-   621  00E4  00A3               	movwf	??_main+1
-   622  00E5  3098               	movlw	152
-   623  00E6  00A2               	movwf	??_main
-   624  00E7                     u247:	
-   625  00E7  0BA2               	decfsz	??_main,f
-   626  00E8  28E7               	goto	u247
-   627  00E9  0BA3               	decfsz	??_main+1,f
-   628  00EA  28E7               	goto	u247
-   629  00EB  0BA4               	decfsz	??_main+2,f
-   630  00EC  28E7               	goto	u247
-   631  00ED  28EE               	nop2
-   632                           
-   633                           ;pwm_main.c: 85: dash();
-   634  00EE  2307               	fcall	_dash
-   635                           
-   636                           ;pwm_main.c: 86: _delay((unsigned long)((150)*(4000000/4000.0)));
-   637  00EF  30C3               	movlw	195
-   638  00F0  1283               	bcf	3,5	;RP0=0, select bank0
-   639  00F1  1303               	bcf	3,6	;RP1=0, select bank0
-   640  00F2  00A3               	movwf	??_main+1
-   641  00F3  30CC               	movlw	204
-   642  00F4  00A2               	movwf	??_main
-   643  00F5                     u257:	
-   644  00F5  0BA2               	decfsz	??_main,f
-   645  00F6  28F5               	goto	u257
-   646  00F7  0BA3               	decfsz	??_main+1,f
-   647  00F8  28F5               	goto	u257
-   648  00F9  28FA               	nop2
-   649                           
-   650                           ;pwm_main.c: 87: dot();
-   651  00FA  22F5               	fcall	_dot
-   652                           
-   653                           ;pwm_main.c: 88: _delay((unsigned long)((150)*(4000000/4000.0)));
-   654  00FB  30C3               	movlw	195
-   655  00FC  1283               	bcf	3,5	;RP0=0, select bank0
-   656  00FD  1303               	bcf	3,6	;RP1=0, select bank0
-   657  00FE  00A3               	movwf	??_main+1
-   658  00FF  30CC               	movlw	204
-   659  0100  00A2               	movwf	??_main
-   660  0101                     u267:	
-   661  0101  0BA2               	decfsz	??_main,f
-   662  0102  2901               	goto	u267
-   663  0103  0BA3               	decfsz	??_main+1,f
-   664  0104  2901               	goto	u267
-   665  0105  2906               	nop2
-   666                           
-   667                           ;pwm_main.c: 89: dash();
-   668  0106  2307               	fcall	_dash
-   669                           
-   670                           ;pwm_main.c: 90: _delay((unsigned long)((150)*(4000000/4000.0)));
-   671  0107  30C3               	movlw	195
-   672  0108  1283               	bcf	3,5	;RP0=0, select bank0
-   673  0109  1303               	bcf	3,6	;RP1=0, select bank0
-   674  010A  00A3               	movwf	??_main+1
-   675  010B  30CC               	movlw	204
-   676  010C  00A2               	movwf	??_main
-   677  010D                     u277:	
-   678  010D  0BA2               	decfsz	??_main,f
-   679  010E  290D               	goto	u277
-   680  010F  0BA3               	decfsz	??_main+1,f
-   681  0110  290D               	goto	u277
-   682  0111  2912               	nop2
-   683                           
-   684                           ;pwm_main.c: 91: dot();
-   685  0112  22F5               	fcall	_dot
-   686                           
-   687                           ;pwm_main.c: 95: _delay((unsigned long)((300)*(4000000/4000.0)));
-   688  0113  3002               	movlw	2
-   689  0114  1283               	bcf	3,5	;RP0=0, select bank0
-   690  0115  1303               	bcf	3,6	;RP1=0, select bank0
-   691  0116  00A4               	movwf	??_main+2
-   692  0117  3086               	movlw	134
-   693  0118  00A3               	movwf	??_main+1
-   694  0119  3098               	movlw	152
-   695  011A  00A2               	movwf	??_main
-   696  011B                     u287:	
-   697  011B  0BA2               	decfsz	??_main,f
-   698  011C  291B               	goto	u287
-   699  011D  0BA3               	decfsz	??_main+1,f
-   700  011E  291B               	goto	u287
-   701  011F  0BA4               	decfsz	??_main+2,f
-   702  0120  291B               	goto	u287
-   703  0121  2922               	nop2
-   704                           
-   705                           ;pwm_main.c: 99: dash();
-   706  0122  2307               	fcall	_dash
-   707                           
-   708                           ;pwm_main.c: 100: _delay((unsigned long)((150)*(4000000/4000.0)));
-   709  0123  30C3               	movlw	195
-   710  0124  1283               	bcf	3,5	;RP0=0, select bank0
-   711  0125  1303               	bcf	3,6	;RP1=0, select bank0
-   712  0126  00A3               	movwf	??_main+1
-   713  0127  30CC               	movlw	204
-   714  0128  00A2               	movwf	??_main
-   715  0129                     u297:	
-   716  0129  0BA2               	decfsz	??_main,f
-   717  012A  2929               	goto	u297
-   718  012B  0BA3               	decfsz	??_main+1,f
-   719  012C  2929               	goto	u297
-   720  012D  292E               	nop2
-   721                           
-   722                           ;pwm_main.c: 101: dash();
-   723  012E  2307               	fcall	_dash
-   724                           
-   725                           ;pwm_main.c: 102: _delay((unsigned long)((150)*(4000000/4000.0)));
-   726  012F  30C3               	movlw	195
-   727  0130  1283               	bcf	3,5	;RP0=0, select bank0
-   728  0131  1303               	bcf	3,6	;RP1=0, select bank0
-   729  0132  00A3               	movwf	??_main+1
-   730  0133  30CC               	movlw	204
-   731  0134  00A2               	movwf	??_main
-   732  0135                     u307:	
-   733  0135  0BA2               	decfsz	??_main,f
-   734  0136  2935               	goto	u307
-   735  0137  0BA3               	decfsz	??_main+1,f
-   736  0138  2935               	goto	u307
-   737  0139  293A               	nop2
-   738                           
-   739                           ;pwm_main.c: 103: dot();
-   740  013A  22F5               	fcall	_dot
-   741                           
-   742                           ;pwm_main.c: 104: _delay((unsigned long)((150)*(4000000/4000.0)));
-   743  013B  30C3               	movlw	195
-   744  013C  1283               	bcf	3,5	;RP0=0, select bank0
-   745  013D  1303               	bcf	3,6	;RP1=0, select bank0
-   746  013E  00A3               	movwf	??_main+1
-   747  013F  30CC               	movlw	204
-   748  0140  00A2               	movwf	??_main
-   749  0141                     u317:	
-   750  0141  0BA2               	decfsz	??_main,f
-   751  0142  2941               	goto	u317
-   752  0143  0BA3               	decfsz	??_main+1,f
-   753  0144  2941               	goto	u317
-   754  0145  2946               	nop2
-   755                           
-   756                           ;pwm_main.c: 105: dash();
-   757  0146  2307               	fcall	_dash
-   758                           
-   759                           ;pwm_main.c: 108: _delay((unsigned long)((300)*(4000000/4000.0)));
-   760  0147  3002               	movlw	2
-   761  0148  1283               	bcf	3,5	;RP0=0, select bank0
-   762  0149  1303               	bcf	3,6	;RP1=0, select bank0
-   763  014A  00A4               	movwf	??_main+2
-   764  014B  3086               	movlw	134
-   765  014C  00A3               	movwf	??_main+1
-   766  014D  3098               	movlw	152
-   767  014E  00A2               	movwf	??_main
-   768  014F                     u327:	
-   769  014F  0BA2               	decfsz	??_main,f
-   770  0150  294F               	goto	u327
-   771  0151  0BA3               	decfsz	??_main+1,f
-   772  0152  294F               	goto	u327
-   773  0153  0BA4               	decfsz	??_main+2,f
-   774  0154  294F               	goto	u327
-   775  0155  2956               	nop2
-   776                           
-   777                           ;pwm_main.c: 113: dash();
-   778  0156  2307               	fcall	_dash
-   779                           
-   780                           ;pwm_main.c: 114: _delay((unsigned long)((150)*(4000000/4000.0))) ;
-   781  0157  30C3               	movlw	195
-   782  0158  1283               	bcf	3,5	;RP0=0, select bank0
-   783  0159  1303               	bcf	3,6	;RP1=0, select bank0
-   784  015A  00A3               	movwf	??_main+1
-   785  015B  30CC               	movlw	204
-   786  015C  00A2               	movwf	??_main
-   787  015D                     u337:	
-   788  015D  0BA2               	decfsz	??_main,f
-   789  015E  295D               	goto	u337
-   790  015F  0BA3               	decfsz	??_main+1,f
-   791  0160  295D               	goto	u337
-   792  0161  2962               	nop2
-   793                           
-   794                           ;pwm_main.c: 115: dot();
-   795  0162  22F5               	fcall	_dot
-   796                           
-   797                           ;pwm_main.c: 116: _delay((unsigned long)((150)*(4000000/4000.0))) ;
-   798  0163  30C3               	movlw	195
-   799  0164  1283               	bcf	3,5	;RP0=0, select bank0
-   800  0165  1303               	bcf	3,6	;RP1=0, select bank0
-   801  0166  00A3               	movwf	??_main+1
-   802  0167  30CC               	movlw	204
-   803  0168  00A2               	movwf	??_main
-   804  0169                     u347:	
-   805  0169  0BA2               	decfsz	??_main,f
-   806  016A  2969               	goto	u347
-   807  016B  0BA3               	decfsz	??_main+1,f
-   808  016C  2969               	goto	u347
-   809  016D  296E               	nop2
-   810                           
-   811                           ;pwm_main.c: 117: dash();
-   812  016E  2307               	fcall	_dash
-   813                           
-   814                           ;pwm_main.c: 120: _delay((unsigned long)((300)*(4000000/4000.0))) ;
-   815  016F  3002               	movlw	2
-   816  0170  1283               	bcf	3,5	;RP0=0, select bank0
-   817  0171  1303               	bcf	3,6	;RP1=0, select bank0
-   818  0172  00A4               	movwf	??_main+2
-   819  0173  3086               	movlw	134
-   820  0174  00A3               	movwf	??_main+1
-   821  0175  3098               	movlw	152
-   822  0176  00A2               	movwf	??_main
-   823  0177                     u357:	
-   824  0177  0BA2               	decfsz	??_main,f
-   825  0178  2977               	goto	u357
-   826  0179  0BA3               	decfsz	??_main+1,f
-   827  017A  2977               	goto	u357
-   828  017B  0BA4               	decfsz	??_main+2,f
-   829  017C  2977               	goto	u357
-   830  017D  297E               	nop2
-   831                           
-   832                           ;pwm_main.c: 124: dash();
-   833  017E  2307               	fcall	_dash
-   834                           
-   835                           ;pwm_main.c: 125: _delay((unsigned long)((150)*(4000000/4000.0))) ;
-   836  017F  30C3               	movlw	195
-   837  0180  1283               	bcf	3,5	;RP0=0, select bank0
-   838  0181  1303               	bcf	3,6	;RP1=0, select bank0
-   839  0182  00A3               	movwf	??_main+1
-   840  0183  30CC               	movlw	204
-   841  0184  00A2               	movwf	??_main
-   842  0185                     u367:	
-   843  0185  0BA2               	decfsz	??_main,f
-   844  0186  2985               	goto	u367
-   845  0187  0BA3               	decfsz	??_main+1,f
-   846  0188  2985               	goto	u367
-   847  0189  298A               	nop2
-   848                           
-   849                           ;pwm_main.c: 126: dash();
-   850  018A  2307               	fcall	_dash
-   851                           
-   852                           ;pwm_main.c: 127: _delay((unsigned long)((150)*(4000000/4000.0))) ;
-   853  018B  30C3               	movlw	195
-   854  018C  1283               	bcf	3,5	;RP0=0, select bank0
-   855  018D  1303               	bcf	3,6	;RP1=0, select bank0
-   856  018E  00A3               	movwf	??_main+1
-   857  018F  30CC               	movlw	204
-   858  0190  00A2               	movwf	??_main
-   859  0191                     u377:	
-   860  0191  0BA2               	decfsz	??_main,f
-   861  0192  2991               	goto	u377
-   862  0193  0BA3               	decfsz	??_main+1,f
-   863  0194  2991               	goto	u377
-   864  0195  2996               	nop2
-   865                           
-   866                           ;pwm_main.c: 128: dot();
-   867  0196  22F5               	fcall	_dot
-   868                           
-   869                           ;pwm_main.c: 132: _delay((unsigned long)((300)*(4000000/4000.0))) ;
-   870  0197  3002               	movlw	2
-   871  0198  1283               	bcf	3,5	;RP0=0, select bank0
-   872  0199  1303               	bcf	3,6	;RP1=0, select bank0
-   873  019A  00A4               	movwf	??_main+2
-   874  019B  3086               	movlw	134
-   875  019C  00A3               	movwf	??_main+1
-   876  019D  3098               	movlw	152
-   877  019E  00A2               	movwf	??_main
-   878  019F                     u387:	
-   879  019F  0BA2               	decfsz	??_main,f
-   880  01A0  299F               	goto	u387
-   881  01A1  0BA3               	decfsz	??_main+1,f
-   882  01A2  299F               	goto	u387
-   883  01A3  0BA4               	decfsz	??_main+2,f
-   884  01A4  299F               	goto	u387
-   885  01A5  29A6               	nop2
-   886                           
-   887                           ;pwm_main.c: 136: dash();
-   888  01A6  2307               	fcall	_dash
-   889                           
-   890                           ;pwm_main.c: 137: _delay((unsigned long)((150)*(4000000/4000.0))) ;
-   891  01A7  30C3               	movlw	195
-   892  01A8  1283               	bcf	3,5	;RP0=0, select bank0
-   893  01A9  1303               	bcf	3,6	;RP1=0, select bank0
-   894  01AA  00A3               	movwf	??_main+1
-   895  01AB  30CC               	movlw	204
-   896  01AC  00A2               	movwf	??_main
-   897  01AD                     u397:	
-   898  01AD  0BA2               	decfsz	??_main,f
-   899  01AE  29AD               	goto	u397
-   900  01AF  0BA3               	decfsz	??_main+1,f
-   901  01B0  29AD               	goto	u397
-   902  01B1  29B2               	nop2
-   903                           
-   904                           ;pwm_main.c: 138: dash();
-   905  01B2  2307               	fcall	_dash
-   906                           
-   907                           ;pwm_main.c: 139: _delay((unsigned long)((150)*(4000000/4000.0))) ;
-   908  01B3  30C3               	movlw	195
-   909  01B4  1283               	bcf	3,5	;RP0=0, select bank0
-   910  01B5  1303               	bcf	3,6	;RP1=0, select bank0
-   911  01B6  00A3               	movwf	??_main+1
-   912  01B7  30CC               	movlw	204
-   913  01B8  00A2               	movwf	??_main
-   914  01B9                     u407:	
-   915  01B9  0BA2               	decfsz	??_main,f
-   916  01BA  29B9               	goto	u407
-   917  01BB  0BA3               	decfsz	??_main+1,f
-   918  01BC  29B9               	goto	u407
-   919  01BD  29BE               	nop2
-   920                           
-   921                           ;pwm_main.c: 140: dot();
-   922  01BE  22F5               	fcall	_dot
-   923                           
-   924                           ;pwm_main.c: 141: _delay((unsigned long)((150)*(4000000/4000.0))) ;
-   925  01BF  30C3               	movlw	195
-   926  01C0  1283               	bcf	3,5	;RP0=0, select bank0
-   927  01C1  1303               	bcf	3,6	;RP1=0, select bank0
-   928  01C2  00A3               	movwf	??_main+1
-   929  01C3  30CC               	movlw	204
-   930  01C4  00A2               	movwf	??_main
-   931  01C5                     u417:	
-   932  01C5  0BA2               	decfsz	??_main,f
-   933  01C6  29C5               	goto	u417
-   934  01C7  0BA3               	decfsz	??_main+1,f
-   935  01C8  29C5               	goto	u417
-   936  01C9  29CA               	nop2
-   937                           
-   938                           ;pwm_main.c: 142: dot();
-   939  01CA  22F5               	fcall	_dot
-   940                           
-   941                           ;pwm_main.c: 143: _delay((unsigned long)((150)*(4000000/4000.0))) ;
-   942  01CB  30C3               	movlw	195
-   943  01CC  1283               	bcf	3,5	;RP0=0, select bank0
-   944  01CD  1303               	bcf	3,6	;RP1=0, select bank0
-   945  01CE  00A3               	movwf	??_main+1
-   946  01CF  30CC               	movlw	204
-   947  01D0  00A2               	movwf	??_main
-   948  01D1                     u427:	
-   949  01D1  0BA2               	decfsz	??_main,f
-   950  01D2  29D1               	goto	u427
-   951  01D3  0BA3               	decfsz	??_main+1,f
-   952  01D4  29D1               	goto	u427
-   953  01D5  29D6               	nop2
-   954                           
-   955                           ;pwm_main.c: 144: dot();
-   956  01D6  22F5               	fcall	_dot
-   957                           
-   958                           ;pwm_main.c: 148: _delay((unsigned long)((300)*(4000000/4000.0))) ;
-   959  01D7  3002               	movlw	2
-   960  01D8  1283               	bcf	3,5	;RP0=0, select bank0
-   961  01D9  1303               	bcf	3,6	;RP1=0, select bank0
-   962  01DA  00A4               	movwf	??_main+2
-   963  01DB  3086               	movlw	134
-   964  01DC  00A3               	movwf	??_main+1
-   965  01DD  3098               	movlw	152
-   966  01DE  00A2               	movwf	??_main
-   967  01DF                     u437:	
-   968  01DF  0BA2               	decfsz	??_main,f
-   969  01E0  29DF               	goto	u437
-   970  01E1  0BA3               	decfsz	??_main+1,f
-   971  01E2  29DF               	goto	u437
-   972  01E3  0BA4               	decfsz	??_main+2,f
-   973  01E4  29DF               	goto	u437
-   974  01E5  29E6               	nop2
-   975                           
-   976                           ;pwm_main.c: 152: dot();
-   977  01E6  22F5               	fcall	_dot
-   978                           
-   979                           ;pwm_main.c: 153: _delay((unsigned long)((150)*(4000000/4000.0))) ;
-   980  01E7  30C3               	movlw	195
-   981  01E8  1283               	bcf	3,5	;RP0=0, select bank0
-   982  01E9  1303               	bcf	3,6	;RP1=0, select bank0
-   983  01EA  00A3               	movwf	??_main+1
-   984  01EB  30CC               	movlw	204
-   985  01EC  00A2               	movwf	??_main
-   986  01ED                     u447:	
-   987  01ED  0BA2               	decfsz	??_main,f
-   988  01EE  29ED               	goto	u447
-   989  01EF  0BA3               	decfsz	??_main+1,f
-   990  01F0  29ED               	goto	u447
-   991  01F1  29F2               	nop2
-   992                           
-   993                           ;pwm_main.c: 154: dash();
-   994  01F2  2307               	fcall	_dash
-   995                           
-   996                           ;pwm_main.c: 155: _delay((unsigned long)((150)*(4000000/4000.0))) ;
-   997  01F3  30C3               	movlw	195
-   998  01F4  1283               	bcf	3,5	;RP0=0, select bank0
-   999  01F5  1303               	bcf	3,6	;RP1=0, select bank0
-  1000  01F6  00A3               	movwf	??_main+1
-  1001  01F7  30CC               	movlw	204
-  1002  01F8  00A2               	movwf	??_main
-  1003  01F9                     u457:	
-  1004  01F9  0BA2               	decfsz	??_main,f
-  1005  01FA  29F9               	goto	u457
-  1006  01FB  0BA3               	decfsz	??_main+1,f
-  1007  01FC  29F9               	goto	u457
-  1008  01FD  29FE               	nop2
-  1009                           
-  1010                           ;pwm_main.c: 156: dot();
-  1011  01FE  22F5               	fcall	_dot
-  1012                           
-  1013                           ;pwm_main.c: 159: _delay((unsigned long)((300)*(4000000/4000.0))) ;
-  1014  01FF  3002               	movlw	2
-  1015  0200  1283               	bcf	3,5	;RP0=0, select bank0
-  1016  0201  1303               	bcf	3,6	;RP1=0, select bank0
-  1017  0202  00A4               	movwf	??_main+2
-  1018  0203  3086               	movlw	134
-  1019  0204  00A3               	movwf	??_main+1
-  1020  0205  3098               	movlw	152
-  1021  0206  00A2               	movwf	??_main
-  1022  0207                     u467:	
-  1023  0207  0BA2               	decfsz	??_main,f
-  1024  0208  2A07               	goto	u467
-  1025  0209  0BA3               	decfsz	??_main+1,f
-  1026  020A  2A07               	goto	u467
-  1027  020B  0BA4               	decfsz	??_main+2,f
-  1028  020C  2A07               	goto	u467
-  1029  020D  2A0E               	nop2
-  1030                           
-  1031                           ;pwm_main.c: 162: dash();
-  1032  020E  2307               	fcall	_dash
-  1033                           
-  1034                           ;pwm_main.c: 163: _delay((unsigned long)((150)*(4000000/4000.0))) ;
-  1035  020F  30C3               	movlw	195
-  1036  0210  1283               	bcf	3,5	;RP0=0, select bank0
-  1037  0211  1303               	bcf	3,6	;RP1=0, select bank0
-  1038  0212  00A3               	movwf	??_main+1
-  1039  0213  30CC               	movlw	204
-  1040  0214  00A2               	movwf	??_main
-  1041  0215                     u477:	
-  1042  0215  0BA2               	decfsz	??_main,f
-  1043  0216  2A15               	goto	u477
-  1044  0217  0BA3               	decfsz	??_main+1,f
-  1045  0218  2A15               	goto	u477
-  1046  0219  2A1A               	nop2
-  1047                           
-  1048                           ;pwm_main.c: 164: dot();
-  1049  021A  22F5               	fcall	_dot
-  1050                           
-  1051                           ;pwm_main.c: 166: _delay((unsigned long)((300)*(4000000/4000.0))) ;
-  1052  021B  3002               	movlw	2
-  1053  021C  1283               	bcf	3,5	;RP0=0, select bank0
-  1054  021D  1303               	bcf	3,6	;RP1=0, select bank0
-  1055  021E  00A4               	movwf	??_main+2
-  1056  021F  3086               	movlw	134
-  1057  0220  00A3               	movwf	??_main+1
-  1058  0221  3098               	movlw	152
-  1059  0222  00A2               	movwf	??_main
-  1060  0223                     u487:	
-  1061  0223  0BA2               	decfsz	??_main,f
-  1062  0224  2A23               	goto	u487
-  1063  0225  0BA3               	decfsz	??_main+1,f
-  1064  0226  2A23               	goto	u487
-  1065  0227  0BA4               	decfsz	??_main+2,f
-  1066  0228  2A23               	goto	u487
-  1067  0229  2A2A               	nop2
-  1068                           
-  1069                           ;pwm_main.c: 169: dash();
-  1070  022A  2307               	fcall	_dash
-  1071                           
-  1072                           ;pwm_main.c: 170: _delay((unsigned long)((150)*(4000000/4000.0))) ;
-  1073  022B  30C3               	movlw	195
-  1074  022C  1283               	bcf	3,5	;RP0=0, select bank0
-  1075  022D  1303               	bcf	3,6	;RP1=0, select bank0
-  1076  022E  00A3               	movwf	??_main+1
-  1077  022F  30CC               	movlw	204
-  1078  0230  00A2               	movwf	??_main
-  1079  0231                     u497:	
-  1080  0231  0BA2               	decfsz	??_main,f
-  1081  0232  2A31               	goto	u497
-  1082  0233  0BA3               	decfsz	??_main+1,f
-  1083  0234  2A31               	goto	u497
-  1084  0235  2A36               	nop2
-  1085                           
-  1086                           ;pwm_main.c: 171: dash();
-  1087  0236  2307               	fcall	_dash
-  1088                           
-  1089                           ;pwm_main.c: 173: _delay((unsigned long)((300)*(4000000/4000.0))) ;
-  1090  0237  3002               	movlw	2
-  1091  0238  1283               	bcf	3,5	;RP0=0, select bank0
-  1092  0239  1303               	bcf	3,6	;RP1=0, select bank0
-  1093  023A  00A4               	movwf	??_main+2
-  1094  023B  3086               	movlw	134
-  1095  023C  00A3               	movwf	??_main+1
-  1096  023D  3098               	movlw	152
-  1097  023E  00A2               	movwf	??_main
-  1098  023F                     u507:	
-  1099  023F  0BA2               	decfsz	??_main,f
-  1100  0240  2A3F               	goto	u507
-  1101  0241  0BA3               	decfsz	??_main+1,f
-  1102  0242  2A3F               	goto	u507
-  1103  0243  0BA4               	decfsz	??_main+2,f
-  1104  0244  2A3F               	goto	u507
-  1105  0245  2A46               	nop2
-  1106                           
-  1107                           ;pwm_main.c: 175: dash(); _delay((unsigned long)((150)*(4000000/4000.0))); dot(); _delay
+   348                           ;pwm_main.c: 28: {
+   349                           ;pwm_main.c: 29: dash();
+   350  0022  231C               	fcall	_dash
+   351                           
+   352                           ;pwm_main.c: 30: _delay((unsigned long)((150)*(4000000/4000.0)));
+   353  0023  30C3               	movlw	195
+   354  0024  1283               	bcf	3,5	;RP0=0, select bank0
+   355  0025  1303               	bcf	3,6	;RP1=0, select bank0
+   356  0026  00A3               	movwf	??_main+1
+   357  0027  30CC               	movlw	204
+   358  0028  00A2               	movwf	??_main
+   359  0029                     u167:	
+   360  0029  0BA2               	decfsz	??_main,f
+   361  002A  2829               	goto	u167
+   362  002B  0BA3               	decfsz	??_main+1,f
+   363  002C  2829               	goto	u167
+   364  002D  282E               	nop2
+   365                           
+   366                           ;pwm_main.c: 31: dot();
+   367  002E  230A               	fcall	_dot
+   368                           
+   369                           ;pwm_main.c: 32: _delay((unsigned long)((150)*(4000000/4000.0)));
+   370  002F  30C3               	movlw	195
+   371  0030  1283               	bcf	3,5	;RP0=0, select bank0
+   372  0031  1303               	bcf	3,6	;RP1=0, select bank0
+   373  0032  00A3               	movwf	??_main+1
+   374  0033  30CC               	movlw	204
+   375  0034  00A2               	movwf	??_main
+   376  0035                     u177:	
+   377  0035  0BA2               	decfsz	??_main,f
+   378  0036  2835               	goto	u177
+   379  0037  0BA3               	decfsz	??_main+1,f
+   380  0038  2835               	goto	u177
+   381  0039  283A               	nop2
+   382                           
+   383                           ;pwm_main.c: 33: dash();
+   384  003A  231C               	fcall	_dash
+   385                           
+   386                           ;pwm_main.c: 34: _delay((unsigned long)((150)*(4000000/4000.0)));
+   387  003B  30C3               	movlw	195
+   388  003C  1283               	bcf	3,5	;RP0=0, select bank0
+   389  003D  1303               	bcf	3,6	;RP1=0, select bank0
+   390  003E  00A3               	movwf	??_main+1
+   391  003F  30CC               	movlw	204
+   392  0040  00A2               	movwf	??_main
+   393  0041                     u187:	
+   394  0041  0BA2               	decfsz	??_main,f
+   395  0042  2841               	goto	u187
+   396  0043  0BA3               	decfsz	??_main+1,f
+   397  0044  2841               	goto	u187
+   398  0045  2846               	nop2
+   399                           
+   400                           ;pwm_main.c: 35: dot();
+   401  0046  230A               	fcall	_dot
+   402                           
+   403                           ;pwm_main.c: 37: _delay((unsigned long)((300)*(4000000/4000.0)));
+   404  0047  3002               	movlw	2
+   405  0048  1283               	bcf	3,5	;RP0=0, select bank0
+   406  0049  1303               	bcf	3,6	;RP1=0, select bank0
+   407  004A  00A4               	movwf	??_main+2
+   408  004B  3086               	movlw	134
+   409  004C  00A3               	movwf	??_main+1
+   410  004D  3098               	movlw	152
+   411  004E  00A2               	movwf	??_main
+   412  004F                     u197:	
+   413  004F  0BA2               	decfsz	??_main,f
+   414  0050  284F               	goto	u197
+   415  0051  0BA3               	decfsz	??_main+1,f
+   416  0052  284F               	goto	u197
+   417  0053  0BA4               	decfsz	??_main+2,f
+   418  0054  284F               	goto	u197
+   419  0055  2856               	nop2
+   420                           
+   421                           ;pwm_main.c: 39: dash();
+   422  0056  231C               	fcall	_dash
+   423                           
+   424                           ;pwm_main.c: 40: _delay((unsigned long)((150)*(4000000/4000.0)));
+   425  0057  30C3               	movlw	195
+   426  0058  1283               	bcf	3,5	;RP0=0, select bank0
+   427  0059  1303               	bcf	3,6	;RP1=0, select bank0
+   428  005A  00A3               	movwf	??_main+1
+   429  005B  30CC               	movlw	204
+   430  005C  00A2               	movwf	??_main
+   431  005D                     u207:	
+   432  005D  0BA2               	decfsz	??_main,f
+   433  005E  285D               	goto	u207
+   434  005F  0BA3               	decfsz	??_main+1,f
+   435  0060  285D               	goto	u207
+   436  0061  2862               	nop2
+   437                           
+   438                           ;pwm_main.c: 41: dash();
+   439  0062  231C               	fcall	_dash
+   440                           
+   441                           ;pwm_main.c: 42: _delay((unsigned long)((150)*(4000000/4000.0)));
+   442  0063  30C3               	movlw	195
+   443  0064  1283               	bcf	3,5	;RP0=0, select bank0
+   444  0065  1303               	bcf	3,6	;RP1=0, select bank0
+   445  0066  00A3               	movwf	??_main+1
+   446  0067  30CC               	movlw	204
+   447  0068  00A2               	movwf	??_main
+   448  0069                     u217:	
+   449  0069  0BA2               	decfsz	??_main,f
+   450  006A  2869               	goto	u217
+   451  006B  0BA3               	decfsz	??_main+1,f
+   452  006C  2869               	goto	u217
+   453  006D  286E               	nop2
+   454                           
+   455                           ;pwm_main.c: 43: dot();
+   456  006E  230A               	fcall	_dot
+   457                           
+   458                           ;pwm_main.c: 44: _delay((unsigned long)((150)*(4000000/4000.0)));
+   459  006F  30C3               	movlw	195
+   460  0070  1283               	bcf	3,5	;RP0=0, select bank0
+   461  0071  1303               	bcf	3,6	;RP1=0, select bank0
+   462  0072  00A3               	movwf	??_main+1
+   463  0073  30CC               	movlw	204
+   464  0074  00A2               	movwf	??_main
+   465  0075                     u227:	
+   466  0075  0BA2               	decfsz	??_main,f
+   467  0076  2875               	goto	u227
+   468  0077  0BA3               	decfsz	??_main+1,f
+   469  0078  2875               	goto	u227
+   470  0079  287A               	nop2
+   471                           
+   472                           ;pwm_main.c: 45: dash();
+   473  007A  231C               	fcall	_dash
+   474                           
+   475                           ;pwm_main.c: 48: _delay((unsigned long)((300)*(4000000/4000.0)));
+   476  007B  3002               	movlw	2
+   477  007C  1283               	bcf	3,5	;RP0=0, select bank0
+   478  007D  1303               	bcf	3,6	;RP1=0, select bank0
+   479  007E  00A4               	movwf	??_main+2
+   480  007F  3086               	movlw	134
+   481  0080  00A3               	movwf	??_main+1
+   482  0081  3098               	movlw	152
+   483  0082  00A2               	movwf	??_main
+   484  0083                     u237:	
+   485  0083  0BA2               	decfsz	??_main,f
+   486  0084  2883               	goto	u237
+   487  0085  0BA3               	decfsz	??_main+1,f
+   488  0086  2883               	goto	u237
+   489  0087  0BA4               	decfsz	??_main+2,f
+   490  0088  2883               	goto	u237
+   491  0089  288A               	nop2
+   492                           
+   493                           ;pwm_main.c: 54: dash();
+   494  008A  231C               	fcall	_dash
+   495                           
+   496                           ;pwm_main.c: 55: _delay((unsigned long)((150)*(4000000/4000.0)));
+   497  008B  30C3               	movlw	195
+   498  008C  1283               	bcf	3,5	;RP0=0, select bank0
+   499  008D  1303               	bcf	3,6	;RP1=0, select bank0
+   500  008E  00A3               	movwf	??_main+1
+   501  008F  30CC               	movlw	204
+   502  0090  00A2               	movwf	??_main
+   503  0091                     u247:	
+   504  0091  0BA2               	decfsz	??_main,f
+   505  0092  2891               	goto	u247
+   506  0093  0BA3               	decfsz	??_main+1,f
+   507  0094  2891               	goto	u247
+   508  0095  2896               	nop2
+   509                           
+   510                           ;pwm_main.c: 56: dot();
+   511  0096  230A               	fcall	_dot
+   512                           
+   513                           ;pwm_main.c: 57: _delay((unsigned long)((150)*(4000000/4000.0)));
+   514  0097  30C3               	movlw	195
+   515  0098  1283               	bcf	3,5	;RP0=0, select bank0
+   516  0099  1303               	bcf	3,6	;RP1=0, select bank0
+   517  009A  00A3               	movwf	??_main+1
+   518  009B  30CC               	movlw	204
+   519  009C  00A2               	movwf	??_main
+   520  009D                     u257:	
+   521  009D  0BA2               	decfsz	??_main,f
+   522  009E  289D               	goto	u257
+   523  009F  0BA3               	decfsz	??_main+1,f
+   524  00A0  289D               	goto	u257
+   525  00A1  28A2               	nop2
+   526                           
+   527                           ;pwm_main.c: 58: dash();
+   528  00A2  231C               	fcall	_dash
+   529                           
+   530                           ;pwm_main.c: 59: _delay((unsigned long)((150)*(4000000/4000.0)));
+   531  00A3  30C3               	movlw	195
+   532  00A4  1283               	bcf	3,5	;RP0=0, select bank0
+   533  00A5  1303               	bcf	3,6	;RP1=0, select bank0
+   534  00A6  00A3               	movwf	??_main+1
+   535  00A7  30CC               	movlw	204
+   536  00A8  00A2               	movwf	??_main
+   537  00A9                     u267:	
+   538  00A9  0BA2               	decfsz	??_main,f
+   539  00AA  28A9               	goto	u267
+   540  00AB  0BA3               	decfsz	??_main+1,f
+   541  00AC  28A9               	goto	u267
+   542  00AD  28AE               	nop2
+   543                           
+   544                           ;pwm_main.c: 60: dot();
+   545  00AE  230A               	fcall	_dot
+   546                           
+   547                           ;pwm_main.c: 64: _delay((unsigned long)((300)*(4000000/4000.0)));
+   548  00AF  3002               	movlw	2
+   549  00B0  1283               	bcf	3,5	;RP0=0, select bank0
+   550  00B1  1303               	bcf	3,6	;RP1=0, select bank0
+   551  00B2  00A4               	movwf	??_main+2
+   552  00B3  3086               	movlw	134
+   553  00B4  00A3               	movwf	??_main+1
+   554  00B5  3098               	movlw	152
+   555  00B6  00A2               	movwf	??_main
+   556  00B7                     u277:	
+   557  00B7  0BA2               	decfsz	??_main,f
+   558  00B8  28B7               	goto	u277
+   559  00B9  0BA3               	decfsz	??_main+1,f
+   560  00BA  28B7               	goto	u277
+   561  00BB  0BA4               	decfsz	??_main+2,f
+   562  00BC  28B7               	goto	u277
+   563  00BD  28BE               	nop2
+   564                           
+   565                           ;pwm_main.c: 68: dash();
+   566  00BE  231C               	fcall	_dash
+   567                           
+   568                           ;pwm_main.c: 69: _delay((unsigned long)((150)*(4000000/4000.0)));
+   569  00BF  30C3               	movlw	195
+   570  00C0  1283               	bcf	3,5	;RP0=0, select bank0
+   571  00C1  1303               	bcf	3,6	;RP1=0, select bank0
+   572  00C2  00A3               	movwf	??_main+1
+   573  00C3  30CC               	movlw	204
+   574  00C4  00A2               	movwf	??_main
+   575  00C5                     u287:	
+   576  00C5  0BA2               	decfsz	??_main,f
+   577  00C6  28C5               	goto	u287
+   578  00C7  0BA3               	decfsz	??_main+1,f
+   579  00C8  28C5               	goto	u287
+   580  00C9  28CA               	nop2
+   581                           
+   582                           ;pwm_main.c: 70: dash();
+   583  00CA  231C               	fcall	_dash
+   584                           
+   585                           ;pwm_main.c: 71: _delay((unsigned long)((150)*(4000000/4000.0)));
+   586  00CB  30C3               	movlw	195
+   587  00CC  1283               	bcf	3,5	;RP0=0, select bank0
+   588  00CD  1303               	bcf	3,6	;RP1=0, select bank0
+   589  00CE  00A3               	movwf	??_main+1
+   590  00CF  30CC               	movlw	204
+   591  00D0  00A2               	movwf	??_main
+   592  00D1                     u297:	
+   593  00D1  0BA2               	decfsz	??_main,f
+   594  00D2  28D1               	goto	u297
+   595  00D3  0BA3               	decfsz	??_main+1,f
+   596  00D4  28D1               	goto	u297
+   597  00D5  28D6               	nop2
+   598                           
+   599                           ;pwm_main.c: 72: dot();
+   600  00D6  230A               	fcall	_dot
+   601                           
+   602                           ;pwm_main.c: 73: _delay((unsigned long)((150)*(4000000/4000.0)));
+   603  00D7  30C3               	movlw	195
+   604  00D8  1283               	bcf	3,5	;RP0=0, select bank0
+   605  00D9  1303               	bcf	3,6	;RP1=0, select bank0
+   606  00DA  00A3               	movwf	??_main+1
+   607  00DB  30CC               	movlw	204
+   608  00DC  00A2               	movwf	??_main
+   609  00DD                     u307:	
+   610  00DD  0BA2               	decfsz	??_main,f
+   611  00DE  28DD               	goto	u307
+   612  00DF  0BA3               	decfsz	??_main+1,f
+   613  00E0  28DD               	goto	u307
+   614  00E1  28E2               	nop2
+   615                           
+   616                           ;pwm_main.c: 74: dash();
+   617  00E2  231C               	fcall	_dash
+   618                           
+   619                           ;pwm_main.c: 77: _delay((unsigned long)((300)*(4000000/4000.0)));
+   620  00E3  3002               	movlw	2
+   621  00E4  1283               	bcf	3,5	;RP0=0, select bank0
+   622  00E5  1303               	bcf	3,6	;RP1=0, select bank0
+   623  00E6  00A4               	movwf	??_main+2
+   624  00E7  3086               	movlw	134
+   625  00E8  00A3               	movwf	??_main+1
+   626  00E9  3098               	movlw	152
+   627  00EA  00A2               	movwf	??_main
+   628  00EB                     u317:	
+   629  00EB  0BA2               	decfsz	??_main,f
+   630  00EC  28EB               	goto	u317
+   631  00ED  0BA3               	decfsz	??_main+1,f
+   632  00EE  28EB               	goto	u317
+   633  00EF  0BA4               	decfsz	??_main+2,f
+   634  00F0  28EB               	goto	u317
+   635  00F1  28F2               	nop2
+   636                           
+   637                           ;pwm_main.c: 85: dash();
+   638  00F2  231C               	fcall	_dash
+   639                           
+   640                           ;pwm_main.c: 86: _delay((unsigned long)((150)*(4000000/4000.0)));
+   641  00F3  30C3               	movlw	195
+   642  00F4  1283               	bcf	3,5	;RP0=0, select bank0
+   643  00F5  1303               	bcf	3,6	;RP1=0, select bank0
+   644  00F6  00A3               	movwf	??_main+1
+   645  00F7  30CC               	movlw	204
+   646  00F8  00A2               	movwf	??_main
+   647  00F9                     u327:	
+   648  00F9  0BA2               	decfsz	??_main,f
+   649  00FA  28F9               	goto	u327
+   650  00FB  0BA3               	decfsz	??_main+1,f
+   651  00FC  28F9               	goto	u327
+   652  00FD  28FE               	nop2
+   653                           
+   654                           ;pwm_main.c: 87: dot();
+   655  00FE  230A               	fcall	_dot
+   656                           
+   657                           ;pwm_main.c: 88: _delay((unsigned long)((150)*(4000000/4000.0)));
+   658  00FF  30C3               	movlw	195
+   659  0100  1283               	bcf	3,5	;RP0=0, select bank0
+   660  0101  1303               	bcf	3,6	;RP1=0, select bank0
+   661  0102  00A3               	movwf	??_main+1
+   662  0103  30CC               	movlw	204
+   663  0104  00A2               	movwf	??_main
+   664  0105                     u337:	
+   665  0105  0BA2               	decfsz	??_main,f
+   666  0106  2905               	goto	u337
+   667  0107  0BA3               	decfsz	??_main+1,f
+   668  0108  2905               	goto	u337
+   669  0109  290A               	nop2
+   670                           
+   671                           ;pwm_main.c: 89: dash();
+   672  010A  231C               	fcall	_dash
+   673                           
+   674                           ;pwm_main.c: 90: _delay((unsigned long)((150)*(4000000/4000.0)));
+   675  010B  30C3               	movlw	195
+   676  010C  1283               	bcf	3,5	;RP0=0, select bank0
+   677  010D  1303               	bcf	3,6	;RP1=0, select bank0
+   678  010E  00A3               	movwf	??_main+1
+   679  010F  30CC               	movlw	204
+   680  0110  00A2               	movwf	??_main
+   681  0111                     u347:	
+   682  0111  0BA2               	decfsz	??_main,f
+   683  0112  2911               	goto	u347
+   684  0113  0BA3               	decfsz	??_main+1,f
+   685  0114  2911               	goto	u347
+   686  0115  2916               	nop2
+   687                           
+   688                           ;pwm_main.c: 91: dot();
+   689  0116  230A               	fcall	_dot
+   690                           
+   691                           ;pwm_main.c: 95: _delay((unsigned long)((300)*(4000000/4000.0)));
+   692  0117  3002               	movlw	2
+   693  0118  1283               	bcf	3,5	;RP0=0, select bank0
+   694  0119  1303               	bcf	3,6	;RP1=0, select bank0
+   695  011A  00A4               	movwf	??_main+2
+   696  011B  3086               	movlw	134
+   697  011C  00A3               	movwf	??_main+1
+   698  011D  3098               	movlw	152
+   699  011E  00A2               	movwf	??_main
+   700  011F                     u357:	
+   701  011F  0BA2               	decfsz	??_main,f
+   702  0120  291F               	goto	u357
+   703  0121  0BA3               	decfsz	??_main+1,f
+   704  0122  291F               	goto	u357
+   705  0123  0BA4               	decfsz	??_main+2,f
+   706  0124  291F               	goto	u357
+   707  0125  2926               	nop2
+   708                           
+   709                           ;pwm_main.c: 99: dash();
+   710  0126  231C               	fcall	_dash
+   711                           
+   712                           ;pwm_main.c: 100: _delay((unsigned long)((150)*(4000000/4000.0)));
+   713  0127  30C3               	movlw	195
+   714  0128  1283               	bcf	3,5	;RP0=0, select bank0
+   715  0129  1303               	bcf	3,6	;RP1=0, select bank0
+   716  012A  00A3               	movwf	??_main+1
+   717  012B  30CC               	movlw	204
+   718  012C  00A2               	movwf	??_main
+   719  012D                     u367:	
+   720  012D  0BA2               	decfsz	??_main,f
+   721  012E  292D               	goto	u367
+   722  012F  0BA3               	decfsz	??_main+1,f
+   723  0130  292D               	goto	u367
+   724  0131  2932               	nop2
+   725                           
+   726                           ;pwm_main.c: 101: dash();
+   727  0132  231C               	fcall	_dash
+   728                           
+   729                           ;pwm_main.c: 102: _delay((unsigned long)((150)*(4000000/4000.0)));
+   730  0133  30C3               	movlw	195
+   731  0134  1283               	bcf	3,5	;RP0=0, select bank0
+   732  0135  1303               	bcf	3,6	;RP1=0, select bank0
+   733  0136  00A3               	movwf	??_main+1
+   734  0137  30CC               	movlw	204
+   735  0138  00A2               	movwf	??_main
+   736  0139                     u377:	
+   737  0139  0BA2               	decfsz	??_main,f
+   738  013A  2939               	goto	u377
+   739  013B  0BA3               	decfsz	??_main+1,f
+   740  013C  2939               	goto	u377
+   741  013D  293E               	nop2
+   742                           
+   743                           ;pwm_main.c: 103: dot();
+   744  013E  230A               	fcall	_dot
+   745                           
+   746                           ;pwm_main.c: 104: _delay((unsigned long)((150)*(4000000/4000.0)));
+   747  013F  30C3               	movlw	195
+   748  0140  1283               	bcf	3,5	;RP0=0, select bank0
+   749  0141  1303               	bcf	3,6	;RP1=0, select bank0
+   750  0142  00A3               	movwf	??_main+1
+   751  0143  30CC               	movlw	204
+   752  0144  00A2               	movwf	??_main
+   753  0145                     u387:	
+   754  0145  0BA2               	decfsz	??_main,f
+   755  0146  2945               	goto	u387
+   756  0147  0BA3               	decfsz	??_main+1,f
+   757  0148  2945               	goto	u387
+   758  0149  294A               	nop2
+   759                           
+   760                           ;pwm_main.c: 105: dash();
+   761  014A  231C               	fcall	_dash
+   762                           
+   763                           ;pwm_main.c: 108: _delay((unsigned long)((300)*(4000000/4000.0)));
+   764  014B  3002               	movlw	2
+   765  014C  1283               	bcf	3,5	;RP0=0, select bank0
+   766  014D  1303               	bcf	3,6	;RP1=0, select bank0
+   767  014E  00A4               	movwf	??_main+2
+   768  014F  3086               	movlw	134
+   769  0150  00A3               	movwf	??_main+1
+   770  0151  3098               	movlw	152
+   771  0152  00A2               	movwf	??_main
+   772  0153                     u397:	
+   773  0153  0BA2               	decfsz	??_main,f
+   774  0154  2953               	goto	u397
+   775  0155  0BA3               	decfsz	??_main+1,f
+   776  0156  2953               	goto	u397
+   777  0157  0BA4               	decfsz	??_main+2,f
+   778  0158  2953               	goto	u397
+   779  0159  295A               	nop2
+   780                           
+   781                           ;pwm_main.c: 113: dash();
+   782  015A  231C               	fcall	_dash
+   783                           
+   784                           ;pwm_main.c: 114: _delay((unsigned long)((150)*(4000000/4000.0))) ;
+   785  015B  30C3               	movlw	195
+   786  015C  1283               	bcf	3,5	;RP0=0, select bank0
+   787  015D  1303               	bcf	3,6	;RP1=0, select bank0
+   788  015E  00A3               	movwf	??_main+1
+   789  015F  30CC               	movlw	204
+   790  0160  00A2               	movwf	??_main
+   791  0161                     u407:	
+   792  0161  0BA2               	decfsz	??_main,f
+   793  0162  2961               	goto	u407
+   794  0163  0BA3               	decfsz	??_main+1,f
+   795  0164  2961               	goto	u407
+   796  0165  2966               	nop2
+   797                           
+   798                           ;pwm_main.c: 115: dot();
+   799  0166  230A               	fcall	_dot
+   800                           
+   801                           ;pwm_main.c: 116: _delay((unsigned long)((150)*(4000000/4000.0))) ;
+   802  0167  30C3               	movlw	195
+   803  0168  1283               	bcf	3,5	;RP0=0, select bank0
+   804  0169  1303               	bcf	3,6	;RP1=0, select bank0
+   805  016A  00A3               	movwf	??_main+1
+   806  016B  30CC               	movlw	204
+   807  016C  00A2               	movwf	??_main
+   808  016D                     u417:	
+   809  016D  0BA2               	decfsz	??_main,f
+   810  016E  296D               	goto	u417
+   811  016F  0BA3               	decfsz	??_main+1,f
+   812  0170  296D               	goto	u417
+   813  0171  2972               	nop2
+   814                           
+   815                           ;pwm_main.c: 117: dash();
+   816  0172  231C               	fcall	_dash
+   817                           
+   818                           ;pwm_main.c: 120: _delay((unsigned long)((300)*(4000000/4000.0))) ;
+   819  0173  3002               	movlw	2
+   820  0174  1283               	bcf	3,5	;RP0=0, select bank0
+   821  0175  1303               	bcf	3,6	;RP1=0, select bank0
+   822  0176  00A4               	movwf	??_main+2
+   823  0177  3086               	movlw	134
+   824  0178  00A3               	movwf	??_main+1
+   825  0179  3098               	movlw	152
+   826  017A  00A2               	movwf	??_main
+   827  017B                     u427:	
+   828  017B  0BA2               	decfsz	??_main,f
+   829  017C  297B               	goto	u427
+   830  017D  0BA3               	decfsz	??_main+1,f
+   831  017E  297B               	goto	u427
+   832  017F  0BA4               	decfsz	??_main+2,f
+   833  0180  297B               	goto	u427
+   834  0181  2982               	nop2
+   835                           
+   836                           ;pwm_main.c: 124: dash();
+   837  0182  231C               	fcall	_dash
+   838                           
+   839                           ;pwm_main.c: 125: _delay((unsigned long)((150)*(4000000/4000.0))) ;
+   840  0183  30C3               	movlw	195
+   841  0184  1283               	bcf	3,5	;RP0=0, select bank0
+   842  0185  1303               	bcf	3,6	;RP1=0, select bank0
+   843  0186  00A3               	movwf	??_main+1
+   844  0187  30CC               	movlw	204
+   845  0188  00A2               	movwf	??_main
+   846  0189                     u437:	
+   847  0189  0BA2               	decfsz	??_main,f
+   848  018A  2989               	goto	u437
+   849  018B  0BA3               	decfsz	??_main+1,f
+   850  018C  2989               	goto	u437
+   851  018D  298E               	nop2
+   852                           
+   853                           ;pwm_main.c: 126: dash();
+   854  018E  231C               	fcall	_dash
+   855                           
+   856                           ;pwm_main.c: 127: _delay((unsigned long)((150)*(4000000/4000.0))) ;
+   857  018F  30C3               	movlw	195
+   858  0190  1283               	bcf	3,5	;RP0=0, select bank0
+   859  0191  1303               	bcf	3,6	;RP1=0, select bank0
+   860  0192  00A3               	movwf	??_main+1
+   861  0193  30CC               	movlw	204
+   862  0194  00A2               	movwf	??_main
+   863  0195                     u447:	
+   864  0195  0BA2               	decfsz	??_main,f
+   865  0196  2995               	goto	u447
+   866  0197  0BA3               	decfsz	??_main+1,f
+   867  0198  2995               	goto	u447
+   868  0199  299A               	nop2
+   869                           
+   870                           ;pwm_main.c: 128: dot();
+   871  019A  230A               	fcall	_dot
+   872                           
+   873                           ;pwm_main.c: 132: _delay((unsigned long)((300)*(4000000/4000.0))) ;
+   874  019B  3002               	movlw	2
+   875  019C  1283               	bcf	3,5	;RP0=0, select bank0
+   876  019D  1303               	bcf	3,6	;RP1=0, select bank0
+   877  019E  00A4               	movwf	??_main+2
+   878  019F  3086               	movlw	134
+   879  01A0  00A3               	movwf	??_main+1
+   880  01A1  3098               	movlw	152
+   881  01A2  00A2               	movwf	??_main
+   882  01A3                     u457:	
+   883  01A3  0BA2               	decfsz	??_main,f
+   884  01A4  29A3               	goto	u457
+   885  01A5  0BA3               	decfsz	??_main+1,f
+   886  01A6  29A3               	goto	u457
+   887  01A7  0BA4               	decfsz	??_main+2,f
+   888  01A8  29A3               	goto	u457
+   889  01A9  29AA               	nop2
+   890                           
+   891                           ;pwm_main.c: 136: dash();
+   892  01AA  231C               	fcall	_dash
+   893                           
+   894                           ;pwm_main.c: 137: _delay((unsigned long)((150)*(4000000/4000.0))) ;
+   895  01AB  30C3               	movlw	195
+   896  01AC  1283               	bcf	3,5	;RP0=0, select bank0
+   897  01AD  1303               	bcf	3,6	;RP1=0, select bank0
+   898  01AE  00A3               	movwf	??_main+1
+   899  01AF  30CC               	movlw	204
+   900  01B0  00A2               	movwf	??_main
+   901  01B1                     u467:	
+   902  01B1  0BA2               	decfsz	??_main,f
+   903  01B2  29B1               	goto	u467
+   904  01B3  0BA3               	decfsz	??_main+1,f
+   905  01B4  29B1               	goto	u467
+   906  01B5  29B6               	nop2
+   907                           
+   908                           ;pwm_main.c: 138: dash();
+   909  01B6  231C               	fcall	_dash
+   910                           
+   911                           ;pwm_main.c: 139: _delay((unsigned long)((150)*(4000000/4000.0))) ;
+   912  01B7  30C3               	movlw	195
+   913  01B8  1283               	bcf	3,5	;RP0=0, select bank0
+   914  01B9  1303               	bcf	3,6	;RP1=0, select bank0
+   915  01BA  00A3               	movwf	??_main+1
+   916  01BB  30CC               	movlw	204
+   917  01BC  00A2               	movwf	??_main
+   918  01BD                     u477:	
+   919  01BD  0BA2               	decfsz	??_main,f
+   920  01BE  29BD               	goto	u477
+   921  01BF  0BA3               	decfsz	??_main+1,f
+   922  01C0  29BD               	goto	u477
+   923  01C1  29C2               	nop2
+   924                           
+   925                           ;pwm_main.c: 140: dot();
+   926  01C2  230A               	fcall	_dot
+   927                           
+   928                           ;pwm_main.c: 141: _delay((unsigned long)((150)*(4000000/4000.0))) ;
+   929  01C3  30C3               	movlw	195
+   930  01C4  1283               	bcf	3,5	;RP0=0, select bank0
+   931  01C5  1303               	bcf	3,6	;RP1=0, select bank0
+   932  01C6  00A3               	movwf	??_main+1
+   933  01C7  30CC               	movlw	204
+   934  01C8  00A2               	movwf	??_main
+   935  01C9                     u487:	
+   936  01C9  0BA2               	decfsz	??_main,f
+   937  01CA  29C9               	goto	u487
+   938  01CB  0BA3               	decfsz	??_main+1,f
+   939  01CC  29C9               	goto	u487
+   940  01CD  29CE               	nop2
+   941                           
+   942                           ;pwm_main.c: 142: dot();
+   943  01CE  230A               	fcall	_dot
+   944                           
+   945                           ;pwm_main.c: 143: _delay((unsigned long)((150)*(4000000/4000.0))) ;
+   946  01CF  30C3               	movlw	195
+   947  01D0  1283               	bcf	3,5	;RP0=0, select bank0
+   948  01D1  1303               	bcf	3,6	;RP1=0, select bank0
+   949  01D2  00A3               	movwf	??_main+1
+   950  01D3  30CC               	movlw	204
+   951  01D4  00A2               	movwf	??_main
+   952  01D5                     u497:	
+   953  01D5  0BA2               	decfsz	??_main,f
+   954  01D6  29D5               	goto	u497
+   955  01D7  0BA3               	decfsz	??_main+1,f
+   956  01D8  29D5               	goto	u497
+   957  01D9  29DA               	nop2
+   958                           
+   959                           ;pwm_main.c: 144: dot();
+   960  01DA  230A               	fcall	_dot
+   961                           
+   962                           ;pwm_main.c: 148: _delay((unsigned long)((300)*(4000000/4000.0))) ;
+   963  01DB  3002               	movlw	2
+   964  01DC  1283               	bcf	3,5	;RP0=0, select bank0
+   965  01DD  1303               	bcf	3,6	;RP1=0, select bank0
+   966  01DE  00A4               	movwf	??_main+2
+   967  01DF  3086               	movlw	134
+   968  01E0  00A3               	movwf	??_main+1
+   969  01E1  3098               	movlw	152
+   970  01E2  00A2               	movwf	??_main
+   971  01E3                     u507:	
+   972  01E3  0BA2               	decfsz	??_main,f
+   973  01E4  29E3               	goto	u507
+   974  01E5  0BA3               	decfsz	??_main+1,f
+   975  01E6  29E3               	goto	u507
+   976  01E7  0BA4               	decfsz	??_main+2,f
+   977  01E8  29E3               	goto	u507
+   978  01E9  29EA               	nop2
+   979                           
+   980                           ;pwm_main.c: 152: dot();
+   981  01EA  230A               	fcall	_dot
+   982                           
+   983                           ;pwm_main.c: 153: _delay((unsigned long)((150)*(4000000/4000.0))) ;
+   984  01EB  30C3               	movlw	195
+   985  01EC  1283               	bcf	3,5	;RP0=0, select bank0
+   986  01ED  1303               	bcf	3,6	;RP1=0, select bank0
+   987  01EE  00A3               	movwf	??_main+1
+   988  01EF  30CC               	movlw	204
+   989  01F0  00A2               	movwf	??_main
+   990  01F1                     u517:	
+   991  01F1  0BA2               	decfsz	??_main,f
+   992  01F2  29F1               	goto	u517
+   993  01F3  0BA3               	decfsz	??_main+1,f
+   994  01F4  29F1               	goto	u517
+   995  01F5  29F6               	nop2
+   996                           
+   997                           ;pwm_main.c: 154: dash();
+   998  01F6  231C               	fcall	_dash
+   999                           
+  1000                           ;pwm_main.c: 155: _delay((unsigned long)((150)*(4000000/4000.0))) ;
+  1001  01F7  30C3               	movlw	195
+  1002  01F8  1283               	bcf	3,5	;RP0=0, select bank0
+  1003  01F9  1303               	bcf	3,6	;RP1=0, select bank0
+  1004  01FA  00A3               	movwf	??_main+1
+  1005  01FB  30CC               	movlw	204
+  1006  01FC  00A2               	movwf	??_main
+  1007  01FD                     u527:	
+  1008  01FD  0BA2               	decfsz	??_main,f
+  1009  01FE  29FD               	goto	u527
+  1010  01FF  0BA3               	decfsz	??_main+1,f
+  1011  0200  29FD               	goto	u527
+  1012  0201  2A02               	nop2
+  1013                           
+  1014                           ;pwm_main.c: 156: dot();
+  1015  0202  230A               	fcall	_dot
+  1016                           
+  1017                           ;pwm_main.c: 159: _delay((unsigned long)((300)*(4000000/4000.0))) ;
+  1018  0203  3002               	movlw	2
+  1019  0204  1283               	bcf	3,5	;RP0=0, select bank0
+  1020  0205  1303               	bcf	3,6	;RP1=0, select bank0
+  1021  0206  00A4               	movwf	??_main+2
+  1022  0207  3086               	movlw	134
+  1023  0208  00A3               	movwf	??_main+1
+  1024  0209  3098               	movlw	152
+  1025  020A  00A2               	movwf	??_main
+  1026  020B                     u537:	
+  1027  020B  0BA2               	decfsz	??_main,f
+  1028  020C  2A0B               	goto	u537
+  1029  020D  0BA3               	decfsz	??_main+1,f
+  1030  020E  2A0B               	goto	u537
+  1031  020F  0BA4               	decfsz	??_main+2,f
+  1032  0210  2A0B               	goto	u537
+  1033  0211  2A12               	nop2
+  1034                           
+  1035                           ;pwm_main.c: 162: dash();
+  1036  0212  231C               	fcall	_dash
+  1037                           
+  1038                           ;pwm_main.c: 163: _delay((unsigned long)((150)*(4000000/4000.0))) ;
+  1039  0213  30C3               	movlw	195
+  1040  0214  1283               	bcf	3,5	;RP0=0, select bank0
+  1041  0215  1303               	bcf	3,6	;RP1=0, select bank0
+  1042  0216  00A3               	movwf	??_main+1
+  1043  0217  30CC               	movlw	204
+  1044  0218  00A2               	movwf	??_main
+  1045  0219                     u547:	
+  1046  0219  0BA2               	decfsz	??_main,f
+  1047  021A  2A19               	goto	u547
+  1048  021B  0BA3               	decfsz	??_main+1,f
+  1049  021C  2A19               	goto	u547
+  1050  021D  2A1E               	nop2
+  1051                           
+  1052                           ;pwm_main.c: 164: dot();
+  1053  021E  230A               	fcall	_dot
+  1054                           
+  1055                           ;pwm_main.c: 166: _delay((unsigned long)((300)*(4000000/4000.0))) ;
+  1056  021F  3002               	movlw	2
+  1057  0220  1283               	bcf	3,5	;RP0=0, select bank0
+  1058  0221  1303               	bcf	3,6	;RP1=0, select bank0
+  1059  0222  00A4               	movwf	??_main+2
+  1060  0223  3086               	movlw	134
+  1061  0224  00A3               	movwf	??_main+1
+  1062  0225  3098               	movlw	152
+  1063  0226  00A2               	movwf	??_main
+  1064  0227                     u557:	
+  1065  0227  0BA2               	decfsz	??_main,f
+  1066  0228  2A27               	goto	u557
+  1067  0229  0BA3               	decfsz	??_main+1,f
+  1068  022A  2A27               	goto	u557
+  1069  022B  0BA4               	decfsz	??_main+2,f
+  1070  022C  2A27               	goto	u557
+  1071  022D  2A2E               	nop2
+  1072                           
+  1073                           ;pwm_main.c: 169: dash();
+  1074  022E  231C               	fcall	_dash
+  1075                           
+  1076                           ;pwm_main.c: 170: _delay((unsigned long)((150)*(4000000/4000.0))) ;
+  1077  022F  30C3               	movlw	195
+  1078  0230  1283               	bcf	3,5	;RP0=0, select bank0
+  1079  0231  1303               	bcf	3,6	;RP1=0, select bank0
+  1080  0232  00A3               	movwf	??_main+1
+  1081  0233  30CC               	movlw	204
+  1082  0234  00A2               	movwf	??_main
+  1083  0235                     u567:	
+  1084  0235  0BA2               	decfsz	??_main,f
+  1085  0236  2A35               	goto	u567
+  1086  0237  0BA3               	decfsz	??_main+1,f
+  1087  0238  2A35               	goto	u567
+  1088  0239  2A3A               	nop2
+  1089                           
+  1090                           ;pwm_main.c: 171: dash();
+  1091  023A  231C               	fcall	_dash
+  1092                           
+  1093                           ;pwm_main.c: 173: _delay((unsigned long)((300)*(4000000/4000.0))) ;
+  1094  023B  3002               	movlw	2
+  1095  023C  1283               	bcf	3,5	;RP0=0, select bank0
+  1096  023D  1303               	bcf	3,6	;RP1=0, select bank0
+  1097  023E  00A4               	movwf	??_main+2
+  1098  023F  3086               	movlw	134
+  1099  0240  00A3               	movwf	??_main+1
+  1100  0241  3098               	movlw	152
+  1101  0242  00A2               	movwf	??_main
+  1102  0243                     u577:	
+  1103  0243  0BA2               	decfsz	??_main,f
+  1104  0244  2A43               	goto	u577
+  1105  0245  0BA3               	decfsz	??_main+1,f
+  1106  0246  2A43               	goto	u577
+  1107  0247  0BA4               	decfsz	??_main+2,f
+  1108  0248  2A43               	goto	u577
+  1109  0249  2A4A               	nop2
+  1110                           
+  1111                           ;pwm_main.c: 175: dash(); _delay((unsigned long)((150)*(4000000/4000.0))); dot(); _delay
       +                          ((unsigned long)((150)*(4000000/4000.0))); dot(); _delay((unsigned long)((150)*(4000000/
       +                          4000.0))); dash(); _delay((unsigned long)((150)*(4000000/4000.0))); dot();
-  1108  0246  2307               	fcall	_dash
-  1109  0247  30C3               	movlw	195
-  1110  0248  1283               	bcf	3,5	;RP0=0, select bank0
-  1111  0249  1303               	bcf	3,6	;RP1=0, select bank0
-  1112  024A  00A3               	movwf	??_main+1
-  1113  024B  30CC               	movlw	204
-  1114  024C  00A2               	movwf	??_main
-  1115  024D                     u517:	
-  1116  024D  0BA2               	decfsz	??_main,f
-  1117  024E  2A4D               	goto	u517
-  1118  024F  0BA3               	decfsz	??_main+1,f
-  1119  0250  2A4D               	goto	u517
-  1120  0251  2A52               	nop2
-  1121  0252  22F5               	fcall	_dot
-  1122  0253  30C3               	movlw	195
-  1123  0254  1283               	bcf	3,5	;RP0=0, select bank0
-  1124  0255  1303               	bcf	3,6	;RP1=0, select bank0
-  1125  0256  00A3               	movwf	??_main+1
-  1126  0257  30CC               	movlw	204
-  1127  0258  00A2               	movwf	??_main
-  1128  0259                     u527:	
-  1129  0259  0BA2               	decfsz	??_main,f
-  1130  025A  2A59               	goto	u527
-  1131  025B  0BA3               	decfsz	??_main+1,f
-  1132  025C  2A59               	goto	u527
-  1133  025D  2A5E               	nop2
-  1134  025E  22F5               	fcall	_dot
-  1135  025F  30C3               	movlw	195
-  1136  0260  1283               	bcf	3,5	;RP0=0, select bank0
-  1137  0261  1303               	bcf	3,6	;RP1=0, select bank0
-  1138  0262  00A3               	movwf	??_main+1
-  1139  0263  30CC               	movlw	204
-  1140  0264  00A2               	movwf	??_main
-  1141  0265                     u537:	
-  1142  0265  0BA2               	decfsz	??_main,f
-  1143  0266  2A65               	goto	u537
-  1144  0267  0BA3               	decfsz	??_main+1,f
-  1145  0268  2A65               	goto	u537
-  1146  0269  2A6A               	nop2
-  1147  026A  2307               	fcall	_dash
-  1148  026B  30C3               	movlw	195
-  1149  026C  1283               	bcf	3,5	;RP0=0, select bank0
-  1150  026D  1303               	bcf	3,6	;RP1=0, select bank0
-  1151  026E  00A3               	movwf	??_main+1
-  1152  026F  30CC               	movlw	204
-  1153  0270  00A2               	movwf	??_main
-  1154  0271                     u547:	
-  1155  0271  0BA2               	decfsz	??_main,f
-  1156  0272  2A71               	goto	u547
-  1157  0273  0BA3               	decfsz	??_main+1,f
-  1158  0274  2A71               	goto	u547
-  1159  0275  2A76               	nop2
-  1160  0276  22F5               	fcall	_dot
-  1161                           
-  1162                           ;pwm_main.c: 176: _delay((unsigned long)((300)*(4000000/4000.0))) ;
-  1163  0277  3002               	movlw	2
-  1164  0278  1283               	bcf	3,5	;RP0=0, select bank0
-  1165  0279  1303               	bcf	3,6	;RP1=0, select bank0
-  1166  027A  00A4               	movwf	??_main+2
-  1167  027B  3086               	movlw	134
-  1168  027C  00A3               	movwf	??_main+1
-  1169  027D  3098               	movlw	152
-  1170  027E  00A2               	movwf	??_main
-  1171  027F                     u557:	
-  1172  027F  0BA2               	decfsz	??_main,f
-  1173  0280  2A7F               	goto	u557
-  1174  0281  0BA3               	decfsz	??_main+1,f
-  1175  0282  2A7F               	goto	u557
-  1176  0283  0BA4               	decfsz	??_main+2,f
-  1177  0284  2A7F               	goto	u557
-  1178  0285  2A86               	nop2
-  1179                           
-  1180                           ;pwm_main.c: 177: dash(); _delay((unsigned long)((150)*(4000000/4000.0))); dot(); _delay
+  1112  024A  231C               	fcall	_dash
+  1113  024B  30C3               	movlw	195
+  1114  024C  1283               	bcf	3,5	;RP0=0, select bank0
+  1115  024D  1303               	bcf	3,6	;RP1=0, select bank0
+  1116  024E  00A3               	movwf	??_main+1
+  1117  024F  30CC               	movlw	204
+  1118  0250  00A2               	movwf	??_main
+  1119  0251                     u587:	
+  1120  0251  0BA2               	decfsz	??_main,f
+  1121  0252  2A51               	goto	u587
+  1122  0253  0BA3               	decfsz	??_main+1,f
+  1123  0254  2A51               	goto	u587
+  1124  0255  2A56               	nop2
+  1125  0256  230A               	fcall	_dot
+  1126  0257  30C3               	movlw	195
+  1127  0258  1283               	bcf	3,5	;RP0=0, select bank0
+  1128  0259  1303               	bcf	3,6	;RP1=0, select bank0
+  1129  025A  00A3               	movwf	??_main+1
+  1130  025B  30CC               	movlw	204
+  1131  025C  00A2               	movwf	??_main
+  1132  025D                     u597:	
+  1133  025D  0BA2               	decfsz	??_main,f
+  1134  025E  2A5D               	goto	u597
+  1135  025F  0BA3               	decfsz	??_main+1,f
+  1136  0260  2A5D               	goto	u597
+  1137  0261  2A62               	nop2
+  1138  0262  230A               	fcall	_dot
+  1139  0263  30C3               	movlw	195
+  1140  0264  1283               	bcf	3,5	;RP0=0, select bank0
+  1141  0265  1303               	bcf	3,6	;RP1=0, select bank0
+  1142  0266  00A3               	movwf	??_main+1
+  1143  0267  30CC               	movlw	204
+  1144  0268  00A2               	movwf	??_main
+  1145  0269                     u607:	
+  1146  0269  0BA2               	decfsz	??_main,f
+  1147  026A  2A69               	goto	u607
+  1148  026B  0BA3               	decfsz	??_main+1,f
+  1149  026C  2A69               	goto	u607
+  1150  026D  2A6E               	nop2
+  1151  026E  231C               	fcall	_dash
+  1152  026F  30C3               	movlw	195
+  1153  0270  1283               	bcf	3,5	;RP0=0, select bank0
+  1154  0271  1303               	bcf	3,6	;RP1=0, select bank0
+  1155  0272  00A3               	movwf	??_main+1
+  1156  0273  30CC               	movlw	204
+  1157  0274  00A2               	movwf	??_main
+  1158  0275                     u617:	
+  1159  0275  0BA2               	decfsz	??_main,f
+  1160  0276  2A75               	goto	u617
+  1161  0277  0BA3               	decfsz	??_main+1,f
+  1162  0278  2A75               	goto	u617
+  1163  0279  2A7A               	nop2
+  1164  027A  230A               	fcall	_dot
+  1165                           
+  1166                           ;pwm_main.c: 176: _delay((unsigned long)((300)*(4000000/4000.0))) ;
+  1167  027B  3002               	movlw	2
+  1168  027C  1283               	bcf	3,5	;RP0=0, select bank0
+  1169  027D  1303               	bcf	3,6	;RP1=0, select bank0
+  1170  027E  00A4               	movwf	??_main+2
+  1171  027F  3086               	movlw	134
+  1172  0280  00A3               	movwf	??_main+1
+  1173  0281  3098               	movlw	152
+  1174  0282  00A2               	movwf	??_main
+  1175  0283                     u627:	
+  1176  0283  0BA2               	decfsz	??_main,f
+  1177  0284  2A83               	goto	u627
+  1178  0285  0BA3               	decfsz	??_main+1,f
+  1179  0286  2A83               	goto	u627
+  1180  0287  0BA4               	decfsz	??_main+2,f
+  1181  0288  2A83               	goto	u627
+  1182  0289  2A8A               	nop2
+  1183                           
+  1184                           ;pwm_main.c: 177: dash(); _delay((unsigned long)((150)*(4000000/4000.0))); dot(); _delay
       +                          ((unsigned long)((150)*(4000000/4000.0)));dot(); _delay((unsigned long)((150)*(4000000/4
       +                          000.0)));dot();
-  1181  0286  2307               	fcall	_dash
-  1182  0287  30C3               	movlw	195
-  1183  0288  1283               	bcf	3,5	;RP0=0, select bank0
-  1184  0289  1303               	bcf	3,6	;RP1=0, select bank0
-  1185  028A  00A3               	movwf	??_main+1
-  1186  028B  30CC               	movlw	204
-  1187  028C  00A2               	movwf	??_main
-  1188  028D                     u567:	
-  1189  028D  0BA2               	decfsz	??_main,f
-  1190  028E  2A8D               	goto	u567
-  1191  028F  0BA3               	decfsz	??_main+1,f
-  1192  0290  2A8D               	goto	u567
-  1193  0291  2A92               	nop2
-  1194  0292  22F5               	fcall	_dot
-  1195  0293  30C3               	movlw	195
-  1196  0294  1283               	bcf	3,5	;RP0=0, select bank0
-  1197  0295  1303               	bcf	3,6	;RP1=0, select bank0
-  1198  0296  00A3               	movwf	??_main+1
-  1199  0297  30CC               	movlw	204
-  1200  0298  00A2               	movwf	??_main
-  1201  0299                     u577:	
-  1202  0299  0BA2               	decfsz	??_main,f
-  1203  029A  2A99               	goto	u577
-  1204  029B  0BA3               	decfsz	??_main+1,f
-  1205  029C  2A99               	goto	u577
-  1206  029D  2A9E               	nop2
-  1207  029E  22F5               	fcall	_dot
-  1208  029F  30C3               	movlw	195
-  1209  02A0  1283               	bcf	3,5	;RP0=0, select bank0
-  1210  02A1  1303               	bcf	3,6	;RP1=0, select bank0
-  1211  02A2  00A3               	movwf	??_main+1
-  1212  02A3  30CC               	movlw	204
-  1213  02A4  00A2               	movwf	??_main
-  1214  02A5                     u587:	
-  1215  02A5  0BA2               	decfsz	??_main,f
-  1216  02A6  2AA5               	goto	u587
-  1217  02A7  0BA3               	decfsz	??_main+1,f
-  1218  02A8  2AA5               	goto	u587
-  1219  02A9  2AAA               	nop2
-  1220  02AA  22F5               	fcall	_dot
-  1221                           
-  1222                           ;pwm_main.c: 215: PORTBbits.RB0=0;
-  1223  02AB  1283               	bcf	3,5	;RP0=0, select bank0
-  1224  02AC  1303               	bcf	3,6	;RP1=0, select bank0
-  1225  02AD  1006               	bcf	6,0	;volatile
-  1226                           
-  1227                           ;pwm_main.c: 216: _delay((unsigned long)((15000)*(4000000/4000.0))) ;
-  1228  02AE  304D               	movlw	77
-  1229  02AF  1283               	bcf	3,5	;RP0=0, select bank0
-  1230  02B0  1303               	bcf	3,6	;RP1=0, select bank0
-  1231  02B1  00A4               	movwf	??_main+2
-  1232  02B2  3019               	movlw	25
-  1233  02B3  00A3               	movwf	??_main+1
-  1234  02B4  304F               	movlw	79
-  1235  02B5  00A2               	movwf	??_main
-  1236  02B6                     u597:	
-  1237  02B6  0BA2               	decfsz	??_main,f
-  1238  02B7  2AB6               	goto	u597
-  1239  02B8  0BA3               	decfsz	??_main+1,f
-  1240  02B9  2AB6               	goto	u597
-  1241  02BA  0BA4               	decfsz	??_main+2,f
-  1242  02BB  2AB6               	goto	u597
-  1243  02BC  0000               	nop
-  1244  02BD  281E               	goto	l21
-  1245  02BE                     __end_of_main:	
-  1246                           ;pwm_main.c: 217: }
-  1247                           ;pwm_main.c: 218: return;
-  1248                           
-  1249                           
-  1250                           	psect	text1
-  1251  02F5                     __ptext1:	
-  1252 ;; *************** function _dot *****************
-  1253 ;; Defined at:
-  1254 ;;		line 56 in file "functions.c"
-  1255 ;; Parameters:    Size  Location     Type
-  1256 ;;		None
-  1257 ;; Auto vars:     Size  Location     Type
-  1258 ;;		None
-  1259 ;; Return value:  Size  Location     Type
-  1260 ;;                  1    wreg      void 
-  1261 ;; Registers used:
-  1262 ;;		wreg, status,2, status,0, pclath, cstack
-  1263 ;; Tracked objects:
-  1264 ;;		On entry : 0/0
-  1265 ;;		On exit  : 0/0
-  1266 ;;		Unchanged: 0/0
-  1267 ;; Data sizes:     COMMON   BANK0   BANK1   BANK2
-  1268 ;;      Params:         0       0       0       0
-  1269 ;;      Locals:         0       0       0       0
-  1270 ;;      Temps:          2       0       0       0
-  1271 ;;      Totals:         2       0       0       0
-  1272 ;;Total ram usage:        2 bytes
-  1273 ;; Hardware stack levels used:    1
-  1274 ;; Hardware stack levels required when called:    3
-  1275 ;; This function calls:
-  1276 ;;		_generateTone
-  1277 ;;		_stopTone
-  1278 ;; This function is called by:
-  1279 ;;		_main
-  1280 ;; This function uses a non-reentrant model
-  1281 ;;
-  1282                           
-  1283                           
-  1284                           ;psect for function _dot
-  1285  02F5                     _dot:	
-  1286                           
-  1287                           ;functions.c: 59: generateTone();
+  1185  028A  231C               	fcall	_dash
+  1186  028B  30C3               	movlw	195
+  1187  028C  1283               	bcf	3,5	;RP0=0, select bank0
+  1188  028D  1303               	bcf	3,6	;RP1=0, select bank0
+  1189  028E  00A3               	movwf	??_main+1
+  1190  028F  30CC               	movlw	204
+  1191  0290  00A2               	movwf	??_main
+  1192  0291                     u637:	
+  1193  0291  0BA2               	decfsz	??_main,f
+  1194  0292  2A91               	goto	u637
+  1195  0293  0BA3               	decfsz	??_main+1,f
+  1196  0294  2A91               	goto	u637
+  1197  0295  2A96               	nop2
+  1198  0296  230A               	fcall	_dot
+  1199  0297  30C3               	movlw	195
+  1200  0298  1283               	bcf	3,5	;RP0=0, select bank0
+  1201  0299  1303               	bcf	3,6	;RP1=0, select bank0
+  1202  029A  00A3               	movwf	??_main+1
+  1203  029B  30CC               	movlw	204
+  1204  029C  00A2               	movwf	??_main
+  1205  029D                     u647:	
+  1206  029D  0BA2               	decfsz	??_main,f
+  1207  029E  2A9D               	goto	u647
+  1208  029F  0BA3               	decfsz	??_main+1,f
+  1209  02A0  2A9D               	goto	u647
+  1210  02A1  2AA2               	nop2
+  1211  02A2  230A               	fcall	_dot
+  1212  02A3  30C3               	movlw	195
+  1213  02A4  1283               	bcf	3,5	;RP0=0, select bank0
+  1214  02A5  1303               	bcf	3,6	;RP1=0, select bank0
+  1215  02A6  00A3               	movwf	??_main+1
+  1216  02A7  30CC               	movlw	204
+  1217  02A8  00A2               	movwf	??_main
+  1218  02A9                     u657:	
+  1219  02A9  0BA2               	decfsz	??_main,f
+  1220  02AA  2AA9               	goto	u657
+  1221  02AB  0BA3               	decfsz	??_main+1,f
+  1222  02AC  2AA9               	goto	u657
+  1223  02AD  2AAE               	nop2
+  1224  02AE  230A               	fcall	_dot
+  1225                           
+  1226                           ;pwm_main.c: 215: PORTBbits.RB0=0;
+  1227  02AF  1283               	bcf	3,5	;RP0=0, select bank0
+  1228  02B0  1303               	bcf	3,6	;RP1=0, select bank0
+  1229  02B1  1006               	bcf	6,0	;volatile
+  1230                           
+  1231                           ;pwm_main.c: 216: _delay((unsigned long)((15000)*(4000000/4000.0))) ;
+  1232  02B2  304D               	movlw	77
+  1233  02B3  1283               	bcf	3,5	;RP0=0, select bank0
+  1234  02B4  1303               	bcf	3,6	;RP1=0, select bank0
+  1235  02B5  00A4               	movwf	??_main+2
+  1236  02B6  3019               	movlw	25
+  1237  02B7  00A3               	movwf	??_main+1
+  1238  02B8  304F               	movlw	79
+  1239  02B9  00A2               	movwf	??_main
+  1240  02BA                     u667:	
+  1241  02BA  0BA2               	decfsz	??_main,f
+  1242  02BB  2ABA               	goto	u667
+  1243  02BC  0BA3               	decfsz	??_main+1,f
+  1244  02BD  2ABA               	goto	u667
+  1245  02BE  0BA4               	decfsz	??_main+2,f
+  1246  02BF  2ABA               	goto	u667
+  1247  02C0  0000               	nop
+  1248  02C1  281E               	goto	l1132
+  1249  02C2                     l24:	
+  1250                           ;pwm_main.c: 217: }
+  1251                           ;pwm_main.c: 218: return;
+  1252                           
+  1253  02C2  2810               	ljmp	start
+  1254  02C3                     __end_of_main:	
+  1255                           
+  1256                           	psect	text1
+  1257  030A                     __ptext1:	
+  1258 ;; *************** function _dot *****************
+  1259 ;; Defined at:
+  1260 ;;		line 52 in file "functions.c"
+  1261 ;; Parameters:    Size  Location     Type
+  1262 ;;		None
+  1263 ;; Auto vars:     Size  Location     Type
+  1264 ;;		None
+  1265 ;; Return value:  Size  Location     Type
+  1266 ;;                  1    wreg      void 
+  1267 ;; Registers used:
+  1268 ;;		wreg, status,2, status,0, pclath, cstack
+  1269 ;; Tracked objects:
+  1270 ;;		On entry : 0/0
+  1271 ;;		On exit  : 0/0
+  1272 ;;		Unchanged: 0/0
+  1273 ;; Data sizes:     COMMON   BANK0   BANK1   BANK2
+  1274 ;;      Params:         0       0       0       0
+  1275 ;;      Locals:         0       0       0       0
+  1276 ;;      Temps:          2       0       0       0
+  1277 ;;      Totals:         2       0       0       0
+  1278 ;;Total ram usage:        2 bytes
+  1279 ;; Hardware stack levels used:    1
+  1280 ;; Hardware stack levels required when called:    3
+  1281 ;; This function calls:
+  1282 ;;		_generateTone
+  1283 ;;		_stopTone
+  1284 ;; This function is called by:
+  1285 ;;		_main
+  1286 ;; This function uses a non-reentrant model
+  1287 ;;
   1288                           
-  1289                           ;incstack = 0
-  1290                           ; Regs used in _dot: [wreg+status,2+status,0+pclath+cstack]
-  1291  02F5  2334               	fcall	_generateTone
+  1289                           
+  1290                           ;psect for function _dot
+  1291  030A                     _dot:	
   1292                           
-  1293                           ;functions.c: 60: PORTBbits.RB0=1;
-  1294  02F6  1283               	bcf	3,5	;RP0=0, select bank0
-  1295  02F7  1303               	bcf	3,6	;RP1=0, select bank0
-  1296  02F8  1406               	bsf	6,0	;volatile
-  1297                           
-  1298                           ;functions.c: 61: _delay((unsigned long)((50)*(4000000/4000.0)));
-  1299  02F9  3041               	movlw	65
-  1300  02FA  00F6               	movwf	??_dot+1
-  1301  02FB  30EE               	movlw	238
-  1302  02FC  00F5               	movwf	??_dot
-  1303  02FD                     u607:	
-  1304  02FD  0BF5               	decfsz	??_dot,f
-  1305  02FE  2AFD               	goto	u607
-  1306  02FF  0BF6               	decfsz	??_dot+1,f
-  1307  0300  2AFD               	goto	u607
-  1308  0301  0000               	nop
-  1309                           
-  1310                           ;functions.c: 62: PORTBbits.RB0=0;
-  1311  0302  1283               	bcf	3,5	;RP0=0, select bank0
-  1312  0303  1303               	bcf	3,6	;RP1=0, select bank0
-  1313  0304  1006               	bcf	6,0	;volatile
-  1314                           
-  1315                           ;functions.c: 63: stopTone();
-  1316  0305  2330               	fcall	_stopTone
-  1317  0306  0008               	return
-  1318  0307                     __end_of_dot:	
-  1319                           ;functions.c: 65: return ;
+  1293                           ;functions.c: 55: generateTone();
+  1294                           
+  1295                           ;incstack = 0
+  1296                           ; Regs used in _dot: [wreg+status,2+status,0+pclath+cstack]
+  1297  030A  2349               	fcall	_generateTone
+  1298                           
+  1299                           ;functions.c: 56: PORTBbits.RB0=1;
+  1300  030B  1283               	bcf	3,5	;RP0=0, select bank0
+  1301  030C  1303               	bcf	3,6	;RP1=0, select bank0
+  1302  030D  1406               	bsf	6,0	;volatile
+  1303                           
+  1304                           ;functions.c: 57: _delay((unsigned long)((50)*(4000000/4000.0)));
+  1305  030E  3041               	movlw	65
+  1306  030F  00F6               	movwf	??_dot+1
+  1307  0310  30EE               	movlw	238
+  1308  0311  00F5               	movwf	??_dot
+  1309  0312                     u677:	
+  1310  0312  0BF5               	decfsz	??_dot,f
+  1311  0313  2B12               	goto	u677
+  1312  0314  0BF6               	decfsz	??_dot+1,f
+  1313  0315  2B12               	goto	u677
+  1314  0316  0000               	nop
+  1315                           
+  1316                           ;functions.c: 58: PORTBbits.RB0=0;
+  1317  0317  1283               	bcf	3,5	;RP0=0, select bank0
+  1318  0318  1303               	bcf	3,6	;RP1=0, select bank0
+  1319  0319  1006               	bcf	6,0	;volatile
   1320                           
-  1321                           
-  1322                           	psect	text2
-  1323  0307                     __ptext2:	
-  1324 ;; *************** function _dash *****************
-  1325 ;; Defined at:
-  1326 ;;		line 70 in file "functions.c"
-  1327 ;; Parameters:    Size  Location     Type
-  1328 ;;		None
-  1329 ;; Auto vars:     Size  Location     Type
-  1330 ;;		None
-  1331 ;; Return value:  Size  Location     Type
-  1332 ;;                  1    wreg      void 
-  1333 ;; Registers used:
-  1334 ;;		wreg, status,2, status,0, pclath, cstack
-  1335 ;; Tracked objects:
-  1336 ;;		On entry : 0/0
-  1337 ;;		On exit  : 0/0
-  1338 ;;		Unchanged: 0/0
-  1339 ;; Data sizes:     COMMON   BANK0   BANK1   BANK2
-  1340 ;;      Params:         0       0       0       0
-  1341 ;;      Locals:         0       0       0       0
-  1342 ;;      Temps:          2       0       0       0
-  1343 ;;      Totals:         2       0       0       0
-  1344 ;;Total ram usage:        2 bytes
-  1345 ;; Hardware stack levels used:    1
-  1346 ;; Hardware stack levels required when called:    3
-  1347 ;; This function calls:
-  1348 ;;		_generateTone
-  1349 ;;		_stopTone
-  1350 ;; This function is called by:
-  1351 ;;		_main
-  1352 ;; This function uses a non-reentrant model
-  1353 ;;
-  1354                           
-  1355                           
-  1356                           ;psect for function _dash
-  1357  0307                     _dash:	
-  1358                           
-  1359                           ;functions.c: 73: generateTone();
+  1321                           ;functions.c: 59: stopTone();
+  1322  031A  2345               	fcall	_stopTone
+  1323  031B  0008               	return
+  1324  031C                     __end_of_dot:	
+  1325                           ;functions.c: 61: return ;
+  1326                           
+  1327                           
+  1328                           	psect	text2
+  1329  031C                     __ptext2:	
+  1330 ;; *************** function _dash *****************
+  1331 ;; Defined at:
+  1332 ;;		line 66 in file "functions.c"
+  1333 ;; Parameters:    Size  Location     Type
+  1334 ;;		None
+  1335 ;; Auto vars:     Size  Location     Type
+  1336 ;;		None
+  1337 ;; Return value:  Size  Location     Type
+  1338 ;;                  1    wreg      void 
+  1339 ;; Registers used:
+  1340 ;;		wreg, status,2, status,0, pclath, cstack
+  1341 ;; Tracked objects:
+  1342 ;;		On entry : 0/0
+  1343 ;;		On exit  : 0/0
+  1344 ;;		Unchanged: 0/0
+  1345 ;; Data sizes:     COMMON   BANK0   BANK1   BANK2
+  1346 ;;      Params:         0       0       0       0
+  1347 ;;      Locals:         0       0       0       0
+  1348 ;;      Temps:          2       0       0       0
+  1349 ;;      Totals:         2       0       0       0
+  1350 ;;Total ram usage:        2 bytes
+  1351 ;; Hardware stack levels used:    1
+  1352 ;; Hardware stack levels required when called:    3
+  1353 ;; This function calls:
+  1354 ;;		_generateTone
+  1355 ;;		_stopTone
+  1356 ;; This function is called by:
+  1357 ;;		_main
+  1358 ;; This function uses a non-reentrant model
+  1359 ;;
   1360                           
-  1361                           ;incstack = 0
-  1362                           ; Regs used in _dash: [wreg+status,2+status,0+pclath+cstack]
-  1363  0307  2334               	fcall	_generateTone
+  1361                           
+  1362                           ;psect for function _dash
+  1363  031C                     _dash:	
   1364                           
-  1365                           ;functions.c: 74: PORTBbits.RB0=1;
-  1366  0308  1283               	bcf	3,5	;RP0=0, select bank0
-  1367  0309  1303               	bcf	3,6	;RP1=0, select bank0
-  1368  030A  1406               	bsf	6,0	;volatile
-  1369                           
-  1370                           ;functions.c: 75: _delay((unsigned long)((150)*(4000000/4000.0)));
-  1371  030B  30C3               	movlw	195
-  1372  030C  00F6               	movwf	??_dash+1
-  1373  030D  30CD               	movlw	205
-  1374  030E  00F5               	movwf	??_dash
-  1375  030F                     u617:	
-  1376  030F  0BF5               	decfsz	??_dash,f
-  1377  0310  2B0F               	goto	u617
-  1378  0311  0BF6               	decfsz	??_dash+1,f
-  1379  0312  2B0F               	goto	u617
-  1380                           
-  1381                           ;functions.c: 76: PORTBbits.RB0=0;
-  1382  0313  1283               	bcf	3,5	;RP0=0, select bank0
-  1383  0314  1303               	bcf	3,6	;RP1=0, select bank0
-  1384  0315  1006               	bcf	6,0	;volatile
-  1385                           
-  1386                           ;functions.c: 77: stopTone();
-  1387  0316  2330               	fcall	_stopTone
-  1388  0317  0008               	return
-  1389  0318                     __end_of_dash:	
-  1390                           ;functions.c: 78: return ;
+  1365                           ;functions.c: 69: generateTone();
+  1366                           
+  1367                           ;incstack = 0
+  1368                           ; Regs used in _dash: [wreg+status,2+status,0+pclath+cstack]
+  1369  031C  2349               	fcall	_generateTone
+  1370                           
+  1371                           ;functions.c: 70: PORTBbits.RB0=1;
+  1372  031D  1283               	bcf	3,5	;RP0=0, select bank0
+  1373  031E  1303               	bcf	3,6	;RP1=0, select bank0
+  1374  031F  1406               	bsf	6,0	;volatile
+  1375                           
+  1376                           ;functions.c: 71: _delay((unsigned long)((150)*(4000000/4000.0)));
+  1377  0320  30C3               	movlw	195
+  1378  0321  00F6               	movwf	??_dash+1
+  1379  0322  30CD               	movlw	205
+  1380  0323  00F5               	movwf	??_dash
+  1381  0324                     u687:	
+  1382  0324  0BF5               	decfsz	??_dash,f
+  1383  0325  2B24               	goto	u687
+  1384  0326  0BF6               	decfsz	??_dash+1,f
+  1385  0327  2B24               	goto	u687
+  1386                           
+  1387                           ;functions.c: 72: PORTBbits.RB0=0;
+  1388  0328  1283               	bcf	3,5	;RP0=0, select bank0
+  1389  0329  1303               	bcf	3,6	;RP1=0, select bank0
+  1390  032A  1006               	bcf	6,0	;volatile
   1391                           
-  1392                           
-  1393                           	psect	text3
-  1394  0330                     __ptext3:	
-  1395 ;; *************** function _stopTone *****************
-  1396 ;; Defined at:
-  1397 ;;		line 40 in file "functions.c"
-  1398 ;; Parameters:    Size  Location     Type
-  1399 ;;		None
-  1400 ;; Auto vars:     Size  Location     Type
-  1401 ;;		None
-  1402 ;; Return value:  Size  Location     Type
-  1403 ;;                  1    wreg      void 
-  1404 ;; Registers used:
+  1392                           ;functions.c: 73: stopTone();
+  1393  032B  2345               	fcall	_stopTone
+  1394  032C  0008               	return
+  1395  032D                     __end_of_dash:	
+  1396                           ;functions.c: 74: return ;
+  1397                           
+  1398                           
+  1399                           	psect	text3
+  1400  0345                     __ptext3:	
+  1401 ;; *************** function _stopTone *****************
+  1402 ;; Defined at:
+  1403 ;;		line 34 in file "functions.c"
+  1404 ;; Parameters:    Size  Location     Type
   1405 ;;		None
-  1406 ;; Tracked objects:
-  1407 ;;		On entry : 0/0
-  1408 ;;		On exit  : 0/0
-  1409 ;;		Unchanged: 0/0
-  1410 ;; Data sizes:     COMMON   BANK0   BANK1   BANK2
-  1411 ;;      Params:         0       0       0       0
-  1412 ;;      Locals:         0       0       0       0
-  1413 ;;      Temps:          0       0       0       0
-  1414 ;;      Totals:         0       0       0       0
-  1415 ;;Total ram usage:        0 bytes
-  1416 ;; Hardware stack levels used:    1
-  1417 ;; Hardware stack levels required when called:    2
-  1418 ;; This function calls:
-  1419 ;;		Nothing
-  1420 ;; This function is called by:
-  1421 ;;		_dot
-  1422 ;;		_dash
-  1423 ;; This function uses a non-reentrant model
-  1424 ;;
-  1425                           
-  1426                           
-  1427                           ;psect for function _stopTone
-  1428  0330                     _stopTone:	
-  1429                           
-  1430                           ;functions.c: 42: T2CONbits.TMR2ON=0;
+  1406 ;; Auto vars:     Size  Location     Type
+  1407 ;;		None
+  1408 ;; Return value:  Size  Location     Type
+  1409 ;;                  1    wreg      void 
+  1410 ;; Registers used:
+  1411 ;;		None
+  1412 ;; Tracked objects:
+  1413 ;;		On entry : 0/0
+  1414 ;;		On exit  : 0/0
+  1415 ;;		Unchanged: 0/0
+  1416 ;; Data sizes:     COMMON   BANK0   BANK1   BANK2
+  1417 ;;      Params:         0       0       0       0
+  1418 ;;      Locals:         0       0       0       0
+  1419 ;;      Temps:          0       0       0       0
+  1420 ;;      Totals:         0       0       0       0
+  1421 ;;Total ram usage:        0 bytes
+  1422 ;; Hardware stack levels used:    1
+  1423 ;; Hardware stack levels required when called:    2
+  1424 ;; This function calls:
+  1425 ;;		Nothing
+  1426 ;; This function is called by:
+  1427 ;;		_dot
+  1428 ;;		_dash
+  1429 ;; This function uses a non-reentrant model
+  1430 ;;
   1431                           
-  1432                           ;incstack = 0
-  1433                           ; Regs used in _stopTone: []
-  1434  0330  1283               	bcf	3,5	;RP0=0, select bank0
-  1435  0331  1303               	bcf	3,6	;RP1=0, select bank0
-  1436  0332  1112               	bcf	18,2	;volatile
-  1437  0333  0008               	return
-  1438  0334                     __end_of_stopTone:	
-  1439                           
-  1440                           	psect	text4
-  1441  0334                     __ptext4:	
-  1442 ;; *************** function _generateTone *****************
-  1443 ;; Defined at:
-  1444 ;;		line 35 in file "functions.c"
-  1445 ;; Parameters:    Size  Location     Type
-  1446 ;;		None
-  1447 ;; Auto vars:     Size  Location     Type
-  1448 ;;		None
-  1449 ;; Return value:  Size  Location     Type
-  1450 ;;                  1    wreg      void 
-  1451 ;; Registers used:
+  1432                           
+  1433                           ;psect for function _stopTone
+  1434  0345                     _stopTone:	
+  1435                           
+  1436                           ;functions.c: 36: T2CONbits.TMR2ON=0;
+  1437                           
+  1438                           ;incstack = 0
+  1439                           ; Regs used in _stopTone: []
+  1440  0345  1283               	bcf	3,5	;RP0=0, select bank0
+  1441  0346  1303               	bcf	3,6	;RP1=0, select bank0
+  1442  0347  1112               	bcf	18,2	;volatile
+  1443  0348  0008               	return
+  1444  0349                     __end_of_stopTone:	
+  1445                           
+  1446                           	psect	text4
+  1447  0349                     __ptext4:	
+  1448 ;; *************** function _generateTone *****************
+  1449 ;; Defined at:
+  1450 ;;		line 27 in file "functions.c"
+  1451 ;; Parameters:    Size  Location     Type
   1452 ;;		None
-  1453 ;; Tracked objects:
-  1454 ;;		On entry : 0/0
-  1455 ;;		On exit  : 0/0
-  1456 ;;		Unchanged: 0/0
-  1457 ;; Data sizes:     COMMON   BANK0   BANK1   BANK2
-  1458 ;;      Params:         0       0       0       0
-  1459 ;;      Locals:         0       0       0       0
-  1460 ;;      Temps:          0       0       0       0
-  1461 ;;      Totals:         0       0       0       0
-  1462 ;;Total ram usage:        0 bytes
-  1463 ;; Hardware stack levels used:    1
-  1464 ;; Hardware stack levels required when called:    2
-  1465 ;; This function calls:
-  1466 ;;		Nothing
-  1467 ;; This function is called by:
-  1468 ;;		_dot
-  1469 ;;		_dash
-  1470 ;; This function uses a non-reentrant model
-  1471 ;;
-  1472                           
-  1473                           
-  1474                           ;psect for function _generateTone
-  1475  0334                     _generateTone:	
-  1476                           
-  1477                           ;functions.c: 38: T2CONbits.TMR2ON=1;
+  1453 ;; Auto vars:     Size  Location     Type
+  1454 ;;		None
+  1455 ;; Return value:  Size  Location     Type
+  1456 ;;                  1    wreg      void 
+  1457 ;; Registers used:
+  1458 ;;		None
+  1459 ;; Tracked objects:
+  1460 ;;		On entry : 0/0
+  1461 ;;		On exit  : 0/0
+  1462 ;;		Unchanged: 0/0
+  1463 ;; Data sizes:     COMMON   BANK0   BANK1   BANK2
+  1464 ;;      Params:         0       0       0       0
+  1465 ;;      Locals:         0       0       0       0
+  1466 ;;      Temps:          0       0       0       0
+  1467 ;;      Totals:         0       0       0       0
+  1468 ;;Total ram usage:        0 bytes
+  1469 ;; Hardware stack levels used:    1
+  1470 ;; Hardware stack levels required when called:    2
+  1471 ;; This function calls:
+  1472 ;;		Nothing
+  1473 ;; This function is called by:
+  1474 ;;		_dot
+  1475 ;;		_dash
+  1476 ;; This function uses a non-reentrant model
+  1477 ;;
   1478                           
-  1479                           ;incstack = 0
-  1480                           ; Regs used in _generateTone: []
-  1481  0334  1283               	bcf	3,5	;RP0=0, select bank0
-  1482  0335  1303               	bcf	3,6	;RP1=0, select bank0
-  1483  0336  1512               	bsf	18,2	;volatile
-  1484  0337  0008               	return
-  1485  0338                     __end_of_generateTone:	
-  1486                           
-  1487                           	psect	text5
-  1488  02BE                     __ptext5:	
-  1489 ;; *************** function _SetPWMDutyCycle *****************
-  1490 ;; Defined at:
-  1491 ;;		line 44 in file "functions.c"
-  1492 ;; Parameters:    Size  Location     Type
-  1493 ;;  DutyCycle       2    5[COMMON] unsigned int 
-  1494 ;; Auto vars:     Size  Location     Type
-  1495 ;;		None
-  1496 ;; Return value:  Size  Location     Type
-  1497 ;;                  1    wreg      void 
-  1498 ;; Registers used:
-  1499 ;;		wreg, status,2, status,0
-  1500 ;; Tracked objects:
-  1501 ;;		On entry : 0/0
-  1502 ;;		On exit  : 0/0
-  1503 ;;		Unchanged: 0/0
-  1504 ;; Data sizes:     COMMON   BANK0   BANK1   BANK2
-  1505 ;;      Params:         2       0       0       0
-  1506 ;;      Locals:         0       0       0       0
-  1507 ;;      Temps:          0       2       0       0
-  1508 ;;      Totals:         2       2       0       0
-  1509 ;;Total ram usage:        4 bytes
-  1510 ;; Hardware stack levels used:    1
-  1511 ;; Hardware stack levels required when called:    2
-  1512 ;; This function calls:
-  1513 ;;		Nothing
-  1514 ;; This function is called by:
-  1515 ;;		_main
-  1516 ;; This function uses a non-reentrant model
-  1517 ;;
-  1518                           
-  1519                           
-  1520                           ;psect for function _SetPWMDutyCycle
-  1521  02BE                     _SetPWMDutyCycle:	
-  1522                           
-  1523                           ;functions.c: 47: CCPR1L=DutyCycle>>2;
+  1479                           
+  1480                           ;psect for function _generateTone
+  1481  0349                     _generateTone:	
+  1482                           
+  1483                           ;functions.c: 30: T2CONbits.TMR2ON=1;
+  1484                           
+  1485                           ;incstack = 0
+  1486                           ; Regs used in _generateTone: []
+  1487  0349  1283               	bcf	3,5	;RP0=0, select bank0
+  1488  034A  1303               	bcf	3,6	;RP1=0, select bank0
+  1489  034B  1512               	bsf	18,2	;volatile
+  1490  034C  0008               	return
+  1491  034D                     __end_of_generateTone:	
+  1492                           
+  1493                           	psect	text5
+  1494  02E9                     __ptext5:	
+  1495 ;; *************** function _SetPWMDutyCycle *****************
+  1496 ;; Defined at:
+  1497 ;;		line 40 in file "functions.c"
+  1498 ;; Parameters:    Size  Location     Type
+  1499 ;;  DutyCycle       2    5[COMMON] unsigned int 
+  1500 ;; Auto vars:     Size  Location     Type
+  1501 ;;		None
+  1502 ;; Return value:  Size  Location     Type
+  1503 ;;                  1    wreg      void 
+  1504 ;; Registers used:
+  1505 ;;		wreg, status,2, status,0
+  1506 ;; Tracked objects:
+  1507 ;;		On entry : 0/0
+  1508 ;;		On exit  : 0/0
+  1509 ;;		Unchanged: 0/0
+  1510 ;; Data sizes:     COMMON   BANK0   BANK1   BANK2
+  1511 ;;      Params:         2       0       0       0
+  1512 ;;      Locals:         0       0       0       0
+  1513 ;;      Temps:          0       2       0       0
+  1514 ;;      Totals:         2       2       0       0
+  1515 ;;Total ram usage:        4 bytes
+  1516 ;; Hardware stack levels used:    1
+  1517 ;; Hardware stack levels required when called:    2
+  1518 ;; This function calls:
+  1519 ;;		Nothing
+  1520 ;; This function is called by:
+  1521 ;;		_main
+  1522 ;; This function uses a non-reentrant model
+  1523 ;;
   1524                           
-  1525                           ;incstack = 0
-  1526                           ; Regs used in _SetPWMDutyCycle: [wreg+status,2+status,0]
-  1527  02BE  0876               	movf	SetPWMDutyCycle@DutyCycle+1,w
-  1528  02BF  1283               	bcf	3,5	;RP0=0, select bank0
-  1529  02C0  1303               	bcf	3,6	;RP1=0, select bank0
-  1530  02C1  00A1               	movwf	??_SetPWMDutyCycle+1
-  1531  02C2  0875               	movf	SetPWMDutyCycle@DutyCycle,w
-  1532  02C3  00A0               	movwf	??_SetPWMDutyCycle
-  1533  02C4  1003               	clrc
-  1534  02C5  0CA1               	rrf	??_SetPWMDutyCycle+1,f
-  1535  02C6  0CA0               	rrf	??_SetPWMDutyCycle,f
-  1536  02C7  1003               	clrc
-  1537  02C8  0CA1               	rrf	??_SetPWMDutyCycle+1,f
-  1538  02C9  0CA0               	rrf	??_SetPWMDutyCycle,f
-  1539  02CA  0820               	movf	??_SetPWMDutyCycle,w
-  1540  02CB  0095               	movwf	21	;volatile
-  1541                           
-  1542                           ;functions.c: 48: CCP1CON&=0xCF;
-  1543  02CC  30CF               	movlw	207
-  1544  02CD  00A0               	movwf	??_SetPWMDutyCycle
-  1545  02CE  0820               	movf	??_SetPWMDutyCycle,w
-  1546  02CF  0597               	andwf	23,f	;volatile
+  1525                           
+  1526                           ;psect for function _SetPWMDutyCycle
+  1527  02E9                     _SetPWMDutyCycle:	
+  1528                           
+  1529                           ;functions.c: 43: CCPR1L=DutyCycle>>2;
+  1530                           
+  1531                           ;incstack = 0
+  1532                           ; Regs used in _SetPWMDutyCycle: [wreg+status,2+status,0]
+  1533  02E9  0876               	movf	SetPWMDutyCycle@DutyCycle+1,w
+  1534  02EA  1283               	bcf	3,5	;RP0=0, select bank0
+  1535  02EB  1303               	bcf	3,6	;RP1=0, select bank0
+  1536  02EC  00A1               	movwf	??_SetPWMDutyCycle+1
+  1537  02ED  0875               	movf	SetPWMDutyCycle@DutyCycle,w
+  1538  02EE  00A0               	movwf	??_SetPWMDutyCycle
+  1539  02EF  1003               	clrc
+  1540  02F0  0CA1               	rrf	??_SetPWMDutyCycle+1,f
+  1541  02F1  0CA0               	rrf	??_SetPWMDutyCycle,f
+  1542  02F2  1003               	clrc
+  1543  02F3  0CA1               	rrf	??_SetPWMDutyCycle+1,f
+  1544  02F4  0CA0               	rrf	??_SetPWMDutyCycle,f
+  1545  02F5  0820               	movf	??_SetPWMDutyCycle,w
+  1546  02F6  0095               	movwf	21	;volatile
   1547                           
-  1548                           ;functions.c: 49: CCP1CON|=(0x30&(DutyCycle<<4));
-  1549  02D0  0875               	movf	SetPWMDutyCycle@DutyCycle,w
-  1550  02D1  00A0               	movwf	??_SetPWMDutyCycle
-  1551  02D2  3003               	movlw	3
-  1552  02D3                     u85:	
-  1553  02D3  1003               	clrc
-  1554  02D4  0DA0               	rlf	??_SetPWMDutyCycle,f
-  1555  02D5  3EFF               	addlw	-1
-  1556  02D6  1D03               	skipz
-  1557  02D7  2AD3               	goto	u85
-  1558  02D8  1003               	clrc
-  1559  02D9  0D20               	rlf	??_SetPWMDutyCycle,w
-  1560  02DA  3930               	andlw	48
-  1561  02DB  00A1               	movwf	??_SetPWMDutyCycle+1
-  1562  02DC  0821               	movf	??_SetPWMDutyCycle+1,w
-  1563  02DD  0497               	iorwf	23,f	;volatile
-  1564  02DE  0008               	return
-  1565  02DF                     __end_of_SetPWMDutyCycle:	
-  1566                           
-  1567                           	psect	text6
-  1568  0318                     __ptext6:	
-  1569 ;; *************** function _InitPWM *****************
-  1570 ;; Defined at:
-  1571 ;;		line 22 in file "functions.c"
-  1572 ;; Parameters:    Size  Location     Type
-  1573 ;;		None
-  1574 ;; Auto vars:     Size  Location     Type
-  1575 ;;		None
-  1576 ;; Return value:  Size  Location     Type
-  1577 ;;                  1    wreg      void 
-  1578 ;; Registers used:
-  1579 ;;		wreg
-  1580 ;; Tracked objects:
-  1581 ;;		On entry : 0/0
-  1582 ;;		On exit  : 0/0
-  1583 ;;		Unchanged: 0/0
-  1584 ;; Data sizes:     COMMON   BANK0   BANK1   BANK2
-  1585 ;;      Params:         0       0       0       0
-  1586 ;;      Locals:         0       0       0       0
-  1587 ;;      Temps:          0       0       0       0
-  1588 ;;      Totals:         0       0       0       0
-  1589 ;;Total ram usage:        0 bytes
-  1590 ;; Hardware stack levels used:    1
-  1591 ;; Hardware stack levels required when called:    2
-  1592 ;; This function calls:
-  1593 ;;		Nothing
-  1594 ;; This function is called by:
-  1595 ;;		_main
-  1596 ;; This function uses a non-reentrant model
-  1597 ;;
-  1598                           
-  1599                           
-  1600                           ;psect for function _InitPWM
-  1601  0318                     _InitPWM:	
-  1602                           
-  1603                           ;functions.c: 25: TRISB3=0;
+  1548                           ;functions.c: 44: CCP1CON&=0xCF;
+  1549  02F7  30CF               	movlw	207
+  1550  02F8  00A0               	movwf	??_SetPWMDutyCycle
+  1551  02F9  0820               	movf	??_SetPWMDutyCycle,w
+  1552  02FA  0597               	andwf	23,f	;volatile
+  1553                           
+  1554                           ;functions.c: 45: CCP1CON|=(0x30&(DutyCycle<<4));
+  1555  02FB  0875               	movf	SetPWMDutyCycle@DutyCycle,w
+  1556  02FC  00A0               	movwf	??_SetPWMDutyCycle
+  1557  02FD  3003               	movlw	3
+  1558  02FE                     u145:	
+  1559  02FE  1003               	clrc
+  1560  02FF  0DA0               	rlf	??_SetPWMDutyCycle,f
+  1561  0300  3EFF               	addlw	-1
+  1562  0301  1D03               	skipz
+  1563  0302  2AFE               	goto	u145
+  1564  0303  1003               	clrc
+  1565  0304  0D20               	rlf	??_SetPWMDutyCycle,w
+  1566  0305  3930               	andlw	48
+  1567  0306  00A1               	movwf	??_SetPWMDutyCycle+1
+  1568  0307  0821               	movf	??_SetPWMDutyCycle+1,w
+  1569  0308  0497               	iorwf	23,f	;volatile
+  1570  0309  0008               	return
+  1571  030A                     __end_of_SetPWMDutyCycle:	
+  1572                           
+  1573                           	psect	text6
+  1574  032D                     __ptext6:	
+  1575 ;; *************** function _InitPWM *****************
+  1576 ;; Defined at:
+  1577 ;;		line 14 in file "functions.c"
+  1578 ;; Parameters:    Size  Location     Type
+  1579 ;;		None
+  1580 ;; Auto vars:     Size  Location     Type
+  1581 ;;		None
+  1582 ;; Return value:  Size  Location     Type
+  1583 ;;                  1    wreg      void 
+  1584 ;; Registers used:
+  1585 ;;		wreg
+  1586 ;; Tracked objects:
+  1587 ;;		On entry : 0/0
+  1588 ;;		On exit  : 0/0
+  1589 ;;		Unchanged: 0/0
+  1590 ;; Data sizes:     COMMON   BANK0   BANK1   BANK2
+  1591 ;;      Params:         0       0       0       0
+  1592 ;;      Locals:         0       0       0       0
+  1593 ;;      Temps:          0       0       0       0
+  1594 ;;      Totals:         0       0       0       0
+  1595 ;;Total ram usage:        0 bytes
+  1596 ;; Hardware stack levels used:    1
+  1597 ;; Hardware stack levels required when called:    2
+  1598 ;; This function calls:
+  1599 ;;		Nothing
+  1600 ;; This function is called by:
+  1601 ;;		_main
+  1602 ;; This function uses a non-reentrant model
+  1603 ;;
   1604                           
-  1605                           ;incstack = 0
-  1606                           ; Regs used in _InitPWM: [wreg]
-  1607  0318  1683               	bsf	3,5	;RP0=1, select bank1
-  1608  0319  1303               	bcf	3,6	;RP1=0, select bank1
-  1609  031A  1186               	bcf	6,3	;volatile
+  1605                           
+  1606                           ;psect for function _InitPWM
+  1607  032D                     _InitPWM:	
+  1608                           
+  1609                           ;functions.c: 17: TRISB3=0;
   1610                           
-  1611                           ;functions.c: 26: CCP1CON=0x0C;
-  1612  031B  300C               	movlw	12
-  1613  031C  1283               	bcf	3,5	;RP0=0, select bank0
-  1614  031D  1303               	bcf	3,6	;RP1=0, select bank0
-  1615  031E  0097               	movwf	23	;volatile
+  1611                           ;incstack = 0
+  1612                           ; Regs used in _InitPWM: [wreg]
+  1613  032D  1683               	bsf	3,5	;RP0=1, select bank1
+  1614  032E  1303               	bcf	3,6	;RP1=0, select bank1
+  1615  032F  1186               	bcf	6,3	;volatile
   1616                           
-  1617                           ;functions.c: 27: PR2=0x5E;
-  1618  031F  305E               	movlw	94
-  1619  0320  1683               	bsf	3,5	;RP0=1, select bank1
-  1620  0321  1303               	bcf	3,6	;RP1=0, select bank1
-  1621  0322  0092               	movwf	18	;volatile
+  1617                           ;functions.c: 18: CCP1CON=0x0C;
+  1618  0330  300C               	movlw	12
+  1619  0331  1283               	bcf	3,5	;RP0=0, select bank0
+  1620  0332  1303               	bcf	3,6	;RP1=0, select bank0
+  1621  0333  0097               	movwf	23	;volatile
   1622                           
-  1623                           ;functions.c: 28: T2CONbits.T2CKPS0=1;
-  1624  0323  1283               	bcf	3,5	;RP0=0, select bank0
-  1625  0324  1303               	bcf	3,6	;RP1=0, select bank0
-  1626  0325  1412               	bsf	18,0	;volatile
-  1627                           
-  1628                           ;functions.c: 29: T2CONbits.T2CKPS1=0;
-  1629  0326  1092               	bcf	18,1	;volatile
-  1630  0327  0008               	return
-  1631  0328                     __end_of_InitPWM:	
-  1632                           
-  1633                           	psect	text7
-  1634  02DF                     __ptext7:	
-  1635 ;; *************** function _ISR *****************
-  1636 ;; Defined at:
-  1637 ;;		line 34 in file "UARTComm.c"
-  1638 ;; Parameters:    Size  Location     Type
-  1639 ;;		None
-  1640 ;; Auto vars:     Size  Location     Type
-  1641 ;;		None
-  1642 ;; Return value:  Size  Location     Type
-  1643 ;;                  1    wreg      void 
-  1644 ;; Registers used:
-  1645 ;;		wreg, status,2, status,0, pclath, cstack
-  1646 ;; Tracked objects:
-  1647 ;;		On entry : 0/0
-  1648 ;;		On exit  : 0/0
-  1649 ;;		Unchanged: 0/0
-  1650 ;; Data sizes:     COMMON   BANK0   BANK1   BANK2
-  1651 ;;      Params:         0       0       0       0
-  1652 ;;      Locals:         0       0       0       0
-  1653 ;;      Temps:          4       0       0       0
-  1654 ;;      Totals:         4       0       0       0
-  1655 ;;Total ram usage:        4 bytes
-  1656 ;; Hardware stack levels used:    1
-  1657 ;; Hardware stack levels required when called:    1
-  1658 ;; This function calls:
-  1659 ;;		_SendByteSerially
-  1660 ;; This function is called by:
-  1661 ;;		Interrupt level 1
-  1662 ;; This function uses a non-reentrant model
-  1663 ;;
-  1664                           
-  1665                           
-  1666                           ;psect for function _ISR
-  1667  02DF                     _ISR:	
-  1668                           
-  1669                           ;UARTComm.c: 36: if(RCIF)
-  1670  02DF  1A8C               	btfsc	12,5	;volatile
+  1623                           ;functions.c: 19: PR2=0x5E;
+  1624  0334  305E               	movlw	94
+  1625  0335  1683               	bsf	3,5	;RP0=1, select bank1
+  1626  0336  1303               	bcf	3,6	;RP1=0, select bank1
+  1627  0337  0092               	movwf	18	;volatile
+  1628                           
+  1629                           ;functions.c: 20: T2CONbits.T2CKPS0=1;
+  1630  0338  1283               	bcf	3,5	;RP0=0, select bank0
+  1631  0339  1303               	bcf	3,6	;RP1=0, select bank0
+  1632  033A  1412               	bsf	18,0	;volatile
+  1633                           
+  1634                           ;functions.c: 21: T2CONbits.T2CKPS1=0;
+  1635  033B  1092               	bcf	18,1	;volatile
+  1636  033C  0008               	return
+  1637  033D                     __end_of_InitPWM:	
+  1638                           
+  1639                           	psect	text7
+  1640  02C3                     __ptext7:	
+  1641 ;; *************** function _ISR *****************
+  1642 ;; Defined at:
+  1643 ;;		line 34 in file "UARTComm.c"
+  1644 ;; Parameters:    Size  Location     Type
+  1645 ;;		None
+  1646 ;; Auto vars:     Size  Location     Type
+  1647 ;;		None
+  1648 ;; Return value:  Size  Location     Type
+  1649 ;;                  1    wreg      void 
+  1650 ;; Registers used:
+  1651 ;;		wreg, status,2, status,0, pclath, cstack
+  1652 ;; Tracked objects:
+  1653 ;;		On entry : 0/0
+  1654 ;;		On exit  : 0/0
+  1655 ;;		Unchanged: 0/0
+  1656 ;; Data sizes:     COMMON   BANK0   BANK1   BANK2
+  1657 ;;      Params:         0       0       0       0
+  1658 ;;      Locals:         0       0       0       0
+  1659 ;;      Temps:          4       0       0       0
+  1660 ;;      Totals:         4       0       0       0
+  1661 ;;Total ram usage:        4 bytes
+  1662 ;; Hardware stack levels used:    1
+  1663 ;; Hardware stack levels required when called:    1
+  1664 ;; This function calls:
+  1665 ;;		_SendByteSerially
+  1666 ;; This function is called by:
+  1667 ;;		Interrupt level 1
+  1668 ;; This function uses a non-reentrant model
+  1669 ;;
+  1670                           
   1671                           
-  1672                           ;UARTComm.c: 37: {
-  1673                           ;UARTComm.c: 38: if(OERR)
-  1674  02E0  1C98               	btfss	24,1	;volatile
-  1675  02E1  2AE4               	goto	i1l793
-  1676                           
-  1677                           ;UARTComm.c: 39: {
-  1678                           ;UARTComm.c: 40: CREN=0;
-  1679  02E2  1218               	bcf	24,4	;volatile
-  1680                           
-  1681                           ;UARTComm.c: 41: CREN=1;
-  1682  02E3  1618               	bsf	24,4	;volatile
-  1683  02E4                     i1l793:	
-  1684                           
-  1685                           ;UARTComm.c: 42: }
-  1686                           ;UARTComm.c: 43: }
-  1687                           ;UARTComm.c: 44: EnableSend=0;
-  1688  02E4  01F7               	clrf	_EnableSend
-  1689  02E5  01F8               	clrf	_EnableSend+1
+  1672                           ;psect for function _ISR
+  1673  02C3                     _ISR:	
+  1674                           
+  1675                           ;UARTComm.c: 36: if(RCIF)
+  1676  02C3  1A8C               	btfsc	12,5	;volatile
+  1677                           
+  1678                           ;UARTComm.c: 37: {
+  1679                           ;UARTComm.c: 38: if(OERR)
+  1680  02C4  1C98               	btfss	24,1	;volatile
+  1681  02C5  2AC8               	goto	i1l806
+  1682                           
+  1683                           ;UARTComm.c: 39: {
+  1684                           ;UARTComm.c: 40: CREN=0;
+  1685  02C6  1218               	bcf	24,4	;volatile
+  1686                           
+  1687                           ;UARTComm.c: 41: CREN=1;
+  1688  02C7  1618               	bsf	24,4	;volatile
+  1689  02C8                     i1l806:	
   1690                           
-  1691                           ;UARTComm.c: 45: SendByteSerially( 'K');
-  1692  02E6  304B               	movlw	75
-  1693  02E7  2328               	fcall	_SendByteSerially
-  1694  02E8  0874               	movf	??_ISR+3,w
-  1695  02E9  1283               	bcf	3,5	;RP0=0, select bank0
-  1696  02EA  1303               	bcf	3,6	;RP1=0, select bank0
-  1697  02EB  00FF               	movwf	127
-  1698  02EC  0873               	movf	??_ISR+2,w
-  1699  02ED  008A               	movwf	10
-  1700  02EE  0872               	movf	??_ISR+1,w
-  1701  02EF  0084               	movwf	4
-  1702  02F0  0E71               	swapf	??_ISR^(0+-128),w
-  1703  02F1  0083               	movwf	3
-  1704  02F2  0EFE               	swapf	126,f
-  1705  02F3  0E7E               	swapf	126,w
-  1706  02F4  0009               	retfie
-  1707  02F5                     __end_of_ISR:	
-  1708                           
-  1709                           	psect	intentry
-  1710  0004                     __pintentry:	
-  1711                           ;incstack = 0
-  1712                           ; Regs used in _ISR: [wreg+status,2+status,0+pclath+cstack]
-  1713                           
-  1714  0004                     interrupt_function:	
-  1715  007E                     saved_w	set	btemp
-  1716  0004  00FE               	movwf	btemp
-  1717  0005  0E03               	swapf	3,w
-  1718  0006  00F1               	movwf	??_ISR
-  1719  0007  0804               	movf	4,w
-  1720  0008  00F2               	movwf	??_ISR+1
-  1721  0009  080A               	movf	10,w
-  1722  000A  00F3               	movwf	??_ISR+2
-  1723  000B  1283               	bcf	3,5	;RP0=0, select bank0
-  1724  000C  1303               	bcf	3,6	;RP1=0, select bank0
-  1725  000D  087F               	movf	btemp+1,w
-  1726  000E  00F4               	movwf	??_ISR+3
-  1727  000F  2ADF               	ljmp	_ISR
-  1728                           
-  1729                           	psect	text8
-  1730  0328                     __ptext8:	
-  1731 ;; *************** function _SendByteSerially *****************
-  1732 ;; Defined at:
-  1733 ;;		line 27 in file "UARTComm.c"
-  1734 ;; Parameters:    Size  Location     Type
-  1735 ;;  Byte            1    wreg     unsigned char 
-  1736 ;; Auto vars:     Size  Location     Type
-  1737 ;;  Byte            1    0[COMMON] unsigned char 
-  1738 ;; Return value:  Size  Location     Type
-  1739 ;;                  1    wreg      void 
-  1740 ;; Registers used:
-  1741 ;;		wreg
-  1742 ;; Tracked objects:
-  1743 ;;		On entry : 0/0
-  1744 ;;		On exit  : 0/0
-  1745 ;;		Unchanged: 0/0
-  1746 ;; Data sizes:     COMMON   BANK0   BANK1   BANK2
-  1747 ;;      Params:         0       0       0       0
-  1748 ;;      Locals:         1       0       0       0
-  1749 ;;      Temps:          0       0       0       0
-  1750 ;;      Totals:         1       0       0       0
-  1751 ;;Total ram usage:        1 bytes
-  1752 ;; Hardware stack levels used:    1
-  1753 ;; This function calls:
-  1754 ;;		Nothing
-  1755 ;; This function is called by:
-  1756 ;;		_ISR
-  1757 ;; This function uses a non-reentrant model
-  1758 ;;
-  1759                           
-  1760                           
-  1761                           ;psect for function _SendByteSerially
-  1762  0328                     _SendByteSerially:	
-  1763                           
-  1764                           ;incstack = 0
-  1765                           ; Regs used in _SendByteSerially: [wreg]
-  1766                           ;SendByteSerially@Byte stored from wreg
-  1767  0328  00F0               	movwf	SendByteSerially@Byte
-  1768  0329                     i1l98:	
-  1769                           ;UARTComm.c: 29: while(!TXIF);
-  1770                           
-  1771  0329  1283               	bcf	3,5	;RP0=0, select bank0
-  1772  032A  1303               	bcf	3,6	;RP1=0, select bank0
-  1773  032B  1E0C               	btfss	12,4	;volatile
-  1774  032C  2B29               	goto	i1l98
-  1775                           
-  1776                           ;UARTComm.c: 30: TXREG=Byte;
-  1777  032D  0870               	movf	SendByteSerially@Byte,w
-  1778  032E  0099               	movwf	25	;volatile
-  1779  032F  0008               	return
-  1780  0330                     __end_of_SendByteSerially:	
-  1781  007E                     btemp	set	126	;btemp
-  1782  007E                     wtemp0	set	126
+  1691                           ;UARTComm.c: 42: }
+  1692                           ;UARTComm.c: 43: }
+  1693                           ;UARTComm.c: 44: if(RCREG=='F'){
+  1694  02C8  3046               	movlw	70
+  1695  02C9  061A               	xorwf	26,w	;volatile
+  1696  02CA  1D03               	btfss	3,2
+  1697  02CB  2AD0               	goto	i1l812
+  1698                           
+  1699                           ;UARTComm.c: 45: EnableSend=0;
+  1700  02CC  01F7               	clrf	_EnableSend
+  1701  02CD  01F8               	clrf	_EnableSend+1
+  1702                           
+  1703                           ;UARTComm.c: 46: SendByteSerially( 'K');
+  1704  02CE  304B               	movlw	75
+  1705  02CF  233D               	fcall	_SendByteSerially
+  1706  02D0                     i1l812:	
+  1707                           
+  1708                           ;UARTComm.c: 47: }
+  1709                           ;UARTComm.c: 49: if(RCREG=='S')
+  1710  02D0  3053               	movlw	83
+  1711  02D1  1283               	bcf	3,5	;RP0=0, select bank0
+  1712  02D2  1303               	bcf	3,6	;RP1=0, select bank0
+  1713  02D3  061A               	xorwf	26,w	;volatile
+  1714  02D4  1D03               	btfss	3,2
+  1715  02D5  2ADC               	goto	i1l112
+  1716                           
+  1717                           ;UARTComm.c: 50: {
+  1718                           ;UARTComm.c: 51: EnableSend=1;
+  1719  02D6  3001               	movlw	1
+  1720  02D7  00F7               	movwf	_EnableSend
+  1721  02D8  3000               	movlw	0
+  1722  02D9  00F8               	movwf	_EnableSend+1
+  1723                           
+  1724                           ;UARTComm.c: 52: SendByteSerially( 'K');
+  1725  02DA  304B               	movlw	75
+  1726  02DB  233D               	fcall	_SendByteSerially
+  1727  02DC                     i1l112:	
+  1728  02DC  0874               	movf	??_ISR+3,w
+  1729  02DD  1283               	bcf	3,5	;RP0=0, select bank0
+  1730  02DE  1303               	bcf	3,6	;RP1=0, select bank0
+  1731  02DF  00FF               	movwf	127
+  1732  02E0  0873               	movf	??_ISR+2,w
+  1733  02E1  008A               	movwf	10
+  1734  02E2  0872               	movf	??_ISR+1,w
+  1735  02E3  0084               	movwf	4
+  1736  02E4  0E71               	swapf	??_ISR^(0+-128),w
+  1737  02E5  0083               	movwf	3
+  1738  02E6  0EFE               	swapf	126,f
+  1739  02E7  0E7E               	swapf	126,w
+  1740  02E8  0009               	retfie
+  1741  02E9                     __end_of_ISR:	
+  1742                           
+  1743                           	psect	intentry
+  1744  0004                     __pintentry:	
+  1745                           ;incstack = 0
+  1746                           ; Regs used in _ISR: [wreg+status,2+status,0+pclath+cstack]
+  1747                           
+  1748  0004                     interrupt_function:	
+  1749  007E                     saved_w	set	btemp
+  1750  0004  00FE               	movwf	btemp
+  1751  0005  0E03               	swapf	3,w
+  1752  0006  00F1               	movwf	??_ISR
+  1753  0007  0804               	movf	4,w
+  1754  0008  00F2               	movwf	??_ISR+1
+  1755  0009  080A               	movf	10,w
+  1756  000A  00F3               	movwf	??_ISR+2
+  1757  000B  1283               	bcf	3,5	;RP0=0, select bank0
+  1758  000C  1303               	bcf	3,6	;RP1=0, select bank0
+  1759  000D  087F               	movf	btemp+1,w
+  1760  000E  00F4               	movwf	??_ISR+3
+  1761  000F  2AC3               	ljmp	_ISR
+  1762                           
+  1763                           	psect	text8
+  1764  033D                     __ptext8:	
+  1765 ;; *************** function _SendByteSerially *****************
+  1766 ;; Defined at:
+  1767 ;;		line 27 in file "UARTComm.c"
+  1768 ;; Parameters:    Size  Location     Type
+  1769 ;;  Byte            1    wreg     unsigned char 
+  1770 ;; Auto vars:     Size  Location     Type
+  1771 ;;  Byte            1    0[COMMON] unsigned char 
+  1772 ;; Return value:  Size  Location     Type
+  1773 ;;                  1    wreg      void 
+  1774 ;; Registers used:
+  1775 ;;		wreg
+  1776 ;; Tracked objects:
+  1777 ;;		On entry : 0/0
+  1778 ;;		On exit  : 0/0
+  1779 ;;		Unchanged: 0/0
+  1780 ;; Data sizes:     COMMON   BANK0   BANK1   BANK2
+  1781 ;;      Params:         0       0       0       0
+  1782 ;;      Locals:         1       0       0       0
+  1783 ;;      Temps:          0       0       0       0
+  1784 ;;      Totals:         1       0       0       0
+  1785 ;;Total ram usage:        1 bytes
+  1786 ;; Hardware stack levels used:    1
+  1787 ;; This function calls:
+  1788 ;;		Nothing
+  1789 ;; This function is called by:
+  1790 ;;		_ISR
+  1791 ;; This function uses a non-reentrant model
+  1792 ;;
+  1793                           
+  1794                           
+  1795                           ;psect for function _SendByteSerially
+  1796  033D                     _SendByteSerially:	
+  1797                           
+  1798                           ;incstack = 0
+  1799                           ; Regs used in _SendByteSerially: [wreg]
+  1800                           ;SendByteSerially@Byte stored from wreg
+  1801  033D  00F0               	movwf	SendByteSerially@Byte
+  1802  033E                     i1l100:	
+  1803                           ;UARTComm.c: 29: while(!TXIF);
+  1804                           
+  1805  033E  1283               	bcf	3,5	;RP0=0, select bank0
+  1806  033F  1303               	bcf	3,6	;RP1=0, select bank0
+  1807  0340  1E0C               	btfss	12,4	;volatile
+  1808  0341  2B3E               	goto	i1l100
+  1809                           
+  1810                           ;UARTComm.c: 30: TXREG=Byte;
+  1811  0342  0870               	movf	SendByteSerially@Byte,w
+  1812  0343  0099               	movwf	25	;volatile
+  1813  0344  0008               	return
+  1814  0345                     __end_of_SendByteSerially:	
+  1815  007E                     btemp	set	126	;btemp
+  1816  007E                     wtemp0	set	126
 
 
 Data Sizes:
@@ -1941,60 +1975,61 @@ DATA                 0      0       E      10        0.0%
 
 
 Microchip Technology PIC Macro Assembler V1.44 build -154322312 
-Symbol Table                                                                                   Sat Dec 09 21:59:16 2023
+Symbol Table                                                                                   Sat Dec 09 22:48:13 2023
 
-              __CFG_CP$OFF 0000                         l21 001E                         u85 02D3  
-                       u97 0025                __CFG_LVP$ON 0000                        u107 0031  
-                      u117 003D                        u207 00B3                        u127 004B  
-                      u217 00C1                        u137 0059                        u307 0135  
-                      u227 00CD                        u147 0065                        u317 0141  
-                      u237 00D9                        u157 0071                        _PR2 0092  
-                      u407 01B9                        u327 014F                        u247 00E7  
-                      u167 007F                        u417 01C5                        u337 015D  
-                      u257 00F5                        u177 008D               __CFG_CPD$OFF 0000  
-                      u507 023F                        u427 01D1                        u347 0169  
-                      u267 0101                        u187 0099                        _ISR 02DF  
-                      u517 024D                        u437 01DF                        u357 0177  
-                      u277 010D                        u197 00A5                        u607 02FD  
-                      u527 0259                        u447 01ED                        u367 0185  
-                      u287 011B                        u617 030F                        u537 0265  
-                      u457 01F9                        u377 0191                        u297 0129  
-                      u547 0271                        u467 0207                        u387 019F  
-                      u557 027F                        u477 0215                        u397 01AD  
-                      u567 028D                        u487 0223                        u577 0299  
-                      u497 0231                        u587 02A5                        u597 02B6  
-                      _RX9 00C6                        _TX9 04C6                        _dot 02F5  
+              __CFG_CP$OFF 0000                         l24 02C2                __CFG_LVP$ON 0000  
+                      u207 005D                        u145 02FE                        u217 0069  
+                      u307 00DD                        u227 0075                        u317 00EB  
+                      u237 0083                        _PR2 0092                        u407 0161  
+                      u327 00F9                        u247 0091                        u167 0029  
+                      u417 016D                        u337 0105                        u257 009D  
+                      u177 0035               __CFG_CPD$OFF 0000                        u507 01E3  
+                      u427 017B                        u347 0111                        u267 00A9  
+                      u187 0041                        _ISR 02C3                        u517 01F1  
+                      u437 0189                        u357 011F                        u277 00B7  
+                      u197 004F                        u607 0269                        u527 01FD  
+                      u447 0195                        u367 012D                        u287 00C5  
+                      u617 0275                        u537 020B                        u457 01A3  
+                      u377 0139                        u297 00D1                        u627 0283  
+                      u547 0219                        u467 01B1                        u387 0145  
+                      u637 0291                        u557 0227                        u477 01BD  
+                      u397 0153                        u647 029D                        u567 0235  
+                      u487 01C9                        u657 02A9                        u577 0243  
+                      u497 01D5                        u667 02BA                        u587 0251  
+                      u677 0312                        u597 025D                        u687 0324  
+                      _RX9 00C6                        _TX9 04C6                        _dot 030A  
                       fsr0 0004               __CFG_FOSC$HS 0000             ??_generateTone 0075  
-                     ?_ISR 0070                       ?_dot 0070                       _BRGH 04C2  
-                     _CREN 00C4                       _RCIE 0465                       _RCIF 0065  
-                     i1l98 0329                       _OERR 00C1                       _SPEN 00C7  
+                     ?_ISR 0070                       l1132 001E                       ?_dot 0070  
+                     _BRGH 04C2                       _CREN 00C4                       _RCIE 0465  
+                     _RCIF 0065                       _OERR 00C1                       _SPEN 00C7  
                      _SREN 00C5                       _TXIE 0464                       _TXEN 04C5  
-                     _TXIF 0064                       _SYNC 04C4                       _dash 0307  
+                     _TXIF 0064                       _SYNC 04C4                       _dash 031C  
                      _main 0015                       btemp 007E              __CFG_BOREN$ON 0000  
-                     start 0010              __CFG_MCLRE$ON 0000            __end_of_InitPWM 0328  
-                    ??_ISR 0071            _SetPWMDutyCycle 02BE                 _EnableSend 0077  
+                     start 0010              __CFG_MCLRE$ON 0000            __end_of_InitPWM 033D  
+                    ??_ISR 0071            _SetPWMDutyCycle 02E9                 _EnableSend 0077  
                     ??_dot 0075                      ?_dash 0070                      ?_main 0070  
-            __CFG_WDTE$OFF 0000                      i1l793 02E4                      _RCREG 001A  
+            __CFG_WDTE$OFF 0000                      i1l100 033E                      i1l112 02DC  
+                    i1l812 02D0                      i1l806 02C8                      _RCREG 001A  
                     _SPBRG 0099                      _TRISB 0086                      _TXREG 0019  
  SetPWMDutyCycle@DutyCycle 0075                      pclath 000A                      status 0003  
-                    wtemp0 007E            __initialization 0011               __end_of_dash 0318  
-             __end_of_main 02BE                     ??_dash 0075                     ??_main 0022  
+                    wtemp0 007E            __initialization 0011               __end_of_dash 032D  
+             __end_of_main 02C3                     ??_dash 0075                     ??_main 0022  
                    _CCPR1L 0015                     _TRISB0 0430                     _TRISB3 0433  
-                ??_InitPWM 0075    __end_of_SetPWMDutyCycle 02DF             __CFG_PWRTE$OFF 0000  
-     __end_of_generateTone 0338   __end_of_SendByteSerially 0330                     saved_w 007E  
-         __end_of_stopTone 0334    __end_of__initialization 0013             __pcstackCOMMON 0070  
+                ??_InitPWM 0075    __end_of_SetPWMDutyCycle 030A             __CFG_PWRTE$OFF 0000  
+     __end_of_generateTone 034D   __end_of_SendByteSerially 0345                     saved_w 007E  
+         __end_of_stopTone 0349    __end_of__initialization 0013             __pcstackCOMMON 0070  
      SendByteSerially@Byte 0070           ?_SetPWMDutyCycle 0075                 __pmaintext 0015  
-               __pintentry 0004                    _CCP1CON 0017                    _InitPWM 0318  
-    __size_of_generateTone 0004                  ?_stopTone 0070                    __ptext1 02F5  
-                  __ptext2 0307                    __ptext3 0330                    __ptext4 0334  
-                  __ptext5 02BE                    __ptext6 0318                    __ptext7 02DF  
-                  __ptext8 0328               __size_of_ISR 0016                  _T2CONbits 0012  
-             __size_of_dot 0012       end_of_initialization 0013               _generateTone 0334  
+               __pintentry 0004                    _CCP1CON 0017                    _InitPWM 032D  
+    __size_of_generateTone 0004                  ?_stopTone 0070                    __ptext1 030A  
+                  __ptext2 031C                    __ptext3 0345                    __ptext4 0349  
+                  __ptext5 02E9                    __ptext6 032D                    __ptext7 02C3  
+                  __ptext8 033D               __size_of_ISR 0026                  _T2CONbits 0012  
+             __size_of_dot 0012       end_of_initialization 0013               _generateTone 0349  
                ??_stopTone 0075                  _PORTBbits 0006          ?_SendByteSerially 0070  
-       ??_SendByteSerially 0070        start_initialization 0011                __end_of_ISR 02F5  
-              __end_of_dot 0307                __pbssCOMMON 0077                  ___latbits 0000  
+       ??_SendByteSerially 0070        start_initialization 0011                __end_of_ISR 02E9  
+              __end_of_dot 031C                __pbssCOMMON 0077                  ___latbits 0000  
             __pcstackBANK0 0020                   ?_InitPWM 0070   __size_of_SetPWMDutyCycle 0021  
         __size_of_stopTone 0004          interrupt_function 0004  __size_of_SendByteSerially 0008  
          __size_of_InitPWM 0010          ??_SetPWMDutyCycle 0020              __size_of_dash 0011  
-            __size_of_main 02A9                   _stopTone 0330                   intlevel1 0000  
-            ?_generateTone 0070           _SendByteSerially 0328  
+            __size_of_main 02AE                   _stopTone 0345                   intlevel1 0000  
+            ?_generateTone 0070           _SendByteSerially 033D  

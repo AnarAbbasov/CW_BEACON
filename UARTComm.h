@@ -29,4 +29,4 @@ void SendByteSerially(unsigned char Byte);
 void interrupt ISR(void);
 unsigned char ReceiveByteSerially(void);
 extern int EnableSend;
-
+void sendStringSerially(const unsigned char* st);

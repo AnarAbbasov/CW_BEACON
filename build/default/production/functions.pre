@@ -835,7 +835,7 @@ extern __bank0 unsigned char __resetbits;
 extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
 
-# 22 "functions.c"
+# 14 "functions.c"
 void InitPWM(void)
 {
 
@@ -854,10 +854,14 @@ void generateTone(void)
 
 T2CONbits.TMR2ON=1;
 }
+
+
 void stopTone(void)
 {
 T2CONbits.TMR2ON=0;
 }
+
+
 void SetPWMDutyCycle(unsigned int DutyCycle)
 {
 

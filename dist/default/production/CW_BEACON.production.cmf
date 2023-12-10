@@ -13,20 +13,20 @@
 %PSECTS
 $dist/default/production\CW_BEACON.production.obj
 cinit CODE 0 11 11 4 2
-text1 CODE 0 2F5 2F5 12 2
-text2 CODE 0 307 307 11 2
-text3 CODE 0 330 330 4 2
-text4 CODE 0 334 334 4 2
-text5 CODE 0 2BE 2BE 21 2
-text6 CODE 0 318 318 10 2
-text7 CODE 0 2DF 2DF 16 2
-text8 CODE 0 328 328 8 2
-maintext CODE 0 15 15 2A9 2
+text1 CODE 0 30A 30A 12 2
+text2 CODE 0 31C 31C 11 2
+text3 CODE 0 345 345 4 2
+text4 CODE 0 349 349 4 2
+text5 CODE 0 2E9 2E9 21 2
+text6 CODE 0 32D 32D 10 2
+text7 CODE 0 2C3 2C3 26 2
+text8 CODE 0 33D 33D 8 2
+maintext CODE 0 15 15 2AE 2
 cstackCOMMON COMMON 1 70 70 7 1
 cstackBANK0 BANK0 1 20 20 5 1
 intentry CODE 0 4 4 C 2
 bssCOMMON COMMON 1 77 77 2 1
-$C:\Users\anar_\AppData\Local\Temp\s7jg.obj
+$C:\Users\anar_\AppData\Local\Temp\s4j0.obj
 reset_vec CODE 0 0 0 1 2
 end_init CODE 0 10 10 1 2
 config CONFIG 0 2007 2007 1 2
@@ -43,13 +43,13 @@ BANK0 25-6F 1
 BANK1 A0-EF 1
 BANK2 120-14F 1
 CONST 1-3 2
-CONST 338-7FF 2
+CONST 34D-7FF 2
 ENTRY 1-3 2
-ENTRY 338-7FF 2
+ENTRY 34D-7FF 2
 IDLOC 2000-2003 2
 STACK A0-EF 1
 CODE 1-3 2
-CODE 338-7FF 2
+CODE 34D-7FF 2
 SFR0 0-1F 1
 SFR1 80-9F 1
 SFR2 100-11F 1
@@ -57,9 +57,9 @@ SFR3 180-1EF 1
 COMMON 79-7D 1
 EEDATA 2100-217F 2
 STRCODE 1-3 2
-STRCODE 338-7FF 2
+STRCODE 34D-7FF 2
 STRING 1-3 2
-STRING 338-7FF 2
+STRING 34D-7FF 2
 # %LINETAB Section
 # This section enumerates the file/line to address mappings.
 # The beginning of the section is indicated by %LINETAB.
@@ -74,151 +74,156 @@ STRING 338-7FF 2
 # All other numeric values are in decimal.
 %LINETAB
 $dist/default/production\CW_BEACON.production.obj
-11 cinit CODE >330:C:\Users\anar_\AppData\Local\Temp\s7jg.
-11 cinit CODE >333:C:\Users\anar_\AppData\Local\Temp\s7jg.
-11 cinit CODE >344:C:\Users\anar_\AppData\Local\Temp\s7jg.
-12 cinit CODE >345:C:\Users\anar_\AppData\Local\Temp\s7jg.
-13 cinit CODE >351:C:\Users\anar_\AppData\Local\Temp\s7jg.
-13 cinit CODE >353:C:\Users\anar_\AppData\Local\Temp\s7jg.
-14 cinit CODE >354:C:\Users\anar_\AppData\Local\Temp\s7jg.
+11 cinit CODE >330:C:\Users\anar_\AppData\Local\Temp\s4j0.
+11 cinit CODE >333:C:\Users\anar_\AppData\Local\Temp\s4j0.
+11 cinit CODE >344:C:\Users\anar_\AppData\Local\Temp\s4j0.
+12 cinit CODE >345:C:\Users\anar_\AppData\Local\Temp\s4j0.
+13 cinit CODE >351:C:\Users\anar_\AppData\Local\Temp\s4j0.
+13 cinit CODE >353:C:\Users\anar_\AppData\Local\Temp\s4j0.
+14 cinit CODE >354:C:\Users\anar_\AppData\Local\Temp\s4j0.
 4 intentry CODE >34:C:\Users\anar_\MPLABXProjects\CW_BEACON\UARTComm.c
-328 text8 CODE >27:C:\Users\anar_\MPLABXProjects\CW_BEACON\UARTComm.c
-329 text8 CODE >29:C:\Users\anar_\MPLABXProjects\CW_BEACON\UARTComm.c
-32D text8 CODE >30:C:\Users\anar_\MPLABXProjects\CW_BEACON\UARTComm.c
-32F text8 CODE >31:C:\Users\anar_\MPLABXProjects\CW_BEACON\UARTComm.c
-2DF text7 CODE >34:C:\Users\anar_\MPLABXProjects\CW_BEACON\UARTComm.c
-2DF text7 CODE >36:C:\Users\anar_\MPLABXProjects\CW_BEACON\UARTComm.c
-2E0 text7 CODE >38:C:\Users\anar_\MPLABXProjects\CW_BEACON\UARTComm.c
-2E2 text7 CODE >40:C:\Users\anar_\MPLABXProjects\CW_BEACON\UARTComm.c
-2E3 text7 CODE >41:C:\Users\anar_\MPLABXProjects\CW_BEACON\UARTComm.c
-2E4 text7 CODE >44:C:\Users\anar_\MPLABXProjects\CW_BEACON\UARTComm.c
-2E6 text7 CODE >45:C:\Users\anar_\MPLABXProjects\CW_BEACON\UARTComm.c
-2E8 text7 CODE >46:C:\Users\anar_\MPLABXProjects\CW_BEACON\UARTComm.c
-318 text6 CODE >22:C:\Users\anar_\MPLABXProjects\CW_BEACON\functions.c
-318 text6 CODE >25:C:\Users\anar_\MPLABXProjects\CW_BEACON\functions.c
-31B text6 CODE >26:C:\Users\anar_\MPLABXProjects\CW_BEACON\functions.c
-31F text6 CODE >27:C:\Users\anar_\MPLABXProjects\CW_BEACON\functions.c
-323 text6 CODE >28:C:\Users\anar_\MPLABXProjects\CW_BEACON\functions.c
-326 text6 CODE >29:C:\Users\anar_\MPLABXProjects\CW_BEACON\functions.c
-327 text6 CODE >31:C:\Users\anar_\MPLABXProjects\CW_BEACON\functions.c
-2BE text5 CODE >44:C:\Users\anar_\MPLABXProjects\CW_BEACON\functions.c
-2BE text5 CODE >47:C:\Users\anar_\MPLABXProjects\CW_BEACON\functions.c
-2CC text5 CODE >48:C:\Users\anar_\MPLABXProjects\CW_BEACON\functions.c
-2D0 text5 CODE >49:C:\Users\anar_\MPLABXProjects\CW_BEACON\functions.c
-2DE text5 CODE >52:C:\Users\anar_\MPLABXProjects\CW_BEACON\functions.c
-334 text4 CODE >35:C:\Users\anar_\MPLABXProjects\CW_BEACON\functions.c
-334 text4 CODE >38:C:\Users\anar_\MPLABXProjects\CW_BEACON\functions.c
-337 text4 CODE >39:C:\Users\anar_\MPLABXProjects\CW_BEACON\functions.c
-330 text3 CODE >40:C:\Users\anar_\MPLABXProjects\CW_BEACON\functions.c
-330 text3 CODE >42:C:\Users\anar_\MPLABXProjects\CW_BEACON\functions.c
-333 text3 CODE >43:C:\Users\anar_\MPLABXProjects\CW_BEACON\functions.c
-307 text2 CODE >70:C:\Users\anar_\MPLABXProjects\CW_BEACON\functions.c
-307 text2 CODE >73:C:\Users\anar_\MPLABXProjects\CW_BEACON\functions.c
-308 text2 CODE >74:C:\Users\anar_\MPLABXProjects\CW_BEACON\functions.c
-30B text2 CODE >75:C:\Users\anar_\MPLABXProjects\CW_BEACON\functions.c
-313 text2 CODE >76:C:\Users\anar_\MPLABXProjects\CW_BEACON\functions.c
-316 text2 CODE >77:C:\Users\anar_\MPLABXProjects\CW_BEACON\functions.c
-2F5 text1 CODE >56:C:\Users\anar_\MPLABXProjects\CW_BEACON\functions.c
-2F5 text1 CODE >59:C:\Users\anar_\MPLABXProjects\CW_BEACON\functions.c
-2F6 text1 CODE >60:C:\Users\anar_\MPLABXProjects\CW_BEACON\functions.c
-2F9 text1 CODE >61:C:\Users\anar_\MPLABXProjects\CW_BEACON\functions.c
-302 text1 CODE >62:C:\Users\anar_\MPLABXProjects\CW_BEACON\functions.c
-305 text1 CODE >63:C:\Users\anar_\MPLABXProjects\CW_BEACON\functions.c
+33D text8 CODE >27:C:\Users\anar_\MPLABXProjects\CW_BEACON\UARTComm.c
+33E text8 CODE >29:C:\Users\anar_\MPLABXProjects\CW_BEACON\UARTComm.c
+342 text8 CODE >30:C:\Users\anar_\MPLABXProjects\CW_BEACON\UARTComm.c
+344 text8 CODE >31:C:\Users\anar_\MPLABXProjects\CW_BEACON\UARTComm.c
+2C3 text7 CODE >34:C:\Users\anar_\MPLABXProjects\CW_BEACON\UARTComm.c
+2C3 text7 CODE >36:C:\Users\anar_\MPLABXProjects\CW_BEACON\UARTComm.c
+2C4 text7 CODE >38:C:\Users\anar_\MPLABXProjects\CW_BEACON\UARTComm.c
+2C6 text7 CODE >40:C:\Users\anar_\MPLABXProjects\CW_BEACON\UARTComm.c
+2C7 text7 CODE >41:C:\Users\anar_\MPLABXProjects\CW_BEACON\UARTComm.c
+2C8 text7 CODE >44:C:\Users\anar_\MPLABXProjects\CW_BEACON\UARTComm.c
+2CC text7 CODE >45:C:\Users\anar_\MPLABXProjects\CW_BEACON\UARTComm.c
+2CE text7 CODE >46:C:\Users\anar_\MPLABXProjects\CW_BEACON\UARTComm.c
+2D0 text7 CODE >49:C:\Users\anar_\MPLABXProjects\CW_BEACON\UARTComm.c
+2D6 text7 CODE >51:C:\Users\anar_\MPLABXProjects\CW_BEACON\UARTComm.c
+2DA text7 CODE >52:C:\Users\anar_\MPLABXProjects\CW_BEACON\UARTComm.c
+2DC text7 CODE >54:C:\Users\anar_\MPLABXProjects\CW_BEACON\UARTComm.c
+32D text6 CODE >14:C:\Users\anar_\MPLABXProjects\CW_BEACON\functions.c
+32D text6 CODE >17:C:\Users\anar_\MPLABXProjects\CW_BEACON\functions.c
+330 text6 CODE >18:C:\Users\anar_\MPLABXProjects\CW_BEACON\functions.c
+334 text6 CODE >19:C:\Users\anar_\MPLABXProjects\CW_BEACON\functions.c
+338 text6 CODE >20:C:\Users\anar_\MPLABXProjects\CW_BEACON\functions.c
+33B text6 CODE >21:C:\Users\anar_\MPLABXProjects\CW_BEACON\functions.c
+33C text6 CODE >23:C:\Users\anar_\MPLABXProjects\CW_BEACON\functions.c
+2E9 text5 CODE >40:C:\Users\anar_\MPLABXProjects\CW_BEACON\functions.c
+2E9 text5 CODE >43:C:\Users\anar_\MPLABXProjects\CW_BEACON\functions.c
+2F7 text5 CODE >44:C:\Users\anar_\MPLABXProjects\CW_BEACON\functions.c
+2FB text5 CODE >45:C:\Users\anar_\MPLABXProjects\CW_BEACON\functions.c
+309 text5 CODE >48:C:\Users\anar_\MPLABXProjects\CW_BEACON\functions.c
+349 text4 CODE >27:C:\Users\anar_\MPLABXProjects\CW_BEACON\functions.c
+349 text4 CODE >30:C:\Users\anar_\MPLABXProjects\CW_BEACON\functions.c
+34C text4 CODE >31:C:\Users\anar_\MPLABXProjects\CW_BEACON\functions.c
+345 text3 CODE >34:C:\Users\anar_\MPLABXProjects\CW_BEACON\functions.c
+345 text3 CODE >36:C:\Users\anar_\MPLABXProjects\CW_BEACON\functions.c
+348 text3 CODE >37:C:\Users\anar_\MPLABXProjects\CW_BEACON\functions.c
+31C text2 CODE >66:C:\Users\anar_\MPLABXProjects\CW_BEACON\functions.c
+31C text2 CODE >69:C:\Users\anar_\MPLABXProjects\CW_BEACON\functions.c
+31D text2 CODE >70:C:\Users\anar_\MPLABXProjects\CW_BEACON\functions.c
+320 text2 CODE >71:C:\Users\anar_\MPLABXProjects\CW_BEACON\functions.c
+328 text2 CODE >72:C:\Users\anar_\MPLABXProjects\CW_BEACON\functions.c
+32B text2 CODE >73:C:\Users\anar_\MPLABXProjects\CW_BEACON\functions.c
+30A text1 CODE >52:C:\Users\anar_\MPLABXProjects\CW_BEACON\functions.c
+30A text1 CODE >55:C:\Users\anar_\MPLABXProjects\CW_BEACON\functions.c
+30B text1 CODE >56:C:\Users\anar_\MPLABXProjects\CW_BEACON\functions.c
+30E text1 CODE >57:C:\Users\anar_\MPLABXProjects\CW_BEACON\functions.c
+317 text1 CODE >58:C:\Users\anar_\MPLABXProjects\CW_BEACON\functions.c
+31A text1 CODE >59:C:\Users\anar_\MPLABXProjects\CW_BEACON\functions.c
 15 maintext CODE >22:C:\Users\anar_\MPLABXProjects\CW_BEACON\pwm_main.c
 15 maintext CODE >24:C:\Users\anar_\MPLABXProjects\CW_BEACON\pwm_main.c
 16 maintext CODE >25:C:\Users\anar_\MPLABXProjects\CW_BEACON\pwm_main.c
 1B maintext CODE >26:C:\Users\anar_\MPLABXProjects\CW_BEACON\pwm_main.c
 1E maintext CODE >27:C:\Users\anar_\MPLABXProjects\CW_BEACON\pwm_main.c
-1E maintext CODE >29:C:\Users\anar_\MPLABXProjects\CW_BEACON\pwm_main.c
-1F maintext CODE >30:C:\Users\anar_\MPLABXProjects\CW_BEACON\pwm_main.c
-2A maintext CODE >31:C:\Users\anar_\MPLABXProjects\CW_BEACON\pwm_main.c
-2B maintext CODE >32:C:\Users\anar_\MPLABXProjects\CW_BEACON\pwm_main.c
-36 maintext CODE >33:C:\Users\anar_\MPLABXProjects\CW_BEACON\pwm_main.c
-37 maintext CODE >34:C:\Users\anar_\MPLABXProjects\CW_BEACON\pwm_main.c
-42 maintext CODE >35:C:\Users\anar_\MPLABXProjects\CW_BEACON\pwm_main.c
-43 maintext CODE >37:C:\Users\anar_\MPLABXProjects\CW_BEACON\pwm_main.c
-52 maintext CODE >39:C:\Users\anar_\MPLABXProjects\CW_BEACON\pwm_main.c
-53 maintext CODE >40:C:\Users\anar_\MPLABXProjects\CW_BEACON\pwm_main.c
-5E maintext CODE >41:C:\Users\anar_\MPLABXProjects\CW_BEACON\pwm_main.c
-5F maintext CODE >42:C:\Users\anar_\MPLABXProjects\CW_BEACON\pwm_main.c
-6A maintext CODE >43:C:\Users\anar_\MPLABXProjects\CW_BEACON\pwm_main.c
-6B maintext CODE >44:C:\Users\anar_\MPLABXProjects\CW_BEACON\pwm_main.c
-76 maintext CODE >45:C:\Users\anar_\MPLABXProjects\CW_BEACON\pwm_main.c
-77 maintext CODE >48:C:\Users\anar_\MPLABXProjects\CW_BEACON\pwm_main.c
-86 maintext CODE >54:C:\Users\anar_\MPLABXProjects\CW_BEACON\pwm_main.c
-87 maintext CODE >55:C:\Users\anar_\MPLABXProjects\CW_BEACON\pwm_main.c
-92 maintext CODE >56:C:\Users\anar_\MPLABXProjects\CW_BEACON\pwm_main.c
-93 maintext CODE >57:C:\Users\anar_\MPLABXProjects\CW_BEACON\pwm_main.c
-9E maintext CODE >58:C:\Users\anar_\MPLABXProjects\CW_BEACON\pwm_main.c
-9F maintext CODE >59:C:\Users\anar_\MPLABXProjects\CW_BEACON\pwm_main.c
-AA maintext CODE >60:C:\Users\anar_\MPLABXProjects\CW_BEACON\pwm_main.c
-AB maintext CODE >64:C:\Users\anar_\MPLABXProjects\CW_BEACON\pwm_main.c
-BA maintext CODE >68:C:\Users\anar_\MPLABXProjects\CW_BEACON\pwm_main.c
-BB maintext CODE >69:C:\Users\anar_\MPLABXProjects\CW_BEACON\pwm_main.c
-C6 maintext CODE >70:C:\Users\anar_\MPLABXProjects\CW_BEACON\pwm_main.c
-C7 maintext CODE >71:C:\Users\anar_\MPLABXProjects\CW_BEACON\pwm_main.c
-D2 maintext CODE >72:C:\Users\anar_\MPLABXProjects\CW_BEACON\pwm_main.c
-D3 maintext CODE >73:C:\Users\anar_\MPLABXProjects\CW_BEACON\pwm_main.c
-DE maintext CODE >74:C:\Users\anar_\MPLABXProjects\CW_BEACON\pwm_main.c
-DF maintext CODE >77:C:\Users\anar_\MPLABXProjects\CW_BEACON\pwm_main.c
-EE maintext CODE >85:C:\Users\anar_\MPLABXProjects\CW_BEACON\pwm_main.c
-EF maintext CODE >86:C:\Users\anar_\MPLABXProjects\CW_BEACON\pwm_main.c
-FA maintext CODE >87:C:\Users\anar_\MPLABXProjects\CW_BEACON\pwm_main.c
-FB maintext CODE >88:C:\Users\anar_\MPLABXProjects\CW_BEACON\pwm_main.c
-106 maintext CODE >89:C:\Users\anar_\MPLABXProjects\CW_BEACON\pwm_main.c
-107 maintext CODE >90:C:\Users\anar_\MPLABXProjects\CW_BEACON\pwm_main.c
-112 maintext CODE >91:C:\Users\anar_\MPLABXProjects\CW_BEACON\pwm_main.c
-113 maintext CODE >95:C:\Users\anar_\MPLABXProjects\CW_BEACON\pwm_main.c
-122 maintext CODE >99:C:\Users\anar_\MPLABXProjects\CW_BEACON\pwm_main.c
-123 maintext CODE >100:C:\Users\anar_\MPLABXProjects\CW_BEACON\pwm_main.c
-12E maintext CODE >101:C:\Users\anar_\MPLABXProjects\CW_BEACON\pwm_main.c
-12F maintext CODE >102:C:\Users\anar_\MPLABXProjects\CW_BEACON\pwm_main.c
-13A maintext CODE >103:C:\Users\anar_\MPLABXProjects\CW_BEACON\pwm_main.c
-13B maintext CODE >104:C:\Users\anar_\MPLABXProjects\CW_BEACON\pwm_main.c
-146 maintext CODE >105:C:\Users\anar_\MPLABXProjects\CW_BEACON\pwm_main.c
-147 maintext CODE >108:C:\Users\anar_\MPLABXProjects\CW_BEACON\pwm_main.c
-156 maintext CODE >113:C:\Users\anar_\MPLABXProjects\CW_BEACON\pwm_main.c
-157 maintext CODE >114:C:\Users\anar_\MPLABXProjects\CW_BEACON\pwm_main.c
-162 maintext CODE >115:C:\Users\anar_\MPLABXProjects\CW_BEACON\pwm_main.c
-163 maintext CODE >116:C:\Users\anar_\MPLABXProjects\CW_BEACON\pwm_main.c
-16E maintext CODE >117:C:\Users\anar_\MPLABXProjects\CW_BEACON\pwm_main.c
-16F maintext CODE >120:C:\Users\anar_\MPLABXProjects\CW_BEACON\pwm_main.c
-17E maintext CODE >124:C:\Users\anar_\MPLABXProjects\CW_BEACON\pwm_main.c
-17F maintext CODE >125:C:\Users\anar_\MPLABXProjects\CW_BEACON\pwm_main.c
-18A maintext CODE >126:C:\Users\anar_\MPLABXProjects\CW_BEACON\pwm_main.c
-18B maintext CODE >127:C:\Users\anar_\MPLABXProjects\CW_BEACON\pwm_main.c
-196 maintext CODE >128:C:\Users\anar_\MPLABXProjects\CW_BEACON\pwm_main.c
-197 maintext CODE >132:C:\Users\anar_\MPLABXProjects\CW_BEACON\pwm_main.c
-1A6 maintext CODE >136:C:\Users\anar_\MPLABXProjects\CW_BEACON\pwm_main.c
-1A7 maintext CODE >137:C:\Users\anar_\MPLABXProjects\CW_BEACON\pwm_main.c
-1B2 maintext CODE >138:C:\Users\anar_\MPLABXProjects\CW_BEACON\pwm_main.c
-1B3 maintext CODE >139:C:\Users\anar_\MPLABXProjects\CW_BEACON\pwm_main.c
-1BE maintext CODE >140:C:\Users\anar_\MPLABXProjects\CW_BEACON\pwm_main.c
-1BF maintext CODE >141:C:\Users\anar_\MPLABXProjects\CW_BEACON\pwm_main.c
-1CA maintext CODE >142:C:\Users\anar_\MPLABXProjects\CW_BEACON\pwm_main.c
-1CB maintext CODE >143:C:\Users\anar_\MPLABXProjects\CW_BEACON\pwm_main.c
-1D6 maintext CODE >144:C:\Users\anar_\MPLABXProjects\CW_BEACON\pwm_main.c
-1D7 maintext CODE >148:C:\Users\anar_\MPLABXProjects\CW_BEACON\pwm_main.c
-1E6 maintext CODE >152:C:\Users\anar_\MPLABXProjects\CW_BEACON\pwm_main.c
-1E7 maintext CODE >153:C:\Users\anar_\MPLABXProjects\CW_BEACON\pwm_main.c
-1F2 maintext CODE >154:C:\Users\anar_\MPLABXProjects\CW_BEACON\pwm_main.c
-1F3 maintext CODE >155:C:\Users\anar_\MPLABXProjects\CW_BEACON\pwm_main.c
-1FE maintext CODE >156:C:\Users\anar_\MPLABXProjects\CW_BEACON\pwm_main.c
-1FF maintext CODE >159:C:\Users\anar_\MPLABXProjects\CW_BEACON\pwm_main.c
-20E maintext CODE >162:C:\Users\anar_\MPLABXProjects\CW_BEACON\pwm_main.c
-20F maintext CODE >163:C:\Users\anar_\MPLABXProjects\CW_BEACON\pwm_main.c
-21A maintext CODE >164:C:\Users\anar_\MPLABXProjects\CW_BEACON\pwm_main.c
-21B maintext CODE >166:C:\Users\anar_\MPLABXProjects\CW_BEACON\pwm_main.c
-22A maintext CODE >169:C:\Users\anar_\MPLABXProjects\CW_BEACON\pwm_main.c
-22B maintext CODE >170:C:\Users\anar_\MPLABXProjects\CW_BEACON\pwm_main.c
-236 maintext CODE >171:C:\Users\anar_\MPLABXProjects\CW_BEACON\pwm_main.c
-237 maintext CODE >173:C:\Users\anar_\MPLABXProjects\CW_BEACON\pwm_main.c
-246 maintext CODE >175:C:\Users\anar_\MPLABXProjects\CW_BEACON\pwm_main.c
-277 maintext CODE >176:C:\Users\anar_\MPLABXProjects\CW_BEACON\pwm_main.c
-286 maintext CODE >177:C:\Users\anar_\MPLABXProjects\CW_BEACON\pwm_main.c
-2AB maintext CODE >215:C:\Users\anar_\MPLABXProjects\CW_BEACON\pwm_main.c
-2AE maintext CODE >216:C:\Users\anar_\MPLABXProjects\CW_BEACON\pwm_main.c
-2BD maintext CODE >27:C:\Users\anar_\MPLABXProjects\CW_BEACON\pwm_main.c
+22 maintext CODE >29:C:\Users\anar_\MPLABXProjects\CW_BEACON\pwm_main.c
+23 maintext CODE >30:C:\Users\anar_\MPLABXProjects\CW_BEACON\pwm_main.c
+2E maintext CODE >31:C:\Users\anar_\MPLABXProjects\CW_BEACON\pwm_main.c
+2F maintext CODE >32:C:\Users\anar_\MPLABXProjects\CW_BEACON\pwm_main.c
+3A maintext CODE >33:C:\Users\anar_\MPLABXProjects\CW_BEACON\pwm_main.c
+3B maintext CODE >34:C:\Users\anar_\MPLABXProjects\CW_BEACON\pwm_main.c
+46 maintext CODE >35:C:\Users\anar_\MPLABXProjects\CW_BEACON\pwm_main.c
+47 maintext CODE >37:C:\Users\anar_\MPLABXProjects\CW_BEACON\pwm_main.c
+56 maintext CODE >39:C:\Users\anar_\MPLABXProjects\CW_BEACON\pwm_main.c
+57 maintext CODE >40:C:\Users\anar_\MPLABXProjects\CW_BEACON\pwm_main.c
+62 maintext CODE >41:C:\Users\anar_\MPLABXProjects\CW_BEACON\pwm_main.c
+63 maintext CODE >42:C:\Users\anar_\MPLABXProjects\CW_BEACON\pwm_main.c
+6E maintext CODE >43:C:\Users\anar_\MPLABXProjects\CW_BEACON\pwm_main.c
+6F maintext CODE >44:C:\Users\anar_\MPLABXProjects\CW_BEACON\pwm_main.c
+7A maintext CODE >45:C:\Users\anar_\MPLABXProjects\CW_BEACON\pwm_main.c
+7B maintext CODE >48:C:\Users\anar_\MPLABXProjects\CW_BEACON\pwm_main.c
+8A maintext CODE >54:C:\Users\anar_\MPLABXProjects\CW_BEACON\pwm_main.c
+8B maintext CODE >55:C:\Users\anar_\MPLABXProjects\CW_BEACON\pwm_main.c
+96 maintext CODE >56:C:\Users\anar_\MPLABXProjects\CW_BEACON\pwm_main.c
+97 maintext CODE >57:C:\Users\anar_\MPLABXProjects\CW_BEACON\pwm_main.c
+A2 maintext CODE >58:C:\Users\anar_\MPLABXProjects\CW_BEACON\pwm_main.c
+A3 maintext CODE >59:C:\Users\anar_\MPLABXProjects\CW_BEACON\pwm_main.c
+AE maintext CODE >60:C:\Users\anar_\MPLABXProjects\CW_BEACON\pwm_main.c
+AF maintext CODE >64:C:\Users\anar_\MPLABXProjects\CW_BEACON\pwm_main.c
+BE maintext CODE >68:C:\Users\anar_\MPLABXProjects\CW_BEACON\pwm_main.c
+BF maintext CODE >69:C:\Users\anar_\MPLABXProjects\CW_BEACON\pwm_main.c
+CA maintext CODE >70:C:\Users\anar_\MPLABXProjects\CW_BEACON\pwm_main.c
+CB maintext CODE >71:C:\Users\anar_\MPLABXProjects\CW_BEACON\pwm_main.c
+D6 maintext CODE >72:C:\Users\anar_\MPLABXProjects\CW_BEACON\pwm_main.c
+D7 maintext CODE >73:C:\Users\anar_\MPLABXProjects\CW_BEACON\pwm_main.c
+E2 maintext CODE >74:C:\Users\anar_\MPLABXProjects\CW_BEACON\pwm_main.c
+E3 maintext CODE >77:C:\Users\anar_\MPLABXProjects\CW_BEACON\pwm_main.c
+F2 maintext CODE >85:C:\Users\anar_\MPLABXProjects\CW_BEACON\pwm_main.c
+F3 maintext CODE >86:C:\Users\anar_\MPLABXProjects\CW_BEACON\pwm_main.c
+FE maintext CODE >87:C:\Users\anar_\MPLABXProjects\CW_BEACON\pwm_main.c
+FF maintext CODE >88:C:\Users\anar_\MPLABXProjects\CW_BEACON\pwm_main.c
+10A maintext CODE >89:C:\Users\anar_\MPLABXProjects\CW_BEACON\pwm_main.c
+10B maintext CODE >90:C:\Users\anar_\MPLABXProjects\CW_BEACON\pwm_main.c
+116 maintext CODE >91:C:\Users\anar_\MPLABXProjects\CW_BEACON\pwm_main.c
+117 maintext CODE >95:C:\Users\anar_\MPLABXProjects\CW_BEACON\pwm_main.c
+126 maintext CODE >99:C:\Users\anar_\MPLABXProjects\CW_BEACON\pwm_main.c
+127 maintext CODE >100:C:\Users\anar_\MPLABXProjects\CW_BEACON\pwm_main.c
+132 maintext CODE >101:C:\Users\anar_\MPLABXProjects\CW_BEACON\pwm_main.c
+133 maintext CODE >102:C:\Users\anar_\MPLABXProjects\CW_BEACON\pwm_main.c
+13E maintext CODE >103:C:\Users\anar_\MPLABXProjects\CW_BEACON\pwm_main.c
+13F maintext CODE >104:C:\Users\anar_\MPLABXProjects\CW_BEACON\pwm_main.c
+14A maintext CODE >105:C:\Users\anar_\MPLABXProjects\CW_BEACON\pwm_main.c
+14B maintext CODE >108:C:\Users\anar_\MPLABXProjects\CW_BEACON\pwm_main.c
+15A maintext CODE >113:C:\Users\anar_\MPLABXProjects\CW_BEACON\pwm_main.c
+15B maintext CODE >114:C:\Users\anar_\MPLABXProjects\CW_BEACON\pwm_main.c
+166 maintext CODE >115:C:\Users\anar_\MPLABXProjects\CW_BEACON\pwm_main.c
+167 maintext CODE >116:C:\Users\anar_\MPLABXProjects\CW_BEACON\pwm_main.c
+172 maintext CODE >117:C:\Users\anar_\MPLABXProjects\CW_BEACON\pwm_main.c
+173 maintext CODE >120:C:\Users\anar_\MPLABXProjects\CW_BEACON\pwm_main.c
+182 maintext CODE >124:C:\Users\anar_\MPLABXProjects\CW_BEACON\pwm_main.c
+183 maintext CODE >125:C:\Users\anar_\MPLABXProjects\CW_BEACON\pwm_main.c
+18E maintext CODE >126:C:\Users\anar_\MPLABXProjects\CW_BEACON\pwm_main.c
+18F maintext CODE >127:C:\Users\anar_\MPLABXProjects\CW_BEACON\pwm_main.c
+19A maintext CODE >128:C:\Users\anar_\MPLABXProjects\CW_BEACON\pwm_main.c
+19B maintext CODE >132:C:\Users\anar_\MPLABXProjects\CW_BEACON\pwm_main.c
+1AA maintext CODE >136:C:\Users\anar_\MPLABXProjects\CW_BEACON\pwm_main.c
+1AB maintext CODE >137:C:\Users\anar_\MPLABXProjects\CW_BEACON\pwm_main.c
+1B6 maintext CODE >138:C:\Users\anar_\MPLABXProjects\CW_BEACON\pwm_main.c
+1B7 maintext CODE >139:C:\Users\anar_\MPLABXProjects\CW_BEACON\pwm_main.c
+1C2 maintext CODE >140:C:\Users\anar_\MPLABXProjects\CW_BEACON\pwm_main.c
+1C3 maintext CODE >141:C:\Users\anar_\MPLABXProjects\CW_BEACON\pwm_main.c
+1CE maintext CODE >142:C:\Users\anar_\MPLABXProjects\CW_BEACON\pwm_main.c
+1CF maintext CODE >143:C:\Users\anar_\MPLABXProjects\CW_BEACON\pwm_main.c
+1DA maintext CODE >144:C:\Users\anar_\MPLABXProjects\CW_BEACON\pwm_main.c
+1DB maintext CODE >148:C:\Users\anar_\MPLABXProjects\CW_BEACON\pwm_main.c
+1EA maintext CODE >152:C:\Users\anar_\MPLABXProjects\CW_BEACON\pwm_main.c
+1EB maintext CODE >153:C:\Users\anar_\MPLABXProjects\CW_BEACON\pwm_main.c
+1F6 maintext CODE >154:C:\Users\anar_\MPLABXProjects\CW_BEACON\pwm_main.c
+1F7 maintext CODE >155:C:\Users\anar_\MPLABXProjects\CW_BEACON\pwm_main.c
+202 maintext CODE >156:C:\Users\anar_\MPLABXProjects\CW_BEACON\pwm_main.c
+203 maintext CODE >159:C:\Users\anar_\MPLABXProjects\CW_BEACON\pwm_main.c
+212 maintext CODE >162:C:\Users\anar_\MPLABXProjects\CW_BEACON\pwm_main.c
+213 maintext CODE >163:C:\Users\anar_\MPLABXProjects\CW_BEACON\pwm_main.c
+21E maintext CODE >164:C:\Users\anar_\MPLABXProjects\CW_BEACON\pwm_main.c
+21F maintext CODE >166:C:\Users\anar_\MPLABXProjects\CW_BEACON\pwm_main.c
+22E maintext CODE >169:C:\Users\anar_\MPLABXProjects\CW_BEACON\pwm_main.c
+22F maintext CODE >170:C:\Users\anar_\MPLABXProjects\CW_BEACON\pwm_main.c
+23A maintext CODE >171:C:\Users\anar_\MPLABXProjects\CW_BEACON\pwm_main.c
+23B maintext CODE >173:C:\Users\anar_\MPLABXProjects\CW_BEACON\pwm_main.c
+24A maintext CODE >175:C:\Users\anar_\MPLABXProjects\CW_BEACON\pwm_main.c
+27B maintext CODE >176:C:\Users\anar_\MPLABXProjects\CW_BEACON\pwm_main.c
+28A maintext CODE >177:C:\Users\anar_\MPLABXProjects\CW_BEACON\pwm_main.c
+2AF maintext CODE >215:C:\Users\anar_\MPLABXProjects\CW_BEACON\pwm_main.c
+2B2 maintext CODE >216:C:\Users\anar_\MPLABXProjects\CW_BEACON\pwm_main.c
+2C1 maintext CODE >27:C:\Users\anar_\MPLABXProjects\CW_BEACON\pwm_main.c
+2C2 maintext CODE >219:C:\Users\anar_\MPLABXProjects\CW_BEACON\pwm_main.c
 # %SYMTAB Section
 # An enumeration of all symbols in the program.
 # The beginning of the section is indicated by %SYMTAB.
@@ -250,40 +255,40 @@ _SYNC 4C4 0 ABS 0 - dist/default/production\CW_BEACON.production.obj
 _TXEN 4C5 0 ABS 0 - dist/default/production\CW_BEACON.production.obj
 _TXIE 464 0 ABS 0 - dist/default/production\CW_BEACON.production.obj
 _TXIF 64 0 ABS 0 - dist/default/production\CW_BEACON.production.obj
-___sp 0 0 STACK 2 stack C:\Users\anar_\AppData\Local\Temp\s7jg.obj
-_dash 60E 0 CODE 0 text2 dist/default/production\CW_BEACON.production.obj
+___sp 0 0 STACK 2 stack C:\Users\anar_\AppData\Local\Temp\s4j0.obj
+_dash 638 0 CODE 0 text2 dist/default/production\CW_BEACON.production.obj
 _main 2A 0 CODE 0 maintext dist/default/production\CW_BEACON.production.obj
 btemp 7E 0 ABS 0 - dist/default/production\CW_BEACON.production.obj
-start 20 0 CODE 0 init C:\Users\anar_\AppData\Local\Temp\s7jg.obj
+start 20 0 CODE 0 init C:\Users\anar_\AppData\Local\Temp\s4j0.obj
 __size_of_dash 0 0 ABS 0 - dist/default/production\CW_BEACON.production.obj
 __size_of_main 0 0 ABS 0 - dist/default/production\CW_BEACON.production.obj
 __HbssCOMMON 0 0 ABS 0 bssCOMMON -
 __size_of_stopTone 0 0 ABS 0 - dist/default/production\CW_BEACON.production.obj
 __Hpowerup 0 0 CODE 0 powerup -
-intlevel0 0 0 ENTRY 0 functab C:\Users\anar_\AppData\Local\Temp\s7jg.obj
-intlevel1 0 0 ENTRY 0 functab C:\Users\anar_\AppData\Local\Temp\s7jg.obj
-intlevel2 0 0 ENTRY 0 functab C:\Users\anar_\AppData\Local\Temp\s7jg.obj
-intlevel3 0 0 ENTRY 0 functab C:\Users\anar_\AppData\Local\Temp\s7jg.obj
-intlevel4 0 0 ENTRY 0 functab C:\Users\anar_\AppData\Local\Temp\s7jg.obj
-intlevel5 0 0 ENTRY 0 functab C:\Users\anar_\AppData\Local\Temp\s7jg.obj
+intlevel0 0 0 ENTRY 0 functab C:\Users\anar_\AppData\Local\Temp\s4j0.obj
+intlevel1 0 0 ENTRY 0 functab C:\Users\anar_\AppData\Local\Temp\s4j0.obj
+intlevel2 0 0 ENTRY 0 functab C:\Users\anar_\AppData\Local\Temp\s4j0.obj
+intlevel3 0 0 ENTRY 0 functab C:\Users\anar_\AppData\Local\Temp\s4j0.obj
+intlevel4 0 0 ENTRY 0 functab C:\Users\anar_\AppData\Local\Temp\s4j0.obj
+intlevel5 0 0 ENTRY 0 functab C:\Users\anar_\AppData\Local\Temp\s4j0.obj
 __LbssCOMMON 0 0 ABS 0 bssCOMMON -
-_InitPWM 630 0 CODE 0 text6 dist/default/production\CW_BEACON.production.obj
+_InitPWM 65A 0 CODE 0 text6 dist/default/production\CW_BEACON.production.obj
 wtemp0 7E 0 ABS 0 - dist/default/production\CW_BEACON.production.obj
 __Hfunctab 0 0 ENTRY 0 functab -
 __Hclrtext 0 0 ABS 0 clrtext -
-__end_of_SetPWMDutyCycle 5BE 0 CODE 0 text5 dist/default/production\CW_BEACON.production.obj
+__end_of_SetPWMDutyCycle 614 0 CODE 0 text5 dist/default/production\CW_BEACON.production.obj
 _CCPR1L 15 0 ABS 0 - dist/default/production\CW_BEACON.production.obj
-_stopTone 660 0 CODE 0 text3 dist/default/production\CW_BEACON.production.obj
+_stopTone 68A 0 CODE 0 text3 dist/default/production\CW_BEACON.production.obj
 __Lmaintext 0 0 ABS 0 maintext -
-__end_of_stopTone 668 0 CODE 0 text3 dist/default/production\CW_BEACON.production.obj
-_SendByteSerially 650 0 CODE 0 text8 dist/default/production\CW_BEACON.production.obj
-_SetPWMDutyCycle 57C 0 CODE 0 text5 dist/default/production\CW_BEACON.production.obj
+__end_of_stopTone 692 0 CODE 0 text3 dist/default/production\CW_BEACON.production.obj
+_SendByteSerially 67A 0 CODE 0 text8 dist/default/production\CW_BEACON.production.obj
+_SetPWMDutyCycle 5D2 0 CODE 0 text5 dist/default/production\CW_BEACON.production.obj
 start_initialization 22 0 CODE 0 cinit dist/default/production\CW_BEACON.production.obj
-_generateTone 668 0 CODE 0 text4 dist/default/production\CW_BEACON.production.obj
+_generateTone 692 0 CODE 0 text4 dist/default/production\CW_BEACON.production.obj
 __pcstackBANK0 20 0 BANK0 1 cstackBANK0 dist/default/production\CW_BEACON.production.obj
 _TRISB0 430 0 ABS 0 - dist/default/production\CW_BEACON.production.obj
 _TRISB3 433 0 ABS 0 - dist/default/production\CW_BEACON.production.obj
-___int_sp 0 0 STACK 2 stack C:\Users\anar_\AppData\Local\Temp\s7jg.obj
+___int_sp 0 0 STACK 2 stack C:\Users\anar_\AppData\Local\Temp\s4j0.obj
 __Hbank0 0 0 ABS 0 bank0 -
 __Hbank1 0 0 ABS 0 bank1 -
 __Hbank2 0 0 ABS 0 bank2 -
@@ -303,7 +308,7 @@ __Lbank3 0 0 BANK3 1 bank3 -
 __Lcinit 22 0 CODE 0 cinit -
 __Lidloc 0 0 IDLOC 0 idloc -
 __Lstack 0 0 STACK 2 stack -
-__end_of_SendByteSerially 660 0 CODE 0 text8 dist/default/production\CW_BEACON.production.obj
+__end_of_SendByteSerially 68A 0 CODE 0 text8 dist/default/production\CW_BEACON.production.obj
 _PORTBbits 6 0 ABS 0 - dist/default/production\CW_BEACON.production.obj
 __Habs1 0 0 ABS 0 abs1 -
 __Hcode 0 0 ABS 0 code -
@@ -324,7 +329,7 @@ __Ltext 0 0 ABS 0 text -
 __LcstackBANK0 0 0 ABS 0 cstackBANK0 -
 __HcstackCOMMON 0 0 ABS 0 cstackCOMMON -
 __size_of_SendByteSerially 0 0 ABS 0 - dist/default/production\CW_BEACON.production.obj
-_ISR 5BE 0 CODE 0 text7 dist/default/production\CW_BEACON.production.obj
+_ISR 586 0 CODE 0 text7 dist/default/production\CW_BEACON.production.obj
 _PR2 92 0 ABS 0 - dist/default/production\CW_BEACON.production.obj
 _RX9 C6 0 ABS 0 - dist/default/production\CW_BEACON.production.obj
 _TX9 4C6 0 ABS 0 - dist/default/production\CW_BEACON.production.obj
@@ -332,16 +337,16 @@ __S0 2008 0 ABS 0 - -
 __S1 79 0 ABS 0 - -
 __S2 0 0 ABS 0 - -
 __S3 0 0 ABS 0 - -
-_dot 5EA 0 CODE 0 text1 dist/default/production\CW_BEACON.production.obj
+_dot 614 0 CODE 0 text1 dist/default/production\CW_BEACON.production.obj
 __size_of_SetPWMDutyCycle 0 0 ABS 0 - dist/default/production\CW_BEACON.production.obj
-__end_of_generateTone 670 0 CODE 0 text4 dist/default/production\CW_BEACON.production.obj
+__end_of_generateTone 69A 0 CODE 0 text4 dist/default/production\CW_BEACON.production.obj
 saved_w 7E 0 ABS 0 - dist/default/production\CW_BEACON.production.obj
-__end_of_ISR 5EA 0 CODE 0 text7 dist/default/production\CW_BEACON.production.obj
-__end_of_dot 60E 0 CODE 0 text1 dist/default/production\CW_BEACON.production.obj
+__end_of_ISR 5D2 0 CODE 0 text7 dist/default/production\CW_BEACON.production.obj
+__end_of_dot 638 0 CODE 0 text1 dist/default/production\CW_BEACON.production.obj
 __CFG_BOREN$ON 0 0 ABS 0 - dist/default/production\CW_BEACON.production.obj
 _EnableSend 77 0 COMMON 1 bssCOMMON dist/default/production\CW_BEACON.production.obj
 __Lintentry 8 0 CODE 0 intentry -
-reset_vec 0 0 CODE 0 reset_vec C:\Users\anar_\AppData\Local\Temp\s7jg.obj
+reset_vec 0 0 CODE 0 reset_vec C:\Users\anar_\AppData\Local\Temp\s4j0.obj
 __size_of_InitPWM 0 0 ABS 0 - dist/default/production\CW_BEACON.production.obj
 __pmaintext 2A 0 CODE 0 maintext dist/default/production\CW_BEACON.production.obj
 __Lcommon 0 0 ABS 0 common -
@@ -349,8 +354,8 @@ __Lconfig 400E 0 CONFIG 0 config -
 __CFG_CP$OFF 0 0 ABS 0 - dist/default/production\CW_BEACON.production.obj
 __CFG_WDTE$OFF 0 0 ABS 0 - dist/default/production\CW_BEACON.production.obj
 SendByteSerially@Byte 70 0 COMMON 1 cstackCOMMON dist/default/production\CW_BEACON.production.obj
-stackhi 0 0 ABS 0 - C:\Users\anar_\AppData\Local\Temp\s7jg.obj
-stacklo 0 0 ABS 0 - C:\Users\anar_\AppData\Local\Temp\s7jg.obj
+stackhi 0 0 ABS 0 - C:\Users\anar_\AppData\Local\Temp\s4j0.obj
+stacklo 0 0 ABS 0 - C:\Users\anar_\AppData\Local\Temp\s4j0.obj
 __Lspace_0 0 0 ABS 0 - -
 __Lspace_1 0 0 ABS 0 - -
 __Lspace_2 0 0 ABS 0 - -
@@ -364,15 +369,15 @@ end_of_initialization 26 0 CODE 0 cinit dist/default/production\CW_BEACON.produc
 __Hintentry 20 0 CODE 0 intentry -
 __Lstrings 0 0 ABS 0 strings -
 __Hreset_vec 2 0 CODE 0 reset_vec -
-__ptext1 5EA 0 CODE 0 text1 dist/default/production\CW_BEACON.production.obj
-__ptext2 60E 0 CODE 0 text2 dist/default/production\CW_BEACON.production.obj
-__ptext3 660 0 CODE 0 text3 dist/default/production\CW_BEACON.production.obj
-__ptext4 668 0 CODE 0 text4 dist/default/production\CW_BEACON.production.obj
-__ptext5 57C 0 CODE 0 text5 dist/default/production\CW_BEACON.production.obj
-__ptext6 630 0 CODE 0 text6 dist/default/production\CW_BEACON.production.obj
-__ptext7 5BE 0 CODE 0 text7 dist/default/production\CW_BEACON.production.obj
-__ptext8 650 0 CODE 0 text8 dist/default/production\CW_BEACON.production.obj
-__end_of_InitPWM 650 0 CODE 0 text6 dist/default/production\CW_BEACON.production.obj
+__ptext1 614 0 CODE 0 text1 dist/default/production\CW_BEACON.production.obj
+__ptext2 638 0 CODE 0 text2 dist/default/production\CW_BEACON.production.obj
+__ptext3 68A 0 CODE 0 text3 dist/default/production\CW_BEACON.production.obj
+__ptext4 692 0 CODE 0 text4 dist/default/production\CW_BEACON.production.obj
+__ptext5 5D2 0 CODE 0 text5 dist/default/production\CW_BEACON.production.obj
+__ptext6 65A 0 CODE 0 text6 dist/default/production\CW_BEACON.production.obj
+__ptext7 586 0 CODE 0 text7 dist/default/production\CW_BEACON.production.obj
+__ptext8 67A 0 CODE 0 text8 dist/default/production\CW_BEACON.production.obj
+__end_of_InitPWM 67A 0 CODE 0 text6 dist/default/production\CW_BEACON.production.obj
 __Lpowerup 0 0 CODE 0 powerup -
 __Leeprom_data 0 0 EEDATA 3 eeprom_data -
 __Lreset_vec 0 0 CODE 0 reset_vec -
@@ -382,8 +387,8 @@ __Lfunctab 0 0 ENTRY 0 functab -
 __Lclrtext 0 0 ABS 0 clrtext -
 __pcstackCOMMON 70 0 COMMON 1 cstackCOMMON dist/default/production\CW_BEACON.production.obj
 __Hend_init 22 0 CODE 0 end_init -
-__end_of_dash 630 0 CODE 0 text2 dist/default/production\CW_BEACON.production.obj
-__end_of_main 57C 0 CODE 0 maintext dist/default/production\CW_BEACON.production.obj
+__end_of_dash 65A 0 CODE 0 text2 dist/default/production\CW_BEACON.production.obj
+__end_of_main 586 0 CODE 0 maintext dist/default/production\CW_BEACON.production.obj
 _RCREG 1A 0 ABS 0 - dist/default/production\CW_BEACON.production.obj
 _SPBRG 99 0 ABS 0 - dist/default/production\CW_BEACON.production.obj
 _TRISB 86 0 ABS 0 - dist/default/production\CW_BEACON.production.obj
@@ -426,6 +431,6 @@ _T2CONbits 12 0 ABS 0 - dist/default/production\CW_BEACON.production.obj
 %SEGMENTS
 cstackCOMMON 1 70 70 9 1
 cstackBANK0 1 20 20 5 1
-intentry 0 4 8 334 2
+intentry 0 4 8 349 2
 reset_vec 0 0 0 1 2
 config 0 2007 400E 1 2

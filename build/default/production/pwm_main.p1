@@ -616,6 +616,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;UARTComm.h: 29: void interrupt ISR(void);
 [; ;UARTComm.h: 30: unsigned char ReceiveByteSerially(void);
 [; ;UARTComm.h: 31: extern int EnableSend;
+[; ;UARTComm.h: 32: void sendStringSerially(const unsigned char* st);
 "21 pwm_main.c
 [v _EnableSend `i ~T0 @X0 1 e ]
 [; ;pwm_main.c: 21: int EnableSend;
@@ -637,8 +638,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;pwm_main.c: 26: TRISB0=0;
 "26
 [e = _TRISB0 -> -> 0 `i `b ]
-[; ;pwm_main.c: 27: while(1)
+[; ;pwm_main.c: 27: while(EnableSend==1)
 "27
+[e $U 52  ]
 [e :U 53 ]
 [; ;pwm_main.c: 28: {
 "28
@@ -928,7 +930,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 }
 [e :U 52 ]
 "27
-[e $U 53  ]
+[e $ == _EnableSend -> 1 `i 53  ]
 [e :U 54 ]
 [; ;pwm_main.c: 217: }
 [; ;pwm_main.c: 218: return;

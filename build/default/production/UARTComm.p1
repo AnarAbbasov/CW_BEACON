@@ -31,10 +31,12 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _RCIF `Vb ~T0 @X0 0 e@101 ]
 "1401
 [v _OERR `Vb ~T0 @X0 0 e@193 ]
+"758
+[v _RCREG `Vuc ~T0 @X0 0 e@26 ]
 "31 UARTComm.h
 [v _EnableSend `i ~T0 @X0 0 e ]
-"758 C:\Program Files (x86)\Microchip\xc8\v1.44\include\pic16f628a.h
-[v _RCREG `Vuc ~T0 @X0 0 e@26 ]
+"79 UARTComm.c
+[v _sendByteSerially `(i ~T0 @X0 0 ef ]
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;htc.h: 28: extern double __fpnormalize(double);
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
@@ -607,6 +609,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;UARTComm.h: 29: void interrupt ISR(void);
 [; ;UARTComm.h: 30: unsigned char ReceiveByteSerially(void);
 [; ;UARTComm.h: 31: extern int EnableSend;
+[; ;UARTComm.h: 32: void sendStringSerially(const unsigned char* st);
 "8 UARTComm.c
 [v _InitUART `(v ~T0 @X0 1 ef ]
 "9
@@ -722,52 +725,114 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e :U 57 ]
 [; ;UARTComm.c: 42: }
 [; ;UARTComm.c: 43: }
-[; ;UARTComm.c: 44: EnableSend=0;
+[; ;UARTComm.c: 44: if(RCREG=='F'){
 "44
-[e = _EnableSend -> 0 `i ]
-[; ;UARTComm.c: 45: SendByteSerially( 'K');
+[e $ ! == -> _RCREG `ui -> 70 `ui 59  ]
+{
+[; ;UARTComm.c: 45: EnableSend=0;
 "45
-[e ( _SendByteSerially (1 -> -> 75 `ui `uc ]
-[; ;UARTComm.c: 46: }
+[e = _EnableSend -> 0 `i ]
+[; ;UARTComm.c: 46: SendByteSerially( 'K');
 "46
-[e :UE 56 ]
+[e ( _SendByteSerially (1 -> -> 75 `ui `uc ]
+"47
 }
+[e :U 59 ]
+[; ;UARTComm.c: 47: }
+[; ;UARTComm.c: 49: if(RCREG=='S')
+"49
+[e $ ! == -> _RCREG `ui -> 83 `ui 60  ]
+[; ;UARTComm.c: 50: {
+"50
+{
+[; ;UARTComm.c: 51: EnableSend=1;
+"51
+[e = _EnableSend -> 1 `i ]
+[; ;UARTComm.c: 52: SendByteSerially( 'K');
 "52
-[v _ReceiveByteSerially `(uc ~T0 @X0 1 ef ]
+[e ( _SendByteSerially (1 -> -> 75 `ui `uc ]
 "53
-{
-[; ;UARTComm.c: 52: unsigned char ReceiveByteSerially(void)
-[; ;UARTComm.c: 53: {
-[e :U _ReceiveByteSerially ]
-[f ]
-[; ;UARTComm.c: 54: if(OERR)
-"54
-[e $ ! _OERR 60  ]
-[; ;UARTComm.c: 55: {
-"55
-{
-[; ;UARTComm.c: 56: CREN=0;
-"56
-[e = _CREN -> -> 0 `i `b ]
-[; ;UARTComm.c: 57: CREN=1;
-"57
-[e = _CREN -> -> 1 `i `b ]
-"58
 }
 [e :U 60 ]
-[; ;UARTComm.c: 58: }
-[; ;UARTComm.c: 59: while(!RCIF);
-"59
-[e $U 61  ]
-[e :U 62 ]
-[e :U 61 ]
-[e $ ! _RCIF 62  ]
-[e :U 63 ]
-[; ;UARTComm.c: 60: return RCREG;
+[; ;UARTComm.c: 53: }
+[; ;UARTComm.c: 54: }
+"54
+[e :UE 56 ]
+}
 "60
-[e ) _RCREG ]
-[e $UE 59  ]
-[; ;UARTComm.c: 61: }
+[v _ReceiveByteSerially `(uc ~T0 @X0 1 ef ]
 "61
-[e :UE 59 ]
+{
+[; ;UARTComm.c: 60: unsigned char ReceiveByteSerially(void)
+[; ;UARTComm.c: 61: {
+[e :U _ReceiveByteSerially ]
+[f ]
+[; ;UARTComm.c: 62: if(OERR)
+"62
+[e $ ! _OERR 62  ]
+[; ;UARTComm.c: 63: {
+"63
+{
+[; ;UARTComm.c: 64: CREN=0;
+"64
+[e = _CREN -> -> 0 `i `b ]
+[; ;UARTComm.c: 65: CREN=1;
+"65
+[e = _CREN -> -> 1 `i `b ]
+"66
+}
+[e :U 62 ]
+[; ;UARTComm.c: 66: }
+[; ;UARTComm.c: 67: while(!RCIF);
+"67
+[e $U 63  ]
+[e :U 64 ]
+[e :U 63 ]
+[e $ ! _RCIF 64  ]
+[e :U 65 ]
+[; ;UARTComm.c: 68: return RCREG;
+"68
+[e ) _RCREG ]
+[e $UE 61  ]
+[; ;UARTComm.c: 69: }
+"69
+[e :UE 61 ]
+}
+"73
+[v _sendStringSerially `(v ~T0 @X0 1 ef1`*Cuc ]
+"74
+{
+[; ;UARTComm.c: 73: void sendStringSerially(const unsigned char* st)
+[; ;UARTComm.c: 74: {
+[e :U _sendStringSerially ]
+"73
+[v _st `*Cuc ~T0 @X0 1 r1 ]
+"74
+[f ]
+[; ;UARTComm.c: 76: for (unsigned int i=0;i<sizeof(st);i++)
+"76
+{
+[v _i `ui ~T0 @X0 1 a ]
+[e = _i -> -> 0 `i `ui ]
+[e $ < _i -> # _st `ui 67  ]
+[e $U 68  ]
+"77
+[e :U 67 ]
+[; ;UARTComm.c: 77: {
+{
+[; ;UARTComm.c: 79: sendByteSerially(st[i]);
+"79
+[e ( _sendByteSerially -> *U + _st * -> _i `ux -> -> # *U _st `ui `ux `i ]
+"82
+}
+"76
+[e ++ _i -> -> 1 `i `ui ]
+[e $ < _i -> # _st `ui 67  ]
+[e :U 68 ]
+"82
+}
+[; ;UARTComm.c: 82: }
+[; ;UARTComm.c: 83: }
+"83
+[e :UE 66 ]
 }

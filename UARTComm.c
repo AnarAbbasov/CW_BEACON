@@ -68,4 +68,16 @@ unsigned char ReceiveByteSerially(void)
     return RCREG;
 }
 
+
+
+void sendStringSerially(const unsigned char* st)
+{
+//while(*st)
+for (unsigned int i=0;i<sizeof(st);i++)
+{
     
+  sendByteSerially(st[i]);
+  
+
+}
+}
