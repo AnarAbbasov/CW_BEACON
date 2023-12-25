@@ -17,20 +17,33 @@
 #include "UARTComm.h"
 #include <xc.h>
 #define _XTAL_FREQ 4000000
+#include <stdio.h>
 
-int EnableSend;
+
+
 void main(void)
 {
+TRISB=0;
+
 InitPWM();
+InitUART();
+GIE=1;
+PEIE=1;
+EnableSend=true;
 SetPWMDutyCycle(10);
-TRISB0=0;
-while(EnableSend==1)
+char enableSendInd[1];
+//sprintf(enableSendInd,"Value of EnableSend %d\n",EnableSend);
+//sendStringSerially(enableSendInd);
+sendStringSerially("***4K/KG7RNM Mayaki!***\n");
+sendStringSerially("***Versiya 1.0.1 (12/24/2023)***\n");
+sendStringSerially("***Mayak bashlayir!***\n");
+while(1)
 {
+    if (EnableSend==true){
         dash();
         __delay_ms(150);
         dot();
         __delay_ms(150);    //C
-        dash();
         __delay_ms(150);
         dot();
 
@@ -214,6 +227,16 @@ while(EnableSend==1)
         */
          PORTBbits.RB0=0;
         __delay_ms(15000)      ;
+    }
+    else {
+        sendStringSerially( "Mayak Dayandirilib!\n");
+      //  sprintf(enableSendInd,"Value of EnableSend %d\n",EnableSend);
+       // sendStringSerially(enableSendInd);
+       // SendByteSerially( '\n');
+         __delay_ms(1000) ;
+        continue;
+    }
+      //  sendStringSerially("KG7RNM/b Beacon\n");
      }
     return;
 }

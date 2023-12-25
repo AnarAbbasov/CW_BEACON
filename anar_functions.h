@@ -3,14 +3,16 @@
 #define	XC_HEADER_TEMPLATE_H
 
 #include <xc.h> // include processor files - each processor file is guarded.  
-
-
+#ifndef STDBOOL
+#define STDBOOL
+#include <stdbool.h> 
+#endif
 #ifdef	__cplusplus
 }
 #endif /* __cplusplus */
 
 #endif	/* XC_HEADER_TEMPLATE_H */
-
+extern bool EnableSend;
 void SetPWMDutyCycle(unsigned int DutyCycle);
 void InitPWM(void);
 void generateTone(void);

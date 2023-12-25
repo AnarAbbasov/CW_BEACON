@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project>
-  <executable name="dist/default/production\CW_BEACON.production.hex">
+  <executable name="dist/default/production/CW_BEACON.production.hex">
     <memory name="program">
       <units>words</units>
       <length>2048</length>
-      <used>841</used>
-      <free>1207</free>
+      <used>1059</used>
+      <free>989</free>
     </memory>
     <memory name="data">
       <units>bytes</units>
       <length>224</length>
-      <used>16</used>
-      <free>208</free>
+      <used>17</used>
+      <free>207</free>
     </memory>
   </executable>
 </project>

@@ -25,8 +25,10 @@ extern "C" {
 #include <xc.h>
 #endif
 void InitUART(void);
-void SendByteSerially(unsigned char Byte);
-void interrupt ISR(void);
+void SendByteSerially( char Byte);
+
+void __interrupt() ISR(void);
 unsigned char ReceiveByteSerially(void);
-extern int EnableSend;
-void sendStringSerially(const unsigned char* st);
+
+void sendStringSerially(const  char* st);
+

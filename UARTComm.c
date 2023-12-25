@@ -4,11 +4,13 @@
 #define BAUDRATE 9600
 
 #include "UARTComm.h"
-
+#include <string.h>
+#include <stdbool.h> 
+bool EnableSend = true;
 void InitUART(void)
 {
-    TRISB=0;
-    TRISB=1;
+     TRISB2=0;
+    TRISB1=1;
     SPBRG=((_XTAL_FREQ/16)/BAUDRATE)-1;
     BRGH=1;
     SYNC=0;
@@ -20,19 +22,21 @@ void InitUART(void)
     TX9=0;
     RX9=0;
     TXEN=0;
+    TX9D=0;
     TXEN=1;
 }
 
 
-void SendByteSerially(unsigned char Byte)
+void SendByteSerially( char Byte)
 {
    while(!TXIF);
    TXREG=Byte;
 }
 
 
-void interrupt ISR(void)
+void __interrupt() ISR(void)
 {
+    
     if(RCIF)
     {
         if(OERR)
@@ -41,16 +45,21 @@ void interrupt ISR(void)
             CREN=1;
         }
     }
-    if(RCREG=='F'){
-    EnableSend=0;
-    SendByteSerially( 'K');
+    
+   SendByteSerially( RCREG);
+   if(RCREG=='R'){
+    EnableSend=true;
+    SendByteSerially( '\n');
+    SendByteSerially( 'OK');
     }
     
     if(RCREG=='S')
     {
-    EnableSend=1;
-    SendByteSerially( 'K');
-    }
+    EnableSend=false;
+    SendByteSerially( '\n');
+    SendByteSerially( 'OK');
+    } 
+     
 }
 
 
@@ -65,18 +74,18 @@ unsigned char ReceiveByteSerially(void)
     CREN=1;
     }
     while(!RCIF);
-    return RCREG;
+    return (char)RCREG;
 }
 
 
 
-void sendStringSerially(const unsigned char* st)
+void sendStringSerially(const  char* st)
 {
 //while(*st)
-for (unsigned int i=0;i<sizeof(st);i++)
+for ( int i=0;i<=strlen(st);i++)
 {
     
-  sendByteSerially(st[i]);
+  SendByteSerially(st[i]);
   
 
 }
