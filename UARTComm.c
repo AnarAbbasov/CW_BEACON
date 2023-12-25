@@ -50,14 +50,16 @@ void __interrupt() ISR(void)
    if(RCREG=='R'){
     EnableSend=true;
     SendByteSerially( '\n');
-    SendByteSerially( 'OK');
+    SendByteSerially( 'O');
+    SendByteSerially( 'K');
     }
     
     if(RCREG=='S')
     {
     EnableSend=false;
     SendByteSerially( '\n');
-    SendByteSerially( 'OK');
+    SendByteSerially( 'O');
+    SendByteSerially( 'K');
     } 
      
 }

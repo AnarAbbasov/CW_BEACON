@@ -311,109 +311,115 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;UARTComm.c: 52:     SendByteSerially( '\n');
 [e ( _SendByteSerially (1 -> -> 10 `ui `uc ]
 "53
-[; ;UARTComm.c: 53:     SendByteSerially( 'OK');
-[e ( _SendByteSerially (1 -> -> 20299 `ui `uc ]
+[; ;UARTComm.c: 53:     SendByteSerially( 'O');
+[e ( _SendByteSerially (1 -> -> 79 `ui `uc ]
 "54
-[; ;UARTComm.c: 54:     }
+[; ;UARTComm.c: 54:     SendByteSerially( 'K');
+[e ( _SendByteSerially (1 -> -> 75 `ui `uc ]
+"55
+[; ;UARTComm.c: 55:     }
 }
 [e :U 59 ]
-"56
-[; ;UARTComm.c: 56:     if(RCREG=='S')
-[e $ ! == -> _RCREG `ui -> 83 `ui 60  ]
 "57
-[; ;UARTComm.c: 57:     {
-{
+[; ;UARTComm.c: 57:     if(RCREG=='S')
+[e $ ! == -> _RCREG `ui -> 83 `ui 60  ]
 "58
-[; ;UARTComm.c: 58:     EnableSend=0;
-[e = _EnableSend -> -> 0 `i `a ]
+[; ;UARTComm.c: 58:     {
+{
 "59
-[; ;UARTComm.c: 59:     SendByteSerially( '\n');
-[e ( _SendByteSerially (1 -> -> 10 `ui `uc ]
+[; ;UARTComm.c: 59:     EnableSend=0;
+[e = _EnableSend -> -> 0 `i `a ]
 "60
-[; ;UARTComm.c: 60:     SendByteSerially( 'OK');
-[e ( _SendByteSerially (1 -> -> 20299 `ui `uc ]
+[; ;UARTComm.c: 60:     SendByteSerially( '\n');
+[e ( _SendByteSerially (1 -> -> 10 `ui `uc ]
 "61
-[; ;UARTComm.c: 61:     }
+[; ;UARTComm.c: 61:     SendByteSerially( 'O');
+[e ( _SendByteSerially (1 -> -> 79 `ui `uc ]
+"62
+[; ;UARTComm.c: 62:     SendByteSerially( 'K');
+[e ( _SendByteSerially (1 -> -> 75 `ui `uc ]
+"63
+[; ;UARTComm.c: 63:     }
 }
 [e :U 60 ]
-"63
-[; ;UARTComm.c: 63: }
+"65
+[; ;UARTComm.c: 65: }
 [e :UE 56 ]
 }
-"69
-[; ;UARTComm.c: 69: unsigned char ReceiveByteSerially(void)
+"71
+[; ;UARTComm.c: 71: unsigned char ReceiveByteSerially(void)
 [v _ReceiveByteSerially `(uc ~T0 @X0 1 ef ]
-"70
-[; ;UARTComm.c: 70: {
+"72
+[; ;UARTComm.c: 72: {
 {
 [e :U _ReceiveByteSerially ]
 [f ]
-"71
-[; ;UARTComm.c: 71:     if(OERR)
-[e $ ! _OERR 62  ]
-"72
-[; ;UARTComm.c: 72:     {
-{
 "73
-[; ;UARTComm.c: 73:     CREN=0;
-[e = _CREN -> -> 0 `i `b ]
+[; ;UARTComm.c: 73:     if(OERR)
+[e $ ! _OERR 62  ]
 "74
-[; ;UARTComm.c: 74:     CREN=1;
-[e = _CREN -> -> 1 `i `b ]
+[; ;UARTComm.c: 74:     {
+{
 "75
-[; ;UARTComm.c: 75:     }
+[; ;UARTComm.c: 75:     CREN=0;
+[e = _CREN -> -> 0 `i `b ]
+"76
+[; ;UARTComm.c: 76:     CREN=1;
+[e = _CREN -> -> 1 `i `b ]
+"77
+[; ;UARTComm.c: 77:     }
 }
 [e :U 62 ]
-"76
-[; ;UARTComm.c: 76:     while(!RCIF);
+"78
+[; ;UARTComm.c: 78:     while(!RCIF);
 [e $U 63  ]
 [e :U 64 ]
 [e :U 63 ]
 [e $ ! _RCIF 64  ]
 [e :U 65 ]
-"77
-[; ;UARTComm.c: 77:     return (char)RCREG;
+"79
+[; ;UARTComm.c: 79:     return (char)RCREG;
 [e ) -> -> _RCREG `uc `uc ]
 [e $UE 61  ]
-"78
-[; ;UARTComm.c: 78: }
+"80
+[; ;UARTComm.c: 80: }
 [e :UE 61 ]
 }
-"82
-[; ;UARTComm.c: 82: void sendStringSerially(const char* st)
+"84
+[; ;UARTComm.c: 84: void sendStringSerially(const char* st)
 [v _sendStringSerially `(v ~T0 @X0 1 ef1`*Cuc ]
-"83
-[; ;UARTComm.c: 83: {
+"85
+[; ;UARTComm.c: 85: {
 {
 [e :U _sendStringSerially ]
-"82
-[; ;UARTComm.c: 82: void sendStringSerially(const char* st)
+"84
+[; ;UARTComm.c: 84: void sendStringSerially(const char* st)
 [v _st `*Cuc ~T0 @X0 1 r1 ]
-"83
-[; ;UARTComm.c: 83: {
-[f ]
 "85
-[; ;UARTComm.c: 85: for ( int i=0;i<=strlen(st);i++)
+[; ;UARTComm.c: 85: {
+[f ]
+"87
+[; ;UARTComm.c: 87: for ( int i=0;i<=strlen(st);i++)
 {
 [v _i `i ~T0 @X0 1 a ]
 [e = _i -> 0 `i ]
 [e $U 70  ]
 [e :U 67 ]
-"86
-[; ;UARTComm.c: 86: {
-{
 "88
-[; ;UARTComm.c: 88:   SendByteSerially(st[i]);
+[; ;UARTComm.c: 88: {
+{
+"90
+[; ;UARTComm.c: 90:   SendByteSerially(st[i]);
 [e ( _SendByteSerially (1 *U + _st * -> _i `x -> -> # *U _st `i `x ]
-"91
-[; ;UARTComm.c: 91: }
+"93
+[; ;UARTComm.c: 93: }
 }
 [e ++ _i -> 1 `i ]
 [e :U 70 ]
 [e $ <= -> _i `ui ( _strlen (1 _st 67  ]
 [e :U 68 ]
 }
-"92
-[; ;UARTComm.c: 92: }
+"94
+[; ;UARTComm.c: 94: }
 [e :UE 66 ]
 }

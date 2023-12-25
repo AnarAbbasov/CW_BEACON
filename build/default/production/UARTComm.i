@@ -1242,14 +1242,16 @@ void __attribute__((picinterrupt(("")))) ISR(void)
    if(RCREG=='R'){
     EnableSend=1;
     SendByteSerially( '\n');
-    SendByteSerially( 'OK');
+    SendByteSerially( 'O');
+    SendByteSerially( 'K');
     }
 
     if(RCREG=='S')
     {
     EnableSend=0;
     SendByteSerially( '\n');
-    SendByteSerially( 'OK');
+    SendByteSerially( 'O');
+    SendByteSerially( 'K');
     }
 
 }

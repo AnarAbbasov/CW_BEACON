@@ -10,13 +10,13 @@
  Intel Hex-file ranges:
   0h - 1h		(dist/default/production/CW_BEACON.production.hex)
   8h - 5B5h		(dist/default/production/CW_BEACON.production.hex)
-  600h - 895h		(dist/default/production/CW_BEACON.production.hex)
+  600h - 89Dh		(dist/default/production/CW_BEACON.production.hex)
   4000h - 4007h		(dist/default/production/CW_BEACON.production.hex)
   400Eh - 400Fh		(dist/default/production/CW_BEACON.production.hex)
  Unused ranges:
   2h - 7h
   5B6h - 5FFh
-  896h - 3FFFh
+  89Eh - 3FFFh
   4008h - 400Dh
 
 ### Hex Memory Map ###
@@ -160,6 +160,6 @@
 00000860 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 00000870 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 00000880 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
-00000890 | H1 H1 H1 H1 H1 H1 -- -- -- -- -- -- -- -- -- --
+00000890 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 -- --
 ----------------------------------------------------------
 00004000 | H1 H1 H1 H1 H1 H1 H1 H1 -- -- -- -- -- -- H1 H1
